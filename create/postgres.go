@@ -1,7 +1,7 @@
 package create
 
 import (
-	"clerk-portal/shared/interfaces"
+	"github.com/alterejoe/shared/interfaces"
 	"context"
 	"fmt"
 	"net/url"

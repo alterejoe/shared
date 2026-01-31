@@ -1,7 +1,7 @@
 package create
 
 import (
-	"clerk-portal/shared/interfaces"
+	"github.com/alterejoe/shared/interfaces"
 
 	"gopkg.in/gomail.v2"
 )

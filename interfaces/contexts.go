@@ -1,9 +1,9 @@
 package interfaces
 
 import (
-	// auth0_api "clerk-portal/auth0_admin_api/db"
-	// admin "clerk-portal/runtime_admin/db"
-	// client "clerk-portal/runtime_client/db"
+	// auth0_api "github.com/alterejoe/auth0_admin_api/db"
+	// admin "github.com/alterejoe/runtime_admin/db"
+	// client "github.com/alterejoe/runtime_client/db"
 	"context"
 
 	"github.com/jackc/pgx/v5"

@@ -8,7 +8,7 @@ package components
 import "github.com/a-h/templ"
 import templruntime "github.com/a-h/templ/runtime"
 
-import "clerk-portal/shared/structs"
+import "github.com/alterejoe/shared/structs"
 
 // Base input component with theme colors
 func inputBase(props *structs.Input, bgClass string, borderClass string, textClass string) templ.Component {
