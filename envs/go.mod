@@ -1,4 +1,4 @@
-module github.com/alterejoe/envs
+module github.com/alterejoe/shared/envs
 
 go 1.24.7
 

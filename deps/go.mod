@@ -1,4 +1,4 @@
-module github.com/alterejoe/deps
+module github.com/alterejoe/shared/deps
 
 go 1.24.7
 

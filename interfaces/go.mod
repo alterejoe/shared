@@ -1,4 +1,4 @@
-module clerk-portal/shared/interfaces
+module github.com/alterejoe/shared/interfaces
 
 go 1.24.4
 
