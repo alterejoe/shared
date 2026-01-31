@@ -1,0 +1,88 @@
+package components
+
+import "github.com/alterejoe/shared/structs"
+
+templ linkBase(props *structs.Link, colorClass string) {
+	<a
+		if props.ID != "" {
+			id={ props.ID }
+		}
+		if props.Href != "" {
+			href={ props.Href }
+		}
+		class={ "cursor-pointer underline " + colorClass }
+		if props.Hx.Method == structs.GET {
+			hx-get={ props.Hx.URL }
+		}
+		if props.Hx.Method == structs.POST {
+			hx-post={ props.Hx.URL }
+		}
+		if props.Hx.Method == structs.PUT {
+			hx-put={ props.Hx.URL }
+		}
+		if props.Hx.Method == structs.DELETE {
+			hx-delete={ props.Hx.URL }
+		}
+		if props.Hx.Trigger != "" {
+			hx-trigger={ props.Hx.Trigger }
+		}
+		if props.Hx.Target != "" {
+			hx-target={ props.Hx.Target }
+		}
+		if props.Hx.Swap != "" {
+			hx-swap={ props.Hx.Swap }
+		}
+		if props.Hx.Vals != "" {
+			hx-vals={ props.Hx.Vals }
+		}
+		if props.Hx.Include != "" {
+			hx-include={ props.Hx.Include }
+		}
+		if props.Hx.Indicator != "" {
+			hx-indicator={ props.Hx.Indicator }
+		}
+		if props.Hx.Confirm != "" {
+			hx-confirm={ props.Hx.Confirm }
+		}
+		if props.Hx.PushURL != "" {
+			hx-push-url={ props.Hx.PushURL }
+		}
+		if props.Hx.Boost {
+			hx-boost="true"
+		}
+	>
+		if props.Value != "" {
+			{ props.Value }
+		} else {
+			{ children... }
+		}
+	</a>
+}
+
+templ LinkPrimary(props *structs.Link) {
+	@linkBase(props, "text-primary hover:text-primary/80")
+}
+
+templ LinkSecondary(props *structs.Link) {
+	@linkBase(props, "text-secondary hover:text-secondary/80")
+}
+
+templ LinkTertiary(props *structs.Link) {
+	@linkBase(props, "text-tertiary hover:text-tertiary/80")
+}
+
+templ LinkAccent(props *structs.Link) {
+	@linkBase(props, "text-accent hover:text-accent/80")
+}
+
+templ LinkUnique(props *structs.Link) {
+	@linkBase(props, "text-unique hover:text-unique/80")
+}
+
+templ LinkAttention(props *structs.Link) {
+	@linkBase(props, "text-attention hover:text-attention/80")
+}
+
+templ LinkDefault(props *structs.Link) {
+	@linkBase(props, "text-blue-600 hover:text-blue-800")
+}

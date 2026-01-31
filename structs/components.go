@@ -23,14 +23,17 @@ func (n Notice) Align() bool {
 type Radio struct {
 	Common
 	Hx
-	Checked bool
+	FormBehaviors
+	Checked  bool
+	Required bool
 }
 
 type Checkbox struct {
 	Common
 	Hx
 	FormBehaviors
-	Checked bool
+	Checked  bool
+	Required bool
 }
 
 type Input struct {

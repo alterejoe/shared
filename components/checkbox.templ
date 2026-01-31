@@ -1,0 +1,116 @@
+package components
+
+import "github.com/alterejoe/shared/structs"
+
+// Base component with the variant as a parameter
+templ checkboxBase(props *structs.Checkbox, checkedBgClass string) {
+	<label class="inline-flex items-center cursor-pointer select-none">
+		<input
+			type="checkbox"
+			class="peer sr-only"
+			if props.Checked {
+				checked
+			}
+			if props.Disabled {
+				disabled
+			}
+			if props.Required {
+				required
+			}
+			if props.ID != "" {
+				id={ props.ID }
+			}
+			if props.Name != "" {
+				name={ props.Name }
+			}
+			if props.Value != "" {
+				value={ props.Value }
+			}
+			if props.FormBehaviors.ConstraintString() != "" {
+				data-constraint={ props.FormBehaviors.ConstraintString() }
+			}
+			if props.FormBehaviors.DirtyWatch {
+				data-dirty-watch="true"
+			}
+			if props.FormBehaviors.DirtyGroup != "" {
+				data-dirty-group={ props.FormBehaviors.DirtyGroup }
+			}
+			if props.FormBehaviors.EnableOnValid {
+				data-enable-on-valid="true"
+			}
+			if props.FormBehaviors.EnableTarget != "" {
+				data-enable-target={ props.FormBehaviors.EnableTarget }
+			}
+			if props.Hx.Method == structs.GET {
+				hx-get={ props.Hx.URL }
+			}
+			if props.Hx.Method == structs.POST {
+				hx-post={ props.Hx.URL }
+			}
+			if props.Hx.Method == structs.PUT {
+				hx-put={ props.Hx.URL }
+			}
+			if props.Hx.Method == structs.DELETE {
+				hx-delete={ props.Hx.URL }
+			}
+			if props.Hx.Trigger != "" {
+				hx-trigger={ props.Hx.Trigger }
+			}
+			if props.Hx.Target != "" {
+				hx-target={ props.Hx.Target }
+			}
+			if props.Hx.Swap != "" {
+				hx-swap={ props.Hx.Swap }
+			}
+			if props.Hx.Vals != "" {
+				hx-vals={ props.Hx.Vals }
+			}
+			if props.Hx.Include != "" {
+				hx-include={ props.Hx.Include }
+			}
+			if props.Hx.Indicator != "" {
+				hx-indicator={ props.Hx.Indicator }
+			}
+			if props.Hx.Confirm != "" {
+				hx-confirm={ props.Hx.Confirm }
+			}
+			if props.Hx.PushURL != "" {
+				hx-push-url={ props.Hx.PushURL }
+			}
+		/>
+		<div class="p-1"></div>
+		<div
+			class={ "w-6 h-6 rounded border-2 border-slate-400 bg-slate-200 flex items-center justify-center " +
+				"peer-checked:" + checkedBgClass + " " +
+				"peer-checked:border-slate-700 peer-checked:[&>svg]:block" }
+		>
+			<svg class="hidden w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+				<path d="M5 12l5 5L20 7"></path>
+			</svg>
+		</div>
+	</label>
+}
+
+templ PrimaryCheckbox(props *structs.Checkbox) {
+	@checkboxBase(props, "bg-primary")
+}
+
+templ SecondaryCheckbox(props *structs.Checkbox) {
+	@checkboxBase(props, "bg-secondary")
+}
+
+templ TertiaryCheckbox(props *structs.Checkbox) {
+	@checkboxBase(props, "bg-tertiary")
+}
+
+templ AccentCheckbox(props *structs.Checkbox) {
+	@checkboxBase(props, "bg-accent")
+}
+
+templ UniqueCheckbox(props *structs.Checkbox) {
+	@checkboxBase(props, "bg-unique")
+}
+
+templ AttentionCheckbox(props *structs.Checkbox) {
+	@checkboxBase(props, "bg-attention")
+}
