@@ -1,0 +1,89 @@
+package components
+
+import "github.com/alterejoe/shared/structs"
+
+// Base component with the variant as a parameter
+templ buttonBase(props *structs.Button, bgClass string) {
+	<div
+		class={ "py-2 px-4 rounded text-xl cursor-pointer " + bgClass + " hover:" + bgClass }
+	>
+		<button
+			if props.ID != "" {
+				id={ props.ID }
+			}
+			if props.Name != "" {
+				name={ props.Name }
+			}
+			class="cursor-pointer"
+			if props.Disabled {
+				disabled
+			}
+			if props.Hx.Method == structs.GET {
+				hx-get={ props.Hx.URL }
+			}
+			if props.Hx.Method == structs.POST {
+				hx-post={ props.Hx.URL }
+			}
+			if props.Hx.Method == structs.PUT {
+				hx-put={ props.Hx.URL }
+			}
+			if props.Hx.Method == structs.DELETE {
+				hx-delete={ props.Hx.URL }
+			}
+			if props.Hx.Trigger != "" {
+				hx-trigger={ props.Hx.Trigger }
+			}
+			if props.Hx.Target != "" {
+				hx-target={ props.Hx.Target }
+			}
+			if props.Hx.Swap != "" {
+				hx-swap={ props.Hx.Swap }
+			}
+			if props.Hx.Vals != "" {
+				hx-vals={ props.Hx.Vals }
+			}
+			if props.Hx.Include != "" {
+				hx-include={ props.Hx.Include }
+			}
+			if props.Hx.Indicator != "" {
+				hx-indicator={ props.Hx.Indicator }
+			}
+			if props.Hx.Confirm != "" {
+				hx-confirm={ props.Hx.Confirm }
+			}
+			if props.Hx.PushURL != "" {
+				hx-push-url={ props.Hx.PushURL }
+			}
+		>
+			if props.Value != "" {
+				{ props.Value }
+			} else {
+				{ children... }
+			}
+		</button>
+	</div>
+}
+
+templ PrimaryButton(props *structs.Button) {
+	@buttonBase(props, "bg-primary")
+}
+
+templ SecondaryButton(props *structs.Button) {
+	@buttonBase(props, "bg-secondary")
+}
+
+templ TertiaryButton(props *structs.Button) {
+	@buttonBase(props, "bg-tertiary")
+}
+
+templ AccentButton(props *structs.Button) {
+	@buttonBase(props, "bg-accent")
+}
+
+templ UniqueButton(props *structs.Button) {
+	@buttonBase(props, "bg-unique")
+}
+
+templ AttentionButton(props *structs.Button) {
+	@buttonBase(props, "bg-attention")
+}

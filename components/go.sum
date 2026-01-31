@@ -1,0 +1,6 @@
+github.com/a-h/templ v0.3.977 h1:kiKAPXTZE2Iaf8JbtM21r54A8bCNsncrfnokZZSrSDg=
+github.com/a-h/templ v0.3.977/go.mod h1:oCZcnKRf5jjsGpf2yELzQfodLphd2mwecwG4Crk5HBo=
+github.com/alterejoe/shared/structs v0.0.0-20260131001056-9c0c5c0096bf h1:DMWpSvwWUvtbQhzmuGHQzQyau0X5ROrbDWZ5/69cdbw=
+github.com/alterejoe/shared/structs v0.0.0-20260131001056-9c0c5c0096bf/go.mod h1:ui4ZgFiwvzXopVQZvgmfzTux5Q7VkvTKZzcVUK3Qhmk=
+github.com/google/go-cmp v0.6.0 h1:ofyhxvXcZhMsU5ulbFiLKl/XBFqE1GSq7atu8tAmTRI=
+github.com/google/go-cmp v0.6.0/go.mod h1:17dUlkBOakJ0+DkrSSNjCkIjxS6bF9zb3elmeNGIjoY=
