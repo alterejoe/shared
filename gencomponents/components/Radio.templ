@@ -1,0 +1,110 @@
+package components
+import "github.com/alterejoe/shared/structs"
+
+// Base component with the variant as a parameter
+templ radioButtonBase(props *structs.Radio, bgClass string) {
+	<div class="flex items-center">
+		<input
+			type="radio"
+			if props.ID != "" {
+				id={ props.ID }
+			}
+			if props.Name != "" {
+				name={ props.Name }
+			}
+			if props.Value != "" {
+				value={ props.Value }
+			}
+			if props.Checked {
+				checked
+			}
+			if props.Disabled {
+				disabled
+			}
+			if props.Required {
+				required
+			}
+			class="peer sr-only absolute"
+			if props.FormBehaviors.ConstraintString() != "" {
+				data-constraint={ props.FormBehaviors.ConstraintString() }
+			}
+			if props.FormBehaviors.DirtyWatch {
+				data-dirty-watch="true"
+			}
+			if props.FormBehaviors.DirtyGroup != "" {
+				data-dirty-group={ props.FormBehaviors.DirtyGroup }
+			}
+			if props.Hx.Method == structs.GET {
+				hx-get={ props.Hx.URL }
+			}
+			if props.Hx.Method == structs.POST {
+				hx-post={ props.Hx.URL }
+			}
+			if props.Hx.Method == structs.PUT {
+				hx-put={ props.Hx.URL }
+			}
+			if props.Hx.Method == structs.DELETE {
+				hx-delete={ props.Hx.URL }
+			}
+			if props.Hx.Trigger != "" {
+				hx-trigger={ props.Hx.Trigger }
+			}
+			if props.Hx.Target != "" {
+				hx-target={ props.Hx.Target }
+			}
+			if props.Hx.Swap != "" {
+				hx-swap={ props.Hx.Swap }
+			}
+			if props.Hx.Vals != "" {
+				hx-vals={ props.Hx.Vals }
+			}
+			if props.Hx.Include != "" {
+				hx-include={ props.Hx.Include }
+			}
+			if props.Hx.Indicator != "" {
+				hx-indicator={ props.Hx.Indicator }
+			}
+			if props.Hx.Confirm != "" {
+				hx-confirm={ props.Hx.Confirm }
+			}
+			if props.Hx.PushURL != "" {
+				hx-push-url={ props.Hx.PushURL }
+			}
+		/>
+		<label
+			if props.ID != "" {
+				for={ props.ID }
+			}
+			class={ "px-3 py-2 rounded cursor-pointer inline-flex items-center select-none border-2 border-transparent " +
+				bgClass + " " +
+				"peer-checked:border-slate-700" }
+		>
+			{ props.Value }
+		</label>
+	</div>
+}
+
+templ PrimaryRadioButton(props *structs.Radio) {
+	@radioButtonBase(props, "bg-primary")
+}
+
+templ SecondaryRadioButton(props *structs.Radio) {
+	@radioButtonBase(props, "bg-secondary")
+}
+
+templ TertiaryRadioButton(props *structs.Radio) {
+	@radioButtonBase(props, "bg-tertiary")
+}
+
+templ AccentRadioButton(props *structs.Radio) {
+	@radioButtonBase(props, "bg-accent")
+}
+
+templ UniqueRadioButton(props *structs.Radio) {
+	@radioButtonBase(props, "bg-unique")
+}
+
+templ AttentionRadioButton(props *structs.Radio) {
+	@radioButtonBase(props, "bg-attention")
+}
+

@@ -1,20 +1,20 @@
 package create
 
 import (
-	"github.com/alterejoe/shared/env"
 	"context"
 	"net/url"
 	"time"
 
+	envs "github.com/alterejoe/envs"
 	"github.com/auth0/go-jwt-middleware/v2/jwks"
 	"github.com/auth0/go-jwt-middleware/v2/validator"
 )
 
-type JwtValidator struct {
+type JWTValidator struct {
 	validator *validator.Validator
 }
 
-func (v *JwtValidator) ValidateToken(ctx context.Context, token string) (interface{}, error) {
+func (v *JWTValidator) ValidateToken(ctx context.Context, token string) (interface{}, error) {
 	return v.validator.ValidateToken(ctx, token)
 }
 
@@ -28,17 +28,17 @@ func (c *CustomClaims) Validate(ctx context.Context) error {
 
 	return nil
 }
-func GetJwtValidator(targetjwtprefix string) (*JwtValidator, error) {
-	e, err := env.NewJwtValidatorENV(targetjwtprefix)
+func JwtValidator(targetjwtprefix string) *JWTValidator {
+	e, err := envs.NewJwtValidatorENV(targetjwtprefix)
 	if err != nil {
-		return nil, err
+		panic(err)
 	}
 
 	issuer := "https://" + e.GetDomain() + "/"
 
 	u, err := url.Parse(issuer)
 	if err != nil {
-		return nil, err
+		panic(err)
 	}
 
 	provider := jwks.NewCachingProvider(u, 5*time.Minute)
@@ -52,8 +52,8 @@ func GetJwtValidator(targetjwtprefix string) (*JwtValidator, error) {
 		validator.WithAllowedClockSkew(time.Minute),
 	)
 	if err != nil {
-		return nil, err
+		panic(err)
 	}
 
-	return &JwtValidator{validator: v}, nil
+	return &JWTValidator{validator: v}
 }

@@ -1,0 +1,110 @@
+package components
+import "github.com/alterejoe/shared/structs"
+
+templ textareaBase(props *structs.Textarea, bgClass string, borderClass string, textClass string) {
+	<textarea
+		if props.ID != "" {
+			id={ props.ID }
+		}
+		if props.Name != "" {
+			name={ props.Name }
+		}
+		if props.Placeholder != "" {
+			placeholder={ props.Placeholder }
+		}
+		if props.Rows > 0 {
+			rows={ props.RowsString() }
+		}
+		if props.Disabled {
+			disabled
+		}
+		if props.Autofocus {
+			autofocus
+		}
+		if props.Required {
+			required
+		}
+		class={ "text-lg px-2 rounded w-full cursor-pointer outline-none resize-y " + bgClass + " " + borderClass + " " + textClass }
+		if props.FormBehaviors.ConstraintString() != "" {
+			data-constraint={ props.FormBehaviors.ConstraintString() }
+		}
+		if props.FormBehaviors.DirtyWatch {
+			data-dirty-watch="true"
+		}
+		if props.FormBehaviors.DirtyGroup != "" {
+			data-dirty-group={ props.FormBehaviors.DirtyGroup }
+		}
+		if props.Hx.Method == structs.GET {
+			hx-get={ props.Hx.URL }
+		}
+		if props.Hx.Method == structs.POST {
+			hx-post={ props.Hx.URL }
+		}
+		if props.Hx.Method == structs.PUT {
+			hx-put={ props.Hx.URL }
+		}
+		if props.Hx.Method == structs.DELETE {
+			hx-delete={ props.Hx.URL }
+		}
+		if props.Hx.Trigger != "" {
+			hx-trigger={ props.Hx.Trigger }
+		}
+		if props.Hx.Target != "" {
+			hx-target={ props.Hx.Target }
+		}
+		if props.Hx.Swap != "" {
+			hx-swap={ props.Hx.Swap }
+		}
+		if props.Hx.Vals != "" {
+			hx-vals={ props.Hx.Vals }
+		}
+		if props.Hx.Include != "" {
+			hx-include={ props.Hx.Include }
+		}
+		if props.Hx.Indicator != "" {
+			hx-indicator={ props.Hx.Indicator }
+		}
+		if props.Hx.Confirm != "" {
+			hx-confirm={ props.Hx.Confirm }
+		}
+		if props.Hx.PushURL != "" {
+			hx-push-url={ props.Hx.PushURL }
+		}
+	>{ props.Value }</textarea>
+	if props.ID != "" {
+		<div id={ props.ID + "-errors" } class="text-red-600 text-sm mt-1 hidden"></div>
+	}
+}
+
+templ PrimaryTextarea(props *structs.Textarea) {
+	@textareaBase(props, "bg-primary", "border border-primary", "text-white placeholder-white/70")
+}
+
+templ SecondaryTextarea(props *structs.Textarea) {
+	@textareaBase(props, "bg-secondary", "border border-secondary", "text-white placeholder-white/70")
+}
+
+templ TertiaryTextarea(props *structs.Textarea) {
+	@textareaBase(props, "bg-tertiary", "border border-tertiary", "text-white placeholder-white/70")
+}
+
+templ QuaternaryTextarea(props *structs.Textarea) {
+	@textareaBase(props, "bg-quaternary", "", "text-white placeholder-gray-400")
+}
+
+templ AccentTextarea(props *structs.Textarea) {
+	@textareaBase(props, "bg-accent", "border border-accent", "text-white placeholder-white/70")
+}
+
+templ UniqueTextarea(props *structs.Textarea) {
+	@textareaBase(props, "bg-unique", "border border-unique", "text-white placeholder-white/70")
+}
+
+templ AttentionTextarea(props *structs.Textarea) {
+	@textareaBase(props, "bg-attention", "border border-attention", "text-white placeholder-white/70")
+}
+
+templ DefaultTextarea(props *structs.Textarea) {
+	@textareaBase(props, "bg-white", "border border-gray-300", "text-gray-900 placeholder-gray-400")
+}
+

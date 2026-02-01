@@ -1,0 +1,21 @@
+# Source paths
+source:
+  structs_path: "../structs"
+  structs_import: "github.com/alterejoe/shared/structs"
+
+# Output paths
+output:
+  templ_dir: "./components"
+  snippets_dir: "/home/vagrant/.config/nvim/lua/snippets"
+
+snippet_defaults:
+  string: '""'
+  bool: '"false"' # ← Add quotes
+  int: '"0"' # ← Add quotes
+  int64: '"0"' # ← Add quotes
+  Method: '"structs.POST"' # ← Add quotes
+
+field_defaults:
+  Value: '"Click Me"'
+  URL: '"/endpoint"'
+  Swap: '"innerHTML"'

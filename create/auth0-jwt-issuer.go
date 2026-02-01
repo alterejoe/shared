@@ -1,7 +1,6 @@
 package create
 
 import (
-	"github.com/alterejoe/shared/env"
 	"encoding/json"
 	"errors"
 	"fmt"
@@ -11,9 +10,11 @@ import (
 	"strings"
 	"sync"
 	"time"
+
+	envs "github.com/alterejoe/envs"
 )
 
-type JwtIssuer struct {
+type JWTIssuer struct {
 	Domain, ClientID, ClientSecret, Audience, Scope string
 	token                                           string
 	expiry                                          time.Time
@@ -24,22 +25,22 @@ type Token struct {
 	Token string `json:"token"`
 }
 
-func GetJwtIssuer(targetjwtprefix string) (*JwtIssuer, error) {
-	e, err := env.NewJwtIssuerENV(targetjwtprefix)
+func JwtIssuer(targetjwtprefix string) *JWTIssuer {
+	e, err := envs.NewJwtIssuerENV(targetjwtprefix)
 	if err != nil {
-		return nil, err
+		panic(err)
 	}
 
-	return &JwtIssuer{
+	return &JWTIssuer{
 		Domain:       e.GetDomain(),
 		ClientID:     e.GetClientID(),
 		ClientSecret: e.GetClientSecret(),
 		Audience:     e.GetAudience(),
 		Scope:        e.GetScope(),
-	}, nil
+	}
 }
 
-func (a *JwtIssuer) validateFields() error {
+func (a *JWTIssuer) validateFields() error {
 	if a.Domain == "" || a.ClientID == "" || a.ClientSecret == "" || a.Audience == "" {
 		return fmt.Errorf("missing Auth0 params: domain=%q, client_id=%q, client_secret=%q, audience=%q, scope=%q",
 			a.Domain, a.ClientID, a.ClientSecret, a.Audience, a.Scope)
@@ -47,7 +48,7 @@ func (a *JwtIssuer) validateFields() error {
 	return nil
 }
 
-func (a *JwtIssuer) GetJwtToken() (string, error) {
+func (a *JWTIssuer) GetJwtToken() (string, error) {
 	if a.token != "" && time.Until(a.expiry) > 30*time.Second {
 		return a.token, nil
 	}

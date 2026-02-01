@@ -1,0 +1,39 @@
+name: Link
+struct: Link
+template: link_base.templ
+
+variants:
+  - name: Primary
+    prefix: linkprimary
+    props:
+      colorClass: text-primary hover:text-primary/80
+
+  - name: Secondary
+    prefix: linksecondary
+    props:
+      colorClass: text-secondary hover:text-secondary/80
+
+  - name: Tertiary
+    prefix: linktertiary
+    props:
+      colorClass: text-tertiary hover:text-tertiary/80
+
+  - name: Accent
+    prefix: linkaccent
+    props:
+      colorClass: text-accent hover:text-accent/80
+
+  - name: Unique
+    prefix: linkunique
+    props:
+      colorClass: text-unique hover:text-unique/80
+
+  - name: Attention
+    prefix: linkattention
+    props:
+      colorClass: text-attention hover:text-attention/80
+
+  - name: Default
+    prefix: link
+    props:
+      colorClass: text-blue-600 hover:text-blue-800

@@ -8,10 +8,12 @@ import (
 	"github.com/gomodule/redigo/redis"
 )
 
-func GetRedisSessionManager(pool *redis.Pool) *scs.SessionManager {
+func CreateRedisSessionManager(pool *redis.Pool, cookiename string) *scs.SessionManager {
 	sessionManager := scs.New()
 	sessionManager.Store = redisstore.New(pool)
 	sessionManager.Lifetime = 12 * time.Hour
+
+	sessionManager.Cookie.Name = cookiename
 	// sessionManager.IdleTimeout = 5 * time.Second
 
 	return sessionManager

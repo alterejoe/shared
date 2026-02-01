@@ -25,7 +25,7 @@ templ textareaBase(props *structs.Textarea, bgClass string, borderClass string, 
 		if props.Required {
 			required
 		}
-		class={ "text-lg p-2 rounded w-full cursor-pointer focus:outline-none resize-y " + bgClass + " " + borderClass + " " + textClass }
+		class={ "text-lg px-2 rounded w-full cursor-pointer outline-none resize-y " + bgClass + " " + borderClass + " " + textClass }
 		if props.FormBehaviors.ConstraintString() != "" {
 			data-constraint={ props.FormBehaviors.ConstraintString() }
 		}
@@ -77,30 +77,34 @@ templ textareaBase(props *structs.Textarea, bgClass string, borderClass string, 
 	}
 }
 
-templ TextareaPrimary(props *structs.Textarea) {
+templ PrimaryTextarea(props *structs.Textarea) {
 	@textareaBase(props, "bg-primary", "border border-primary", "text-white placeholder-white/70")
 }
 
-templ TextareaSecondary(props *structs.Textarea) {
+templ SecondaryTextarea(props *structs.Textarea) {
 	@textareaBase(props, "bg-secondary", "border border-secondary", "text-white placeholder-white/70")
 }
 
-templ TextareaTertiary(props *structs.Textarea) {
+templ TertiaryTextarea(props *structs.Textarea) {
 	@textareaBase(props, "bg-tertiary", "border border-tertiary", "text-white placeholder-white/70")
 }
 
-templ TextareaAccent(props *structs.Textarea) {
+templ AccentTextarea(props *structs.Textarea) {
 	@textareaBase(props, "bg-accent", "border border-accent", "text-white placeholder-white/70")
 }
 
-templ TextareaUnique(props *structs.Textarea) {
+templ UniqueTextarea(props *structs.Textarea) {
 	@textareaBase(props, "bg-unique", "border border-unique", "text-white placeholder-white/70")
 }
 
-templ TextareaAttention(props *structs.Textarea) {
+templ AttentionTextarea(props *structs.Textarea) {
 	@textareaBase(props, "bg-attention", "border border-attention", "text-white placeholder-white/70")
 }
 
-templ TextareaDefault(props *structs.Textarea) {
+templ DefaultTextarea(props *structs.Textarea) {
 	@textareaBase(props, "bg-white", "border border-gray-300", "text-gray-900 placeholder-gray-400")
+}
+
+templ QuaternaryTextarea(props *structs.Textarea) {
+	@textareaBase(props, "bg-quaternary", "", "text-white placeholder-gray-400")
 }

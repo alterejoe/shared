@@ -31,7 +31,7 @@ func textareaBase(props *structs.Textarea, bgClass string, borderClass string, t
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		var templ_7745c5c3_Var2 = []any{"text-lg p-2 rounded w-full cursor-pointer focus:outline-none resize-y " + bgClass + " " + borderClass + " " + textClass}
+		var templ_7745c5c3_Var2 = []any{"text-lg px-2 rounded w-full cursor-pointer outline-none resize-y " + bgClass + " " + borderClass + " " + textClass}
 		templ_7745c5c3_Err = templ.RenderCSSItems(ctx, templ_7745c5c3_Buffer, templ_7745c5c3_Var2...)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
@@ -463,7 +463,7 @@ func textareaBase(props *structs.Textarea, bgClass string, borderClass string, t
 	})
 }
 
-func TextareaPrimary(props *structs.Textarea) templ.Component {
+func PrimaryTextarea(props *structs.Textarea) templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
@@ -492,7 +492,7 @@ func TextareaPrimary(props *structs.Textarea) templ.Component {
 	})
 }
 
-func TextareaSecondary(props *structs.Textarea) templ.Component {
+func SecondaryTextarea(props *structs.Textarea) templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
@@ -521,7 +521,7 @@ func TextareaSecondary(props *structs.Textarea) templ.Component {
 	})
 }
 
-func TextareaTertiary(props *structs.Textarea) templ.Component {
+func TertiaryTextarea(props *structs.Textarea) templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
@@ -550,7 +550,7 @@ func TextareaTertiary(props *structs.Textarea) templ.Component {
 	})
 }
 
-func TextareaAccent(props *structs.Textarea) templ.Component {
+func AccentTextarea(props *structs.Textarea) templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
@@ -579,7 +579,7 @@ func TextareaAccent(props *structs.Textarea) templ.Component {
 	})
 }
 
-func TextareaUnique(props *structs.Textarea) templ.Component {
+func UniqueTextarea(props *structs.Textarea) templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
@@ -608,7 +608,7 @@ func TextareaUnique(props *structs.Textarea) templ.Component {
 	})
 }
 
-func TextareaAttention(props *structs.Textarea) templ.Component {
+func AttentionTextarea(props *structs.Textarea) templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
@@ -637,7 +637,7 @@ func TextareaAttention(props *structs.Textarea) templ.Component {
 	})
 }
 
-func TextareaDefault(props *structs.Textarea) templ.Component {
+func DefaultTextarea(props *structs.Textarea) templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
@@ -659,6 +659,35 @@ func TextareaDefault(props *structs.Textarea) templ.Component {
 		}
 		ctx = templ.ClearChildren(ctx)
 		templ_7745c5c3_Err = textareaBase(props, "bg-white", "border border-gray-300", "text-gray-900 placeholder-gray-400").Render(ctx, templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		return nil
+	})
+}
+
+func QuaternaryTextarea(props *structs.Textarea) templ.Component {
+	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
+		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
+		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
+			return templ_7745c5c3_CtxErr
+		}
+		templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templruntime.GetBuffer(templ_7745c5c3_W)
+		if !templ_7745c5c3_IsBuffer {
+			defer func() {
+				templ_7745c5c3_BufErr := templruntime.ReleaseBuffer(templ_7745c5c3_Buffer)
+				if templ_7745c5c3_Err == nil {
+					templ_7745c5c3_Err = templ_7745c5c3_BufErr
+				}
+			}()
+		}
+		ctx = templ.InitializeContext(ctx)
+		templ_7745c5c3_Var31 := templ.GetChildren(ctx)
+		if templ_7745c5c3_Var31 == nil {
+			templ_7745c5c3_Var31 = templ.NopComponent
+		}
+		ctx = templ.ClearChildren(ctx)
+		templ_7745c5c3_Err = textareaBase(props, "bg-quaternary", "", "text-white placeholder-gray-400").Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

@@ -1,26 +1,27 @@
 package create
 
 import (
-	"github.com/alterejoe/shared/env"
 	"context"
 	"crypto/rand"
 	"encoding/base64"
 	"errors"
+
+	envs "github.com/alterejoe/envs"
 
 	"github.com/coreos/go-oidc/v3/oidc"
 	"golang.org/x/oauth2"
 )
 
 // Get new *Authenticator.
-func GetOidcAuthenticator(envprefix string) (*Auth0Oidc, error) {
-	e, err := env.NewOIDCEnvConfig(envprefix)
+func OidcAuthenticator(envprefix string) *Auth0Oidc {
+	e, err := envs.NewOIDCEnvConfig(envprefix)
 	if err != nil {
-		return nil, err
+		panic(err)
 	}
 	provider, err := oidc.NewProvider(context.Background(), "https://"+e.GetDomain()+"/")
 
 	if err != nil {
-		return nil, err
+		panic(err)
 	}
 
 	conf := oauth2.Config{
@@ -36,7 +37,7 @@ func GetOidcAuthenticator(envprefix string) (*Auth0Oidc, error) {
 		Config:   conf,
 	}
 
-	return authObj, nil
+	return authObj
 }
 
 // Auth0Oidc is used to authenticate our users.

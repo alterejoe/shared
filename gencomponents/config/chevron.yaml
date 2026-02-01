@@ -1,0 +1,37 @@
+name: Chevron
+struct: Button
+template: chevron_base.templ
+
+variants:
+  - name: Chevron
+    prefix: chevleft
+  - name: Chevron
+    prefix: chevright
+  - name: Chevron
+    prefix: chevup
+  - name: Chevron
+    prefix: chevdown
+  - name: SmallChevron
+    prefix: chevleftsmall
+  - name: SmallChevron
+    prefix: chevrightsmall
+  - name: SmallChevron
+    prefix: chevupsmall
+  - name: SmallChevron
+    prefix: chevdownsmall
+  - name: PrimaryChevron
+    prefix: chevleftprimary
+  - name: PrimaryChevron
+    prefix: chevrightprimary
+  - name: PrimaryChevron
+    prefix: chevupprimary
+  - name: PrimaryChevron
+    prefix: chevdownprimary
+  - name: PrimarySmallChevron
+    prefix: chevleftprimarysmall
+  - name: PrimarySmallChevron
+    prefix: chevrightprimarysmall
+  - name: PrimarySmallChevron
+    prefix: chevupprimarysmall
+  - name: PrimarySmallChevron
+    prefix: chevdownprimarysmall

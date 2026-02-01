@@ -7,7 +7,7 @@ import (
 	"github.com/golang-cz/devslog"
 )
 
-func GetLogger() *slog.Logger {
+func CreateLogger() *slog.Logger {
 
 	slogOpts := &slog.HandlerOptions{
 		AddSource: true,

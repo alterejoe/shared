@@ -32,7 +32,7 @@ func inputBase(props *structs.Input, bgClass string, borderClass string, textCla
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		var templ_7745c5c3_Var2 = []any{"text-lg p-2 rounded w-full cursor-pointer focus:outline-none " + bgClass + " " + borderClass + " " + textClass}
+		var templ_7745c5c3_Var2 = []any{"text-3xl p-2 rounded w-full cursor-pointer focus:outline-none " + bgClass + " " + borderClass + " " + textClass}
 		templ_7745c5c3_Err = templ.RenderCSSItems(ctx, templ_7745c5c3_Buffer, templ_7745c5c3_Var2...)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
@@ -468,7 +468,7 @@ func inputBase(props *structs.Input, bgClass string, borderClass string, textCla
 	})
 }
 
-func InputPrimary(props *structs.Input) templ.Component {
+func PrimaryInput(props *structs.Input) templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
@@ -497,7 +497,7 @@ func InputPrimary(props *structs.Input) templ.Component {
 	})
 }
 
-func InputSecondary(props *structs.Input) templ.Component {
+func SecondaryInput(props *structs.Input) templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
@@ -526,7 +526,7 @@ func InputSecondary(props *structs.Input) templ.Component {
 	})
 }
 
-func InputTertiary(props *structs.Input) templ.Component {
+func TertiaryInput(props *structs.Input) templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
@@ -555,7 +555,7 @@ func InputTertiary(props *structs.Input) templ.Component {
 	})
 }
 
-func InputAccent(props *structs.Input) templ.Component {
+func AccentInput(props *structs.Input) templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
@@ -584,7 +584,7 @@ func InputAccent(props *structs.Input) templ.Component {
 	})
 }
 
-func InputUnique(props *structs.Input) templ.Component {
+func UniqueInput(props *structs.Input) templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
@@ -613,7 +613,7 @@ func InputUnique(props *structs.Input) templ.Component {
 	})
 }
 
-func InputAttention(props *structs.Input) templ.Component {
+func AttentionInput(props *structs.Input) templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
@@ -642,7 +642,7 @@ func InputAttention(props *structs.Input) templ.Component {
 	})
 }
 
-func InputDefault(props *structs.Input) templ.Component {
+func DefaultInput(props *structs.Input) templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {

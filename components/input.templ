@@ -27,7 +27,7 @@ templ inputBase(props *structs.Input, bgClass string, borderClass string, textCl
 		if props.Value != "" {
 			value={ props.Value }
 		}
-		class={ "text-lg p-2 rounded w-full cursor-pointer focus:outline-none " + bgClass + " " + borderClass + " " + textClass }
+		class={ "text-3xl p-2 rounded w-full cursor-pointer focus:outline-none " + bgClass + " " + borderClass + " " + textClass }
 		if props.FormBehaviors.ConstraintString() != "" {
 			data-constraint={ props.FormBehaviors.ConstraintString() }
 		}
@@ -79,30 +79,30 @@ templ inputBase(props *structs.Input, bgClass string, borderClass string, textCl
 	}
 }
 
-templ InputPrimary(props *structs.Input) {
+templ PrimaryInput(props *structs.Input) {
 	@inputBase(props, "bg-primary", "border border-primary", "text-white placeholder-white/70")
 }
 
-templ InputSecondary(props *structs.Input) {
+templ SecondaryInput(props *structs.Input) {
 	@inputBase(props, "bg-secondary", "border border-secondary", "text-white placeholder-white/70")
 }
 
-templ InputTertiary(props *structs.Input) {
+templ TertiaryInput(props *structs.Input) {
 	@inputBase(props, "bg-tertiary", "border border-tertiary", "text-white placeholder-white/70")
 }
 
-templ InputAccent(props *structs.Input) {
+templ AccentInput(props *structs.Input) {
 	@inputBase(props, "bg-accent", "border border-accent", "text-white placeholder-white/70")
 }
 
-templ InputUnique(props *structs.Input) {
+templ UniqueInput(props *structs.Input) {
 	@inputBase(props, "bg-unique", "border border-unique", "text-white placeholder-white/70")
 }
 
-templ InputAttention(props *structs.Input) {
+templ AttentionInput(props *structs.Input) {
 	@inputBase(props, "bg-attention", "border border-attention", "text-white placeholder-white/70")
 }
 
-templ InputDefault(props *structs.Input) {
+templ DefaultInput(props *structs.Input) {
 	@inputBase(props, "bg-white", "border border-gray-300", "text-gray-900 placeholder-gray-400")
 }

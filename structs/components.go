@@ -6,6 +6,11 @@ import "strconv"
 // COMPONENT STRUCTS
 // ============================================================================
 
+type Button struct {
+	Common
+	Hx
+}
+
 type Notice struct {
 	Common
 	AlignText string
@@ -42,7 +47,6 @@ type Input struct {
 	FormBehaviors
 	Placeholder string
 	InputType   string
-	Disabled    bool
 	Autofocus   bool
 	Required    bool
 }
@@ -72,7 +76,6 @@ type Textarea struct {
 	FormBehaviors
 	Placeholder string
 	Rows        int
-	Disabled    bool
 	Autofocus   bool
 	Required    bool
 }
@@ -88,7 +91,6 @@ type Select struct {
 	Common
 	Hx
 	FormBehaviors
-	Disabled bool
 	Required bool
 }
 

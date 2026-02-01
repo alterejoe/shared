@@ -1,0 +1,44 @@
+name: Checkbox
+struct: Checkbox
+template: checkbox_base.templ
+
+variants:
+  - name: Primary
+    prefix: checkprimary
+    props:
+      checkedBgClass: bg-primary
+
+  - name: Secondary
+    prefix: checksecondary
+    props:
+      checkedBgClass: bg-secondary
+
+  - name: Tertiary
+    prefix: checktertiary
+    props:
+      checkedBgClass: bg-tertiary
+
+  - name: Quaternary
+    prefix: checkquaternary
+    props:
+      checkedBgClass: bg-quaternary
+
+  - name: Accent
+    prefix: checkaccent
+    props:
+      checkedBgClass: bg-accent
+
+  - name: Unique
+    prefix: checkunique
+    props:
+      checkedBgClass: bg-unique
+
+  - name: Attention
+    prefix: checkattention
+    props:
+      checkedBgClass: bg-attention
+
+  - name: Transparent
+    prefix: checktransparent
+    props:
+      checkedBgClass: bg-transparent

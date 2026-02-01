@@ -2,6 +2,7 @@ package structs
 
 import (
 	"strings"
+	"time"
 )
 
 // ============================================================================
@@ -16,6 +17,14 @@ const (
 	PUT
 	DELETE
 )
+
+type User struct {
+	ID        string
+	Email     string
+	Name      string
+	CreatedAt time.Time
+	// Add any other user fields you need
+}
 
 type Common struct {
 	ID       string

@@ -1,0 +1,7 @@
+name: Form
+struct: Form
+template: form_base.templ
+
+variants:
+  - name: ""
+    prefix: form

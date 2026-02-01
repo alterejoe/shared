@@ -1,0 +1,53 @@
+name: Input
+struct: Input
+template: input_base.templ
+
+variants:
+  - name: Primary
+    prefix: inputprimary
+    props:
+      bgClass: bg-primary
+      borderClass: border border-primary
+      textClass: text-white placeholder-white/70
+
+  - name: Secondary
+    prefix: inputsecondary
+    props:
+      bgClass: bg-secondary
+      borderClass: border border-secondary
+      textClass: text-white placeholder-white/70
+
+  - name: Tertiary
+    prefix: inputtertiary
+    props:
+      bgClass: bg-tertiary
+      borderClass: border border-tertiary
+      textClass: text-white placeholder-white/70
+
+  - name: Accent
+    prefix: inputaccent
+    props:
+      bgClass: bg-accent
+      borderClass: border border-accent
+      textClass: text-white placeholder-white/70
+
+  - name: Unique
+    prefix: inputunique
+    props:
+      bgClass: bg-unique
+      borderClass: border border-unique
+      textClass: text-white placeholder-white/70
+
+  - name: Attention
+    prefix: inputattention
+    props:
+      bgClass: bg-attention
+      borderClass: border border-attention
+      textClass: text-white placeholder-white/70
+
+  - name: Default
+    prefix: input
+    props:
+      bgClass: bg-white
+      borderClass: border border-gray-300
+      textClass: text-gray-900 placeholder-gray-400

@@ -1,0 +1,53 @@
+name: Select
+struct: Select
+template: select_base.templ
+
+variants:
+  - name: Primary
+    prefix: selectprimary
+    props:
+      bgClass: bg-primary
+      borderClass: border border-primary
+      textClass: text-white
+
+  - name: Secondary
+    prefix: selectsecondary
+    props:
+      bgClass: bg-secondary
+      borderClass: border border-secondary
+      textClass: text-white
+
+  - name: Tertiary
+    prefix: selecttertiary
+    props:
+      bgClass: bg-tertiary
+      borderClass: border border-tertiary
+      textClass: text-white
+
+  - name: Accent
+    prefix: selectaccent
+    props:
+      bgClass: bg-accent
+      borderClass: border border-accent
+      textClass: text-white
+
+  - name: Unique
+    prefix: selectunique
+    props:
+      bgClass: bg-unique
+      borderClass: border border-unique
+      textClass: text-white
+
+  - name: Attention
+    prefix: selectattention
+    props:
+      bgClass: bg-attention
+      borderClass: border border-attention
+      textClass: text-white
+
+  - name: Default
+    prefix: select
+    props:
+      bgClass: bg-white
+      borderClass: border border-gray-300
+      textClass: text-gray-900

@@ -1,0 +1,34 @@
+name: Notice
+struct: Notice
+template: notice_base.templ
+
+variants:
+  - name: Primary
+    prefix: noticeprimary
+    props:
+      bgClass: bg-primary
+
+  - name: Secondary
+    prefix: noticesecondary
+    props:
+      bgClass: bg-secondary
+
+  - name: Tertiary
+    prefix: noticetertiary
+    props:
+      bgClass: bg-tertiary
+
+  - name: Accent
+    prefix: noticeaccent
+    props:
+      bgClass: bg-accent
+
+  - name: Unique
+    prefix: noticeunique
+    props:
+      bgClass: bg-unique
+
+  - name: Attention
+    prefix: noticeattention
+    props:
+      bgClass: bg-attention

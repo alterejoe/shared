@@ -1,22 +1,23 @@
 package create
 
 import (
-	"github.com/alterejoe/shared/interfaces"
 	"context"
 	"fmt"
 	"net/url"
 
+	"github.com/alterejoe/shared/structs"
+
 	"github.com/jackc/pgx/v5/pgxpool"
 )
 
-func GetPGPool(auth interfaces.DBAuth) (*pgxpool.Pool, error) {
-	user := auth.GetUser()
-	password := auth.GetPassword()
-	dbName := auth.GetDBName()
-	sslmode := auth.GetSSLMode()
-	host := auth.GetHost()
-	port := auth.GetPort()
-	schema := auth.GetSchema()
+func PGPool(auth *structs.DBAuth) *pgxpool.Pool {
+	user := auth.User
+	password := auth.Password
+	dbName := auth.DBName
+	sslmode := auth.SSLMode
+	host := auth.Host
+	port := auth.Port
+	schema := auth.Schema
 
 	fmt.Println(user, password, dbName, sslmode, host, port)
 	u := &url.URL{
@@ -35,9 +36,7 @@ func GetPGPool(auth interfaces.DBAuth) (*pgxpool.Pool, error) {
 
 	pool, err := pgxpool.New(context.Background(), connString)
 	if err != nil {
-		// fmt.Println(err)
-		// panic(err)
-		return nil, err
+		panic(err)
 	}
-	return pool, nil
+	return pool
 }

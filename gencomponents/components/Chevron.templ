@@ -1,0 +1,168 @@
+package components
+import "github.com/alterejoe/shared/structs"
+
+// Base component with color classes and size as parameters
+templ chevronBase(props *structs.Button, strokeColor string, borderColor string, size string, svgSize string) {
+	<div
+		class={ "border-2 rounded-md hover:bg-secondary cursor-pointer " + borderColor + " " + size }
+		if props.ID != "" {
+			id={ props.ID }
+		}
+		if props.Hx.Method == structs.GET {
+			hx-get={ props.Hx.URL }
+		}
+		if props.Hx.Method == structs.POST {
+			hx-post={ props.Hx.URL }
+		}
+		if props.Hx.Method == structs.PUT {
+			hx-put={ props.Hx.URL }
+		}
+		if props.Hx.Method == structs.DELETE {
+			hx-delete={ props.Hx.URL }
+		}
+		if props.Hx.Trigger != "" {
+			hx-trigger={ props.Hx.Trigger }
+		}
+		if props.Hx.Target != "" {
+			hx-target={ props.Hx.Target }
+		}
+		if props.Hx.Swap != "" {
+			hx-swap={ props.Hx.Swap }
+		}
+		if props.Hx.Vals != "" {
+			hx-vals={ props.Hx.Vals }
+		}
+		if props.Hx.Include != "" {
+			hx-include={ props.Hx.Include }
+		}
+		if props.Hx.Indicator != "" {
+			hx-indicator={ props.Hx.Indicator }
+		}
+		if props.Hx.Confirm != "" {
+			hx-confirm={ props.Hx.Confirm }
+		}
+		if props.Hx.PushURL != "" {
+			hx-push-url={ props.Hx.PushURL }
+		}
+	>
+		<svg width={ svgSize } height={ svgSize } viewBox="0 0 24 24" fill="none" stroke={ strokeColor } stroke-width="2">
+			{ children... }
+		</svg>
+	</div>
+}
+
+// Standard (white) variants - Normal size
+templ ChevronLeft(props *structs.Button) {
+	@chevronBase(props, "white", "border-white", "p-1", "24") {
+		<polyline points="11 17 6 12 11 7"></polyline>
+		<polyline points="18 17 13 12 18 7"></polyline>
+	}
+}
+
+templ ChevronRight(props *structs.Button) {
+	@chevronBase(props, "white", "border-white", "p-1", "24") {
+		<polyline points="13 17 18 12 13 7"></polyline>
+		<polyline points="6 17 11 12 6 7"></polyline>
+	}
+}
+
+templ ChevronUp(props *structs.Button) {
+	@chevronBase(props, "white", "border-white", "p-1", "24") {
+		<polyline points="17 11 12 6 7 11"></polyline>
+		<polyline points="17 18 12 13 7 18"></polyline>
+	}
+}
+
+templ ChevronDown(props *structs.Button) {
+	@chevronBase(props, "white", "border-white", "p-1", "24") {
+		<polyline points="7 13 12 18 17 13"></polyline>
+		<polyline points="7 6 12 11 17 6"></polyline>
+	}
+}
+
+// Standard (white) variants - Small size
+templ SmallChevronLeft(props *structs.Button) {
+	@chevronBase(props, "white", "border-white", "p-0.5", "16") {
+		<polyline points="11 17 6 12 11 7"></polyline>
+		<polyline points="18 17 13 12 18 7"></polyline>
+	}
+}
+
+templ SmallChevronRight(props *structs.Button) {
+	@chevronBase(props, "white", "border-white", "p-0.5", "16") {
+		<polyline points="13 17 18 12 13 7"></polyline>
+		<polyline points="6 17 11 12 6 7"></polyline>
+	}
+}
+
+templ SmallChevronUp(props *structs.Button) {
+	@chevronBase(props, "white", "border-white", "p-0.5", "16") {
+		<polyline points="17 11 12 6 7 11"></polyline>
+		<polyline points="17 18 12 13 7 18"></polyline>
+	}
+}
+
+templ SmallChevronDown(props *structs.Button) {
+	@chevronBase(props, "white", "border-white", "p-0.5", "16") {
+		<polyline points="7 13 12 18 17 13"></polyline>
+		<polyline points="7 6 12 11 17 6"></polyline>
+	}
+}
+
+// Primary (black) variants - Normal size
+templ PrimaryChevronLeft(props *structs.Button) {
+	@chevronBase(props, "black", "border-black", "p-1", "24") {
+		<polyline points="11 17 6 12 11 7"></polyline>
+		<polyline points="18 17 13 12 18 7"></polyline>
+	}
+}
+
+templ PrimaryChevronRight(props *structs.Button) {
+	@chevronBase(props, "black", "border-black", "p-1", "24") {
+		<polyline points="13 17 18 12 13 7"></polyline>
+		<polyline points="6 17 11 12 6 7"></polyline>
+	}
+}
+
+templ PrimaryChevronUp(props *structs.Button) {
+	@chevronBase(props, "black", "border-black", "p-1", "24") {
+		<polyline points="17 11 12 6 7 11"></polyline>
+		<polyline points="17 18 12 13 7 18"></polyline>
+	}
+}
+
+templ PrimaryChevronDown(props *structs.Button) {
+	@chevronBase(props, "black", "border-black", "p-1", "24") {
+		<polyline points="7 13 12 18 17 13"></polyline>
+		<polyline points="7 6 12 11 17 6"></polyline>
+	}
+}
+
+// Primary (black) variants - Small size
+templ PrimarySmallChevronLeft(props *structs.Button) {
+	@chevronBase(props, "black", "border-black", "p-0.5", "16") {
+		<polyline points="11 17 6 12 11 7"></polyline>
+		<polyline points="18 17 13 12 18 7"></polyline>
+	}
+}
+
+templ PrimarySmallChevronRight(props *structs.Button) {
+	@chevronBase(props, "black", "border-black", "p-0.5", "16") {
+		<polyline points="13 17 18 12 13 7"></polyline>
+		<polyline points="6 17 11 12 6 7"></polyline>
+	}
+}
+
+templ PrimarySmallChevronUp(props *structs.Button) {
+	@chevronBase(props, "black", "border-black", "p-0.5", "16") {
+		<polyline points="17 11 12 6 7 11"></polyline>
+		<polyline points="17 18 12 13 7 18"></polyline>
+	}
+}
+
+templ PrimarySmallChevronDown(props *structs.Button) {
+	@chevronBase(props, "black", "border-black", "p-0.5", "16") {
+		<polyline points="7 13 12 18 17 13"></polyline>
+		<polyline points="7 6 12 11 17 6"></polyline>
+	}
+}

@@ -1,17 +1,17 @@
 package create
 
 import (
-	"github.com/alterejoe/shared/interfaces"
+	"github.com/alterejoe/shared/structs"
 
 	"gopkg.in/gomail.v2"
 )
 
-func GetMailDialer(auth interfaces.MailAuth) *gomail.Dialer {
+func CreateMailDialer(auth structs.MailAuth) *gomail.Dialer {
 
-	user := auth.GetUser()
-	pass := auth.GetPassword()
-	host := auth.GetHost()
-	port := auth.GetPort()
+	user := auth.User
+	pass := auth.Password
+	host := auth.Host
+	port := auth.Port
 
 	return gomail.NewDialer(host, port, user, pass)
 }

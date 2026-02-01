@@ -1,0 +1,44 @@
+name: Button
+struct: Button
+template: button_base.templ
+
+variants:
+  - name: Primary
+    prefix: btnprimary
+    props:
+      bgClass: bg-primary
+
+  - name: Secondary
+    prefix: btnsecondary
+    props:
+      bgClass: bg-secondary
+
+  - name: Tertiary
+    prefix: btntertiary
+    props:
+      bgClass: bg-tertiary
+
+  - name: Quaternary
+    prefix: btnquaternary
+    props:
+      bgClass: bg-quaternary
+
+  - name: Accent
+    prefix: btnaccent
+    props:
+      bgClass: bg-accent
+
+  - name: Unique
+    prefix: btnunique
+    props:
+      bgClass: bg-unique
+
+  - name: Attention
+    prefix: btnattention
+    props:
+      bgClass: bg-attention
+
+  - name: Transparent
+    prefix: btntransparent
+    props:
+      bgClass: bg-transparent

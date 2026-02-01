@@ -1,0 +1,84 @@
+package components
+import "{{ .StructsImport }}"
+
+// Base input component with theme colors
+templ inputBase(props *structs.{{ .Struct.Name }}, bgClass string, borderClass string, textClass string) {
+	<input
+		if props.ID != "" {
+			id={ props.ID }
+		}
+		if props.Name != "" {
+			name={ props.Name }
+		}
+		type={ props.Type() }
+		if props.Placeholder != "" {
+			placeholder={ props.Placeholder }
+		}
+		if props.Disabled {
+			disabled
+		}
+		if props.Autofocus {
+			autofocus
+		}
+		if props.Required {
+			required
+		}
+		if props.Value != "" {
+			value={ props.Value }
+		}
+		class={ "text-3xl p-2 rounded w-full cursor-pointer focus:outline-none " + bgClass + " " + borderClass + " " + textClass }
+		if props.FormBehaviors.ConstraintString() != "" {
+			data-constraint={ props.FormBehaviors.ConstraintString() }
+		}
+		if props.FormBehaviors.DirtyWatch {
+			data-dirty-watch="true"
+		}
+		if props.FormBehaviors.DirtyGroup != "" {
+			data-dirty-group={ props.FormBehaviors.DirtyGroup }
+		}
+		if props.Hx.Method == structs.GET {
+			hx-get={ props.Hx.URL }
+		}
+		if props.Hx.Method == structs.POST {
+			hx-post={ props.Hx.URL }
+		}
+		if props.Hx.Method == structs.PUT {
+			hx-put={ props.Hx.URL }
+		}
+		if props.Hx.Method == structs.DELETE {
+			hx-delete={ props.Hx.URL }
+		}
+		if props.Hx.Trigger != "" {
+			hx-trigger={ props.Hx.Trigger }
+		}
+		if props.Hx.Target != "" {
+			hx-target={ props.Hx.Target }
+		}
+		if props.Hx.Swap != "" {
+			hx-swap={ props.Hx.Swap }
+		}
+		if props.Hx.Vals != "" {
+			hx-vals={ props.Hx.Vals }
+		}
+		if props.Hx.Include != "" {
+			hx-include={ props.Hx.Include }
+		}
+		if props.Hx.Indicator != "" {
+			hx-indicator={ props.Hx.Indicator }
+		}
+		if props.Hx.Confirm != "" {
+			hx-confirm={ props.Hx.Confirm }
+		}
+		if props.Hx.PushURL != "" {
+			hx-push-url={ props.Hx.PushURL }
+		}
+	/>
+	if props.ID != "" {
+		<div id={ props.ID + "-errors" } class="text-red-600 text-sm mt-1 hidden"></div>
+	}
+}
+{{ range .Component.Variants }}
+templ {{ .Name }}Input(props *structs.{{ $.Struct.Name }}) {
+	@inputBase(props, "{{ .Props.bgClass }}", "{{ .Props.borderClass }}", "{{ .Props.textClass }}")
+}
+{{ end }}

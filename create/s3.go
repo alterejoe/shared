@@ -7,7 +7,7 @@ import (
 	"io"
 	"os"
 	"strings"
-	"github.com/alterejoe/structs"
+	"github.com/alterejoe/shared/structs"
 
 	"github.com/aws/aws-sdk-go-v2/aws"
 	"github.com/aws/aws-sdk-go-v2/config"
