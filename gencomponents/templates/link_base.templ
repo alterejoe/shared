@@ -1,7 +1,8 @@
 package components
 import "{{ .StructsImport }}"
 
-templ linkBase(props *structs.{{ .Struct.Name }}, colorClass string) {
+{{ range .Component.Variants }}
+templ Link{{ .Name }}(props *structs.{{ $.Struct.Name }}) {
     <a	
 		if props.ID != "" {
 			id={ props.ID }
@@ -9,7 +10,7 @@ templ linkBase(props *structs.{{ .Struct.Name }}, colorClass string) {
 		if props.Href != "" {
 			href={ props.Href }
 		}
-		class={ "cursor-pointer underline " + colorClass }
+		class="cursor-pointer underline {{ .Props.colorClass }}"
 		if props.Hx.Method == structs.GET {
 			hx-get={ props.Hx.URL }
 		}
@@ -57,8 +58,5 @@ templ linkBase(props *structs.{{ .Struct.Name }}, colorClass string) {
 		}
 	</a>
 }
-{{ range .Component.Variants }}
-templ Link{{ .Name }}(props *structs.{{ $.Struct.Name }}) {
-	@linkBase(props, "{{ .Props.colorClass }}")
-}
+
 {{ end }}

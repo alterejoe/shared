@@ -1,8 +1,8 @@
 package components
+
 import "github.com/alterejoe/shared/structs"
 
-// Base component with the variant as a parameter
-templ buttonBase(props *structs.Button, bgClass string) {
+templ PrimaryButton(props *structs.Button) {
 	<button
 		if props.ID != "" {
 			id={ props.ID }
@@ -10,7 +10,7 @@ templ buttonBase(props *structs.Button, bgClass string) {
 		if props.Name != "" {
 			name={ props.Name }
 		}
-		class={ "py-2 px-4 text-xl cursor-pointer transition-colors " + bgClass + " hover:" + bgClass + "/90" }
+		class="py-2 px-4 text-xl cursor-pointer transition-colors bg-primary hover:bg-primary/90"
 		if props.Disabled {
 			disabled
 		}
@@ -59,35 +59,401 @@ templ buttonBase(props *structs.Button, bgClass string) {
 	</button>
 }
 
-templ PrimaryButton(props *structs.Button) {
-	@buttonBase(props, "bg-primary")
-}
-
 templ SecondaryButton(props *structs.Button) {
-	@buttonBase(props, "bg-secondary")
+	<button
+		if props.ID != "" {
+			id={ props.ID }
+		}
+		if props.Name != "" {
+			name={ props.Name }
+		}
+		class="py-2 px-4 text-xl cursor-pointer transition-colors bg-secondary hover:bg-secondary/90"
+		if props.Disabled {
+			disabled
+		}
+		if props.Hx.Method == structs.GET {
+			hx-get={ props.Hx.URL }
+		}
+		if props.Hx.Method == structs.POST {
+			hx-post={ props.Hx.URL }
+		}
+		if props.Hx.Method == structs.PUT {
+			hx-put={ props.Hx.URL }
+		}
+		if props.Hx.Method == structs.DELETE {
+			hx-delete={ props.Hx.URL }
+		}
+		if props.Hx.Trigger != "" {
+			hx-trigger={ props.Hx.Trigger }
+		}
+		if props.Hx.Target != "" {
+			hx-target={ props.Hx.Target }
+		}
+		if props.Hx.Swap != "" {
+			hx-swap={ props.Hx.Swap }
+		}
+		if props.Hx.Vals != "" {
+			hx-vals={ props.Hx.Vals }
+		}
+		if props.Hx.Include != "" {
+			hx-include={ props.Hx.Include }
+		}
+		if props.Hx.Indicator != "" {
+			hx-indicator={ props.Hx.Indicator }
+		}
+		if props.Hx.Confirm != "" {
+			hx-confirm={ props.Hx.Confirm }
+		}
+		if props.Hx.PushURL != "" {
+			hx-push-url={ props.Hx.PushURL }
+		}
+	>
+		if props.Value != "" {
+			{ props.Value }
+		} else {
+			{ children... }
+		}
+	</button>
 }
 
 templ TertiaryButton(props *structs.Button) {
-	@buttonBase(props, "bg-tertiary")
+	<button
+		if props.ID != "" {
+			id={ props.ID }
+		}
+		if props.Name != "" {
+			name={ props.Name }
+		}
+		class="py-2 px-4 text-xl cursor-pointer transition-colors bg-tertiary hover:bg-tertiary/90"
+		if props.Disabled {
+			disabled
+		}
+		if props.Hx.Method == structs.GET {
+			hx-get={ props.Hx.URL }
+		}
+		if props.Hx.Method == structs.POST {
+			hx-post={ props.Hx.URL }
+		}
+		if props.Hx.Method == structs.PUT {
+			hx-put={ props.Hx.URL }
+		}
+		if props.Hx.Method == structs.DELETE {
+			hx-delete={ props.Hx.URL }
+		}
+		if props.Hx.Trigger != "" {
+			hx-trigger={ props.Hx.Trigger }
+		}
+		if props.Hx.Target != "" {
+			hx-target={ props.Hx.Target }
+		}
+		if props.Hx.Swap != "" {
+			hx-swap={ props.Hx.Swap }
+		}
+		if props.Hx.Vals != "" {
+			hx-vals={ props.Hx.Vals }
+		}
+		if props.Hx.Include != "" {
+			hx-include={ props.Hx.Include }
+		}
+		if props.Hx.Indicator != "" {
+			hx-indicator={ props.Hx.Indicator }
+		}
+		if props.Hx.Confirm != "" {
+			hx-confirm={ props.Hx.Confirm }
+		}
+		if props.Hx.PushURL != "" {
+			hx-push-url={ props.Hx.PushURL }
+		}
+	>
+		if props.Value != "" {
+			{ props.Value }
+		} else {
+			{ children... }
+		}
+	</button>
 }
 
 templ QuaternaryButton(props *structs.Button) {
-	@buttonBase(props, "bg-quaternary")
+	<button
+		if props.ID != "" {
+			id={ props.ID }
+		}
+		if props.Name != "" {
+			name={ props.Name }
+		}
+		class="py-2 px-4 text-xl cursor-pointer transition-colors bg-quaternary hover:bg-quaternary/90"
+		if props.Disabled {
+			disabled
+		}
+		if props.Hx.Method == structs.GET {
+			hx-get={ props.Hx.URL }
+		}
+		if props.Hx.Method == structs.POST {
+			hx-post={ props.Hx.URL }
+		}
+		if props.Hx.Method == structs.PUT {
+			hx-put={ props.Hx.URL }
+		}
+		if props.Hx.Method == structs.DELETE {
+			hx-delete={ props.Hx.URL }
+		}
+		if props.Hx.Trigger != "" {
+			hx-trigger={ props.Hx.Trigger }
+		}
+		if props.Hx.Target != "" {
+			hx-target={ props.Hx.Target }
+		}
+		if props.Hx.Swap != "" {
+			hx-swap={ props.Hx.Swap }
+		}
+		if props.Hx.Vals != "" {
+			hx-vals={ props.Hx.Vals }
+		}
+		if props.Hx.Include != "" {
+			hx-include={ props.Hx.Include }
+		}
+		if props.Hx.Indicator != "" {
+			hx-indicator={ props.Hx.Indicator }
+		}
+		if props.Hx.Confirm != "" {
+			hx-confirm={ props.Hx.Confirm }
+		}
+		if props.Hx.PushURL != "" {
+			hx-push-url={ props.Hx.PushURL }
+		}
+	>
+		if props.Value != "" {
+			{ props.Value }
+		} else {
+			{ children... }
+		}
+	</button>
 }
 
 templ AccentButton(props *structs.Button) {
-	@buttonBase(props, "bg-accent")
+	<button
+		if props.ID != "" {
+			id={ props.ID }
+		}
+		if props.Name != "" {
+			name={ props.Name }
+		}
+		class="py-2 px-4 text-xl cursor-pointer transition-colors bg-accent hover:bg-accent/90"
+		if props.Disabled {
+			disabled
+		}
+		if props.Hx.Method == structs.GET {
+			hx-get={ props.Hx.URL }
+		}
+		if props.Hx.Method == structs.POST {
+			hx-post={ props.Hx.URL }
+		}
+		if props.Hx.Method == structs.PUT {
+			hx-put={ props.Hx.URL }
+		}
+		if props.Hx.Method == structs.DELETE {
+			hx-delete={ props.Hx.URL }
+		}
+		if props.Hx.Trigger != "" {
+			hx-trigger={ props.Hx.Trigger }
+		}
+		if props.Hx.Target != "" {
+			hx-target={ props.Hx.Target }
+		}
+		if props.Hx.Swap != "" {
+			hx-swap={ props.Hx.Swap }
+		}
+		if props.Hx.Vals != "" {
+			hx-vals={ props.Hx.Vals }
+		}
+		if props.Hx.Include != "" {
+			hx-include={ props.Hx.Include }
+		}
+		if props.Hx.Indicator != "" {
+			hx-indicator={ props.Hx.Indicator }
+		}
+		if props.Hx.Confirm != "" {
+			hx-confirm={ props.Hx.Confirm }
+		}
+		if props.Hx.PushURL != "" {
+			hx-push-url={ props.Hx.PushURL }
+		}
+	>
+		if props.Value != "" {
+			{ props.Value }
+		} else {
+			{ children... }
+		}
+	</button>
 }
 
 templ UniqueButton(props *structs.Button) {
-	@buttonBase(props, "bg-unique")
+	<button
+		if props.ID != "" {
+			id={ props.ID }
+		}
+		if props.Name != "" {
+			name={ props.Name }
+		}
+		class="py-2 px-4 text-xl cursor-pointer transition-colors bg-unique hover:bg-unique/90"
+		if props.Disabled {
+			disabled
+		}
+		if props.Hx.Method == structs.GET {
+			hx-get={ props.Hx.URL }
+		}
+		if props.Hx.Method == structs.POST {
+			hx-post={ props.Hx.URL }
+		}
+		if props.Hx.Method == structs.PUT {
+			hx-put={ props.Hx.URL }
+		}
+		if props.Hx.Method == structs.DELETE {
+			hx-delete={ props.Hx.URL }
+		}
+		if props.Hx.Trigger != "" {
+			hx-trigger={ props.Hx.Trigger }
+		}
+		if props.Hx.Target != "" {
+			hx-target={ props.Hx.Target }
+		}
+		if props.Hx.Swap != "" {
+			hx-swap={ props.Hx.Swap }
+		}
+		if props.Hx.Vals != "" {
+			hx-vals={ props.Hx.Vals }
+		}
+		if props.Hx.Include != "" {
+			hx-include={ props.Hx.Include }
+		}
+		if props.Hx.Indicator != "" {
+			hx-indicator={ props.Hx.Indicator }
+		}
+		if props.Hx.Confirm != "" {
+			hx-confirm={ props.Hx.Confirm }
+		}
+		if props.Hx.PushURL != "" {
+			hx-push-url={ props.Hx.PushURL }
+		}
+	>
+		if props.Value != "" {
+			{ props.Value }
+		} else {
+			{ children... }
+		}
+	</button>
 }
 
 templ AttentionButton(props *structs.Button) {
-	@buttonBase(props, "bg-attention")
+	<button
+		if props.ID != "" {
+			id={ props.ID }
+		}
+		if props.Name != "" {
+			name={ props.Name }
+		}
+		class="py-2 px-4 text-xl cursor-pointer transition-colors bg-attention hover:bg-attention/90"
+		if props.Disabled {
+			disabled
+		}
+		if props.Hx.Method == structs.GET {
+			hx-get={ props.Hx.URL }
+		}
+		if props.Hx.Method == structs.POST {
+			hx-post={ props.Hx.URL }
+		}
+		if props.Hx.Method == structs.PUT {
+			hx-put={ props.Hx.URL }
+		}
+		if props.Hx.Method == structs.DELETE {
+			hx-delete={ props.Hx.URL }
+		}
+		if props.Hx.Trigger != "" {
+			hx-trigger={ props.Hx.Trigger }
+		}
+		if props.Hx.Target != "" {
+			hx-target={ props.Hx.Target }
+		}
+		if props.Hx.Swap != "" {
+			hx-swap={ props.Hx.Swap }
+		}
+		if props.Hx.Vals != "" {
+			hx-vals={ props.Hx.Vals }
+		}
+		if props.Hx.Include != "" {
+			hx-include={ props.Hx.Include }
+		}
+		if props.Hx.Indicator != "" {
+			hx-indicator={ props.Hx.Indicator }
+		}
+		if props.Hx.Confirm != "" {
+			hx-confirm={ props.Hx.Confirm }
+		}
+		if props.Hx.PushURL != "" {
+			hx-push-url={ props.Hx.PushURL }
+		}
+	>
+		if props.Value != "" {
+			{ props.Value }
+		} else {
+			{ children... }
+		}
+	</button>
 }
 
 templ TransparentButton(props *structs.Button) {
-	@buttonBase(props, "bg-transparent")
+	<button
+		if props.ID != "" {
+			id={ props.ID }
+		}
+		if props.Name != "" {
+			name={ props.Name }
+		}
+		class="py-2 px-4 text-xl cursor-pointer transition-colors bg-transparent hover:bg-transparent/90"
+		if props.Disabled {
+			disabled
+		}
+		if props.Hx.Method == structs.GET {
+			hx-get={ props.Hx.URL }
+		}
+		if props.Hx.Method == structs.POST {
+			hx-post={ props.Hx.URL }
+		}
+		if props.Hx.Method == structs.PUT {
+			hx-put={ props.Hx.URL }
+		}
+		if props.Hx.Method == structs.DELETE {
+			hx-delete={ props.Hx.URL }
+		}
+		if props.Hx.Trigger != "" {
+			hx-trigger={ props.Hx.Trigger }
+		}
+		if props.Hx.Target != "" {
+			hx-target={ props.Hx.Target }
+		}
+		if props.Hx.Swap != "" {
+			hx-swap={ props.Hx.Swap }
+		}
+		if props.Hx.Vals != "" {
+			hx-vals={ props.Hx.Vals }
+		}
+		if props.Hx.Include != "" {
+			hx-include={ props.Hx.Include }
+		}
+		if props.Hx.Indicator != "" {
+			hx-indicator={ props.Hx.Indicator }
+		}
+		if props.Hx.Confirm != "" {
+			hx-confirm={ props.Hx.Confirm }
+		}
+		if props.Hx.PushURL != "" {
+			hx-push-url={ props.Hx.PushURL }
+		}
+	>
+		if props.Value != "" {
+			{ props.Value }
+		} else {
+			{ children... }
+		}
+	</button>
 }
-

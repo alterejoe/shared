@@ -1,8 +1,8 @@
 package components
 import "github.com/alterejoe/shared/structs"
 
-// Base component with the variant as a parameter
-templ noticeBase(props *structs.Notice, bgClass string) {
+
+templ NoticePrimary(props *structs.Notice) {
 	<h5
 		if props.ID != "" {
 			id={ props.ID }
@@ -10,7 +10,7 @@ templ noticeBase(props *structs.Notice, bgClass string) {
 		if props.Name != "" {
 			name={ props.Name }
 		}
-		class={ "p-3 text-center justify-center flex " + bgClass }
+		class="p-3 text-center justify-center flex bg-primary"
 	>
 		if props.Value != "" {
 			if props.Align() {
@@ -26,39 +26,129 @@ templ noticeBase(props *structs.Notice, bgClass string) {
 	</h5>
 }
 
-templ NoticePrimary(props *structs.Notice) {
-	@noticeBase(props, "bg-primary") {
-		{ children... }
-	}
-}
 
 templ NoticeSecondary(props *structs.Notice) {
-	@noticeBase(props, "bg-secondary") {
-		{ children... }
-	}
+	<h5
+		if props.ID != "" {
+			id={ props.ID }
+		}
+		if props.Name != "" {
+			name={ props.Name }
+		}
+		class="p-3 text-center justify-center flex bg-secondary"
+	>
+		if props.Value != "" {
+			if props.Align() {
+				{ props.Value }
+				{ children... }
+			} else {
+				{ children... }
+				{ props.Value }
+			}
+		} else {
+			{ children... }
+		}
+	</h5>
 }
+
 
 templ NoticeTertiary(props *structs.Notice) {
-	@noticeBase(props, "bg-tertiary") {
-		{ children... }
-	}
+	<h5
+		if props.ID != "" {
+			id={ props.ID }
+		}
+		if props.Name != "" {
+			name={ props.Name }
+		}
+		class="p-3 text-center justify-center flex bg-tertiary"
+	>
+		if props.Value != "" {
+			if props.Align() {
+				{ props.Value }
+				{ children... }
+			} else {
+				{ children... }
+				{ props.Value }
+			}
+		} else {
+			{ children... }
+		}
+	</h5>
 }
+
 
 templ NoticeAccent(props *structs.Notice) {
-	@noticeBase(props, "bg-accent") {
-		{ children... }
-	}
+	<h5
+		if props.ID != "" {
+			id={ props.ID }
+		}
+		if props.Name != "" {
+			name={ props.Name }
+		}
+		class="p-3 text-center justify-center flex bg-accent"
+	>
+		if props.Value != "" {
+			if props.Align() {
+				{ props.Value }
+				{ children... }
+			} else {
+				{ children... }
+				{ props.Value }
+			}
+		} else {
+			{ children... }
+		}
+	</h5>
 }
+
 
 templ NoticeUnique(props *structs.Notice) {
-	@noticeBase(props, "bg-unique") {
-		{ children... }
-	}
+	<h5
+		if props.ID != "" {
+			id={ props.ID }
+		}
+		if props.Name != "" {
+			name={ props.Name }
+		}
+		class="p-3 text-center justify-center flex bg-unique"
+	>
+		if props.Value != "" {
+			if props.Align() {
+				{ props.Value }
+				{ children... }
+			} else {
+				{ children... }
+				{ props.Value }
+			}
+		} else {
+			{ children... }
+		}
+	</h5>
 }
 
+
 templ NoticeAttention(props *structs.Notice) {
-	@noticeBase(props, "bg-attention") {
-		{ children... }
-	}
+	<h5
+		if props.ID != "" {
+			id={ props.ID }
+		}
+		if props.Name != "" {
+			name={ props.Name }
+		}
+		class="p-3 text-center justify-center flex bg-attention"
+	>
+		if props.Value != "" {
+			if props.Align() {
+				{ props.Value }
+				{ children... }
+			} else {
+				{ children... }
+				{ props.Value }
+			}
+		} else {
+			{ children... }
+		}
+	</h5>
 }
+
 

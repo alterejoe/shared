@@ -1,7 +1,8 @@
 package components
 import "{{ .StructsImport }}"
 
-templ textareaBase(props *structs.{{ .Struct.Name }}, bgClass string, borderClass string, textClass string) {
+{{ range .Component.Variants }}
+templ {{ .Name }}Textarea(props *structs.{{ $.Struct.Name }}) {
 	<textarea
 		if props.ID != "" {
 			id={ props.ID }
@@ -24,7 +25,7 @@ templ textareaBase(props *structs.{{ .Struct.Name }}, bgClass string, borderClas
 		if props.Required {
 			required
 		}
-		class={ "text-lg px-2 rounded w-full cursor-pointer outline-none resize-y " + bgClass + " " + borderClass + " " + textClass }
+		class="text-lg px-2 rounded w-full cursor-pointer outline-none resize-y {{ .Props.bgClass }} {{ .Props.borderClass }} {{ .Props.textClass }}"
 		if props.FormBehaviors.ConstraintString() != "" {
 			data-constraint={ props.FormBehaviors.ConstraintString() }
 		}
@@ -75,8 +76,5 @@ templ textareaBase(props *structs.{{ .Struct.Name }}, bgClass string, borderClas
 		<div id={ props.ID + "-errors" } class="text-red-600 text-sm mt-1 hidden"></div>
 	}
 }
-{{ range .Component.Variants }}
-templ {{ .Name }}Textarea(props *structs.{{ $.Struct.Name }}) {
-	@textareaBase(props, "{{ .Props.bgClass }}", "{{ .Props.borderClass }}", "{{ .Props.textClass }}")
-}
+
 {{ end }}

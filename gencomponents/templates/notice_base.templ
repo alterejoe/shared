@@ -1,8 +1,8 @@
 package components
 import "{{ .StructsImport }}"
 
-// Base component with the variant as a parameter
-templ noticeBase(props *structs.{{ .Struct.Name }}, bgClass string) {
+{{ range .Component.Variants }}
+templ Notice{{ .Name }}(props *structs.{{ $.Struct.Name }}) {
 	<h5
 		if props.ID != "" {
 			id={ props.ID }
@@ -10,7 +10,7 @@ templ noticeBase(props *structs.{{ .Struct.Name }}, bgClass string) {
 		if props.Name != "" {
 			name={ props.Name }
 		}
-		class={ "p-3 text-center justify-center flex " + bgClass }
+		class="p-3 text-center justify-center flex {{ .Props.bgClass }}"
 	>
 		if props.Value != "" {
 			if props.Align() {
@@ -25,10 +25,5 @@ templ noticeBase(props *structs.{{ .Struct.Name }}, bgClass string) {
 		}
 	</h5>
 }
-{{ range .Component.Variants }}
-templ Notice{{ .Name }}(props *structs.{{ $.Struct.Name }}) {
-	@noticeBase(props, "{{ .Props.bgClass }}") {
-		{ children... }
-	}
-}
+
 {{ end }}

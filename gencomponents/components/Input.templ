@@ -1,8 +1,8 @@
 package components
 import "github.com/alterejoe/shared/structs"
 
-// Base input component with theme colors
-templ inputBase(props *structs.Input, bgClass string, borderClass string, textClass string) {
+
+templ PrimaryInput(props *structs.Input) {
 	<input
 		if props.ID != "" {
 			id={ props.ID }
@@ -26,7 +26,7 @@ templ inputBase(props *structs.Input, bgClass string, borderClass string, textCl
 		if props.Value != "" {
 			value={ props.Value }
 		}
-		class={ "text-3xl p-2 rounded w-full cursor-pointer focus:outline-none " + bgClass + " " + borderClass + " " + textClass }
+		class="text-3xl p-2 rounded w-full cursor-pointer focus:outline-none bg-primary border border-primary text-white placeholder-white/70"
 		if props.FormBehaviors.ConstraintString() != "" {
 			data-constraint={ props.FormBehaviors.ConstraintString() }
 		}
@@ -78,31 +78,466 @@ templ inputBase(props *structs.Input, bgClass string, borderClass string, textCl
 	}
 }
 
-templ PrimaryInput(props *structs.Input) {
-	@inputBase(props, "bg-primary", "border border-primary", "text-white placeholder-white/70")
-}
 
 templ SecondaryInput(props *structs.Input) {
-	@inputBase(props, "bg-secondary", "border border-secondary", "text-white placeholder-white/70")
+	<input
+		if props.ID != "" {
+			id={ props.ID }
+		}
+		if props.Name != "" {
+			name={ props.Name }
+		}
+		type={ props.Type() }
+		if props.Placeholder != "" {
+			placeholder={ props.Placeholder }
+		}
+		if props.Disabled {
+			disabled
+		}
+		if props.Autofocus {
+			autofocus
+		}
+		if props.Required {
+			required
+		}
+		if props.Value != "" {
+			value={ props.Value }
+		}
+		class="text-3xl p-2 rounded w-full cursor-pointer focus:outline-none bg-secondary border border-secondary text-white placeholder-white/70"
+		if props.FormBehaviors.ConstraintString() != "" {
+			data-constraint={ props.FormBehaviors.ConstraintString() }
+		}
+		if props.FormBehaviors.DirtyWatch {
+			data-dirty-watch="true"
+		}
+		if props.FormBehaviors.DirtyGroup != "" {
+			data-dirty-group={ props.FormBehaviors.DirtyGroup }
+		}
+		if props.Hx.Method == structs.GET {
+			hx-get={ props.Hx.URL }
+		}
+		if props.Hx.Method == structs.POST {
+			hx-post={ props.Hx.URL }
+		}
+		if props.Hx.Method == structs.PUT {
+			hx-put={ props.Hx.URL }
+		}
+		if props.Hx.Method == structs.DELETE {
+			hx-delete={ props.Hx.URL }
+		}
+		if props.Hx.Trigger != "" {
+			hx-trigger={ props.Hx.Trigger }
+		}
+		if props.Hx.Target != "" {
+			hx-target={ props.Hx.Target }
+		}
+		if props.Hx.Swap != "" {
+			hx-swap={ props.Hx.Swap }
+		}
+		if props.Hx.Vals != "" {
+			hx-vals={ props.Hx.Vals }
+		}
+		if props.Hx.Include != "" {
+			hx-include={ props.Hx.Include }
+		}
+		if props.Hx.Indicator != "" {
+			hx-indicator={ props.Hx.Indicator }
+		}
+		if props.Hx.Confirm != "" {
+			hx-confirm={ props.Hx.Confirm }
+		}
+		if props.Hx.PushURL != "" {
+			hx-push-url={ props.Hx.PushURL }
+		}
+	/>
+	if props.ID != "" {
+		<div id={ props.ID + "-errors" } class="text-red-600 text-sm mt-1 hidden"></div>
+	}
 }
+
 
 templ TertiaryInput(props *structs.Input) {
-	@inputBase(props, "bg-tertiary", "border border-tertiary", "text-white placeholder-white/70")
+	<input
+		if props.ID != "" {
+			id={ props.ID }
+		}
+		if props.Name != "" {
+			name={ props.Name }
+		}
+		type={ props.Type() }
+		if props.Placeholder != "" {
+			placeholder={ props.Placeholder }
+		}
+		if props.Disabled {
+			disabled
+		}
+		if props.Autofocus {
+			autofocus
+		}
+		if props.Required {
+			required
+		}
+		if props.Value != "" {
+			value={ props.Value }
+		}
+		class="text-3xl p-2 rounded w-full cursor-pointer focus:outline-none bg-tertiary border border-tertiary text-white placeholder-white/70"
+		if props.FormBehaviors.ConstraintString() != "" {
+			data-constraint={ props.FormBehaviors.ConstraintString() }
+		}
+		if props.FormBehaviors.DirtyWatch {
+			data-dirty-watch="true"
+		}
+		if props.FormBehaviors.DirtyGroup != "" {
+			data-dirty-group={ props.FormBehaviors.DirtyGroup }
+		}
+		if props.Hx.Method == structs.GET {
+			hx-get={ props.Hx.URL }
+		}
+		if props.Hx.Method == structs.POST {
+			hx-post={ props.Hx.URL }
+		}
+		if props.Hx.Method == structs.PUT {
+			hx-put={ props.Hx.URL }
+		}
+		if props.Hx.Method == structs.DELETE {
+			hx-delete={ props.Hx.URL }
+		}
+		if props.Hx.Trigger != "" {
+			hx-trigger={ props.Hx.Trigger }
+		}
+		if props.Hx.Target != "" {
+			hx-target={ props.Hx.Target }
+		}
+		if props.Hx.Swap != "" {
+			hx-swap={ props.Hx.Swap }
+		}
+		if props.Hx.Vals != "" {
+			hx-vals={ props.Hx.Vals }
+		}
+		if props.Hx.Include != "" {
+			hx-include={ props.Hx.Include }
+		}
+		if props.Hx.Indicator != "" {
+			hx-indicator={ props.Hx.Indicator }
+		}
+		if props.Hx.Confirm != "" {
+			hx-confirm={ props.Hx.Confirm }
+		}
+		if props.Hx.PushURL != "" {
+			hx-push-url={ props.Hx.PushURL }
+		}
+	/>
+	if props.ID != "" {
+		<div id={ props.ID + "-errors" } class="text-red-600 text-sm mt-1 hidden"></div>
+	}
 }
+
 
 templ AccentInput(props *structs.Input) {
-	@inputBase(props, "bg-accent", "border border-accent", "text-white placeholder-white/70")
+	<input
+		if props.ID != "" {
+			id={ props.ID }
+		}
+		if props.Name != "" {
+			name={ props.Name }
+		}
+		type={ props.Type() }
+		if props.Placeholder != "" {
+			placeholder={ props.Placeholder }
+		}
+		if props.Disabled {
+			disabled
+		}
+		if props.Autofocus {
+			autofocus
+		}
+		if props.Required {
+			required
+		}
+		if props.Value != "" {
+			value={ props.Value }
+		}
+		class="text-3xl p-2 rounded w-full cursor-pointer focus:outline-none bg-accent border border-accent text-white placeholder-white/70"
+		if props.FormBehaviors.ConstraintString() != "" {
+			data-constraint={ props.FormBehaviors.ConstraintString() }
+		}
+		if props.FormBehaviors.DirtyWatch {
+			data-dirty-watch="true"
+		}
+		if props.FormBehaviors.DirtyGroup != "" {
+			data-dirty-group={ props.FormBehaviors.DirtyGroup }
+		}
+		if props.Hx.Method == structs.GET {
+			hx-get={ props.Hx.URL }
+		}
+		if props.Hx.Method == structs.POST {
+			hx-post={ props.Hx.URL }
+		}
+		if props.Hx.Method == structs.PUT {
+			hx-put={ props.Hx.URL }
+		}
+		if props.Hx.Method == structs.DELETE {
+			hx-delete={ props.Hx.URL }
+		}
+		if props.Hx.Trigger != "" {
+			hx-trigger={ props.Hx.Trigger }
+		}
+		if props.Hx.Target != "" {
+			hx-target={ props.Hx.Target }
+		}
+		if props.Hx.Swap != "" {
+			hx-swap={ props.Hx.Swap }
+		}
+		if props.Hx.Vals != "" {
+			hx-vals={ props.Hx.Vals }
+		}
+		if props.Hx.Include != "" {
+			hx-include={ props.Hx.Include }
+		}
+		if props.Hx.Indicator != "" {
+			hx-indicator={ props.Hx.Indicator }
+		}
+		if props.Hx.Confirm != "" {
+			hx-confirm={ props.Hx.Confirm }
+		}
+		if props.Hx.PushURL != "" {
+			hx-push-url={ props.Hx.PushURL }
+		}
+	/>
+	if props.ID != "" {
+		<div id={ props.ID + "-errors" } class="text-red-600 text-sm mt-1 hidden"></div>
+	}
 }
+
 
 templ UniqueInput(props *structs.Input) {
-	@inputBase(props, "bg-unique", "border border-unique", "text-white placeholder-white/70")
+	<input
+		if props.ID != "" {
+			id={ props.ID }
+		}
+		if props.Name != "" {
+			name={ props.Name }
+		}
+		type={ props.Type() }
+		if props.Placeholder != "" {
+			placeholder={ props.Placeholder }
+		}
+		if props.Disabled {
+			disabled
+		}
+		if props.Autofocus {
+			autofocus
+		}
+		if props.Required {
+			required
+		}
+		if props.Value != "" {
+			value={ props.Value }
+		}
+		class="text-3xl p-2 rounded w-full cursor-pointer focus:outline-none bg-unique border border-unique text-white placeholder-white/70"
+		if props.FormBehaviors.ConstraintString() != "" {
+			data-constraint={ props.FormBehaviors.ConstraintString() }
+		}
+		if props.FormBehaviors.DirtyWatch {
+			data-dirty-watch="true"
+		}
+		if props.FormBehaviors.DirtyGroup != "" {
+			data-dirty-group={ props.FormBehaviors.DirtyGroup }
+		}
+		if props.Hx.Method == structs.GET {
+			hx-get={ props.Hx.URL }
+		}
+		if props.Hx.Method == structs.POST {
+			hx-post={ props.Hx.URL }
+		}
+		if props.Hx.Method == structs.PUT {
+			hx-put={ props.Hx.URL }
+		}
+		if props.Hx.Method == structs.DELETE {
+			hx-delete={ props.Hx.URL }
+		}
+		if props.Hx.Trigger != "" {
+			hx-trigger={ props.Hx.Trigger }
+		}
+		if props.Hx.Target != "" {
+			hx-target={ props.Hx.Target }
+		}
+		if props.Hx.Swap != "" {
+			hx-swap={ props.Hx.Swap }
+		}
+		if props.Hx.Vals != "" {
+			hx-vals={ props.Hx.Vals }
+		}
+		if props.Hx.Include != "" {
+			hx-include={ props.Hx.Include }
+		}
+		if props.Hx.Indicator != "" {
+			hx-indicator={ props.Hx.Indicator }
+		}
+		if props.Hx.Confirm != "" {
+			hx-confirm={ props.Hx.Confirm }
+		}
+		if props.Hx.PushURL != "" {
+			hx-push-url={ props.Hx.PushURL }
+		}
+	/>
+	if props.ID != "" {
+		<div id={ props.ID + "-errors" } class="text-red-600 text-sm mt-1 hidden"></div>
+	}
 }
+
 
 templ AttentionInput(props *structs.Input) {
-	@inputBase(props, "bg-attention", "border border-attention", "text-white placeholder-white/70")
+	<input
+		if props.ID != "" {
+			id={ props.ID }
+		}
+		if props.Name != "" {
+			name={ props.Name }
+		}
+		type={ props.Type() }
+		if props.Placeholder != "" {
+			placeholder={ props.Placeholder }
+		}
+		if props.Disabled {
+			disabled
+		}
+		if props.Autofocus {
+			autofocus
+		}
+		if props.Required {
+			required
+		}
+		if props.Value != "" {
+			value={ props.Value }
+		}
+		class="text-3xl p-2 rounded w-full cursor-pointer focus:outline-none bg-attention border border-attention text-white placeholder-white/70"
+		if props.FormBehaviors.ConstraintString() != "" {
+			data-constraint={ props.FormBehaviors.ConstraintString() }
+		}
+		if props.FormBehaviors.DirtyWatch {
+			data-dirty-watch="true"
+		}
+		if props.FormBehaviors.DirtyGroup != "" {
+			data-dirty-group={ props.FormBehaviors.DirtyGroup }
+		}
+		if props.Hx.Method == structs.GET {
+			hx-get={ props.Hx.URL }
+		}
+		if props.Hx.Method == structs.POST {
+			hx-post={ props.Hx.URL }
+		}
+		if props.Hx.Method == structs.PUT {
+			hx-put={ props.Hx.URL }
+		}
+		if props.Hx.Method == structs.DELETE {
+			hx-delete={ props.Hx.URL }
+		}
+		if props.Hx.Trigger != "" {
+			hx-trigger={ props.Hx.Trigger }
+		}
+		if props.Hx.Target != "" {
+			hx-target={ props.Hx.Target }
+		}
+		if props.Hx.Swap != "" {
+			hx-swap={ props.Hx.Swap }
+		}
+		if props.Hx.Vals != "" {
+			hx-vals={ props.Hx.Vals }
+		}
+		if props.Hx.Include != "" {
+			hx-include={ props.Hx.Include }
+		}
+		if props.Hx.Indicator != "" {
+			hx-indicator={ props.Hx.Indicator }
+		}
+		if props.Hx.Confirm != "" {
+			hx-confirm={ props.Hx.Confirm }
+		}
+		if props.Hx.PushURL != "" {
+			hx-push-url={ props.Hx.PushURL }
+		}
+	/>
+	if props.ID != "" {
+		<div id={ props.ID + "-errors" } class="text-red-600 text-sm mt-1 hidden"></div>
+	}
 }
 
+
 templ DefaultInput(props *structs.Input) {
-	@inputBase(props, "bg-white", "border border-gray-300", "text-gray-900 placeholder-gray-400")
+	<input
+		if props.ID != "" {
+			id={ props.ID }
+		}
+		if props.Name != "" {
+			name={ props.Name }
+		}
+		type={ props.Type() }
+		if props.Placeholder != "" {
+			placeholder={ props.Placeholder }
+		}
+		if props.Disabled {
+			disabled
+		}
+		if props.Autofocus {
+			autofocus
+		}
+		if props.Required {
+			required
+		}
+		if props.Value != "" {
+			value={ props.Value }
+		}
+		class="text-3xl p-2 rounded w-full cursor-pointer focus:outline-none bg-white border border-gray-300 text-gray-900 placeholder-gray-400"
+		if props.FormBehaviors.ConstraintString() != "" {
+			data-constraint={ props.FormBehaviors.ConstraintString() }
+		}
+		if props.FormBehaviors.DirtyWatch {
+			data-dirty-watch="true"
+		}
+		if props.FormBehaviors.DirtyGroup != "" {
+			data-dirty-group={ props.FormBehaviors.DirtyGroup }
+		}
+		if props.Hx.Method == structs.GET {
+			hx-get={ props.Hx.URL }
+		}
+		if props.Hx.Method == structs.POST {
+			hx-post={ props.Hx.URL }
+		}
+		if props.Hx.Method == structs.PUT {
+			hx-put={ props.Hx.URL }
+		}
+		if props.Hx.Method == structs.DELETE {
+			hx-delete={ props.Hx.URL }
+		}
+		if props.Hx.Trigger != "" {
+			hx-trigger={ props.Hx.Trigger }
+		}
+		if props.Hx.Target != "" {
+			hx-target={ props.Hx.Target }
+		}
+		if props.Hx.Swap != "" {
+			hx-swap={ props.Hx.Swap }
+		}
+		if props.Hx.Vals != "" {
+			hx-vals={ props.Hx.Vals }
+		}
+		if props.Hx.Include != "" {
+			hx-include={ props.Hx.Include }
+		}
+		if props.Hx.Indicator != "" {
+			hx-indicator={ props.Hx.Indicator }
+		}
+		if props.Hx.Confirm != "" {
+			hx-confirm={ props.Hx.Confirm }
+		}
+		if props.Hx.PushURL != "" {
+			hx-push-url={ props.Hx.PushURL }
+		}
+	/>
+	if props.ID != "" {
+		<div id={ props.ID + "-errors" } class="text-red-600 text-sm mt-1 hidden"></div>
+	}
 }
+
 

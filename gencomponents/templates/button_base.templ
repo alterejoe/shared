@@ -1,8 +1,8 @@
 package components
-import "{{.StructsImport}}"
+import "{{ .StructsImport }}"
 
-// Base component with the variant as a parameter
-templ buttonBase(props *structs.{{.Struct.Name}}, bgClass string) {
+{{ range .Component.Variants }}
+templ {{ .Name }}Button(props *structs.{{ $.Struct.Name }}) {
 	<button
 		if props.ID != "" {
 			id={ props.ID }
@@ -10,7 +10,7 @@ templ buttonBase(props *structs.{{.Struct.Name}}, bgClass string) {
 		if props.Name != "" {
 			name={ props.Name }
 		}
-		class={ "py-2 px-4 text-xl cursor-pointer transition-colors " + bgClass + " hover:" + bgClass + "/90" }
+		class="py-2 px-4 text-xl cursor-pointer transition-colors {{ .Props.bgClass }} hover:{{ .Props.bgClass }}/90"
 		if props.Disabled {
 			disabled
 		}
@@ -58,8 +58,5 @@ templ buttonBase(props *structs.{{.Struct.Name}}, bgClass string) {
 		}
 	</button>
 }
-{{ range .Component.Variants }}
-templ {{ .Name }}Button(props *structs.{{ $.Struct.Name }}) {
-	@buttonBase(props, "{{ .Props.bgClass }}")
-}
+
 {{ end }}

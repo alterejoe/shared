@@ -1,8 +1,8 @@
 package components
 import "{{ .StructsImport }}"
 
-// Base component with the variant as a parameter
-templ radioButtonBase(props *structs.{{ .Struct.Name }}, bgClass string) {
+{{ range .Component.Variants }}
+templ {{ .Name }}RadioButton(props *structs.{{ $.Struct.Name }}) {
 	<div class="flex items-center">
 		<input
 			type="radio"
@@ -75,16 +75,11 @@ templ radioButtonBase(props *structs.{{ .Struct.Name }}, bgClass string) {
 			if props.ID != "" {
 				for={ props.ID }
 			}
-			class={ "px-3 py-2 rounded cursor-pointer inline-flex items-center select-none border-2 border-transparent " +
-				bgClass + " " +
-				"peer-checked:border-slate-700" }
+			class="px-3 py-2 rounded cursor-pointer inline-flex items-center select-none border-2 border-transparent {{ .Props.bgClass }} peer-checked:border-slate-700"
 		>
 			{ props.Value }
 		</label>
 	</div>
 }
-{{ range .Component.Variants }}
-templ {{ .Name }}RadioButton(props *structs.{{ $.Struct.Name }}) {
-	@radioButtonBase(props, "{{ .Props.bgClass }}")
-}
+
 {{ end }}

@@ -1,10 +1,13 @@
 package components
 import "{{ .StructsImport }}"
 
-// Base component with color classes and size as parameters
-templ chevronBase(props *structs.{{ .Struct.Name }}, strokeColor string, borderColor string, size string, svgSize string) {
+{{ $svgPaths := .Component.SvgPaths }}
+{{ range .Component.Variants }}
+{{ $direction := index .Props "direction" }}
+{{ $paths := index $svgPaths $direction }}
+templ {{ .Name }}{{ if eq $direction "left" }}Left{{ else if eq $direction "right" }}Right{{ else if eq $direction "up" }}Up{{ else }}Down{{ end }}(props *structs.{{ $.Struct.Name }}) {
 	<div
-		class={ "border-2 rounded-md hover:bg-secondary cursor-pointer " + borderColor + " " + size }
+		class="border-2 rounded-md hover:bg-secondary cursor-pointer {{ .Props.borderColor }} {{ .Props.padding }}"
 		if props.ID != "" {
 			id={ props.ID }
 		}
@@ -45,124 +48,10 @@ templ chevronBase(props *structs.{{ .Struct.Name }}, strokeColor string, borderC
 			hx-push-url={ props.Hx.PushURL }
 		}
 	>
-		<svg width={ svgSize } height={ svgSize } viewBox="0 0 24 24" fill="none" stroke={ strokeColor } stroke-width="2">
-			{ children... }
+		<svg width="{{ .Props.svgSize }}" height="{{ .Props.svgSize }}" viewBox="0 0 24 24" fill="none" stroke="{{ .Props.strokeColor }}" stroke-width="2">
+			{{ range $paths }}<polyline points="{{ . }}"></polyline>{{ end }}
 		</svg>
 	</div>
 }
 
-// Standard (white) variants - Normal size
-templ ChevronLeft(props *structs.{{ .Struct.Name }}) {
-	@chevronBase(props, "white", "border-white", "p-1", "24") {
-		<polyline points="11 17 6 12 11 7"></polyline>
-		<polyline points="18 17 13 12 18 7"></polyline>
-	}
-}
-
-templ ChevronRight(props *structs.{{ .Struct.Name }}) {
-	@chevronBase(props, "white", "border-white", "p-1", "24") {
-		<polyline points="13 17 18 12 13 7"></polyline>
-		<polyline points="6 17 11 12 6 7"></polyline>
-	}
-}
-
-templ ChevronUp(props *structs.{{ .Struct.Name }}) {
-	@chevronBase(props, "white", "border-white", "p-1", "24") {
-		<polyline points="17 11 12 6 7 11"></polyline>
-		<polyline points="17 18 12 13 7 18"></polyline>
-	}
-}
-
-templ ChevronDown(props *structs.{{ .Struct.Name }}) {
-	@chevronBase(props, "white", "border-white", "p-1", "24") {
-		<polyline points="7 13 12 18 17 13"></polyline>
-		<polyline points="7 6 12 11 17 6"></polyline>
-	}
-}
-
-// Standard (white) variants - Small size
-templ SmallChevronLeft(props *structs.{{ .Struct.Name }}) {
-	@chevronBase(props, "white", "border-white", "p-0.5", "16") {
-		<polyline points="11 17 6 12 11 7"></polyline>
-		<polyline points="18 17 13 12 18 7"></polyline>
-	}
-}
-
-templ SmallChevronRight(props *structs.{{ .Struct.Name }}) {
-	@chevronBase(props, "white", "border-white", "p-0.5", "16") {
-		<polyline points="13 17 18 12 13 7"></polyline>
-		<polyline points="6 17 11 12 6 7"></polyline>
-	}
-}
-
-templ SmallChevronUp(props *structs.{{ .Struct.Name }}) {
-	@chevronBase(props, "white", "border-white", "p-0.5", "16") {
-		<polyline points="17 11 12 6 7 11"></polyline>
-		<polyline points="17 18 12 13 7 18"></polyline>
-	}
-}
-
-templ SmallChevronDown(props *structs.{{ .Struct.Name }}) {
-	@chevronBase(props, "white", "border-white", "p-0.5", "16") {
-		<polyline points="7 13 12 18 17 13"></polyline>
-		<polyline points="7 6 12 11 17 6"></polyline>
-	}
-}
-
-// Primary (black) variants - Normal size
-templ PrimaryChevronLeft(props *structs.{{ .Struct.Name }}) {
-	@chevronBase(props, "black", "border-black", "p-1", "24") {
-		<polyline points="11 17 6 12 11 7"></polyline>
-		<polyline points="18 17 13 12 18 7"></polyline>
-	}
-}
-
-templ PrimaryChevronRight(props *structs.{{ .Struct.Name }}) {
-	@chevronBase(props, "black", "border-black", "p-1", "24") {
-		<polyline points="13 17 18 12 13 7"></polyline>
-		<polyline points="6 17 11 12 6 7"></polyline>
-	}
-}
-
-templ PrimaryChevronUp(props *structs.{{ .Struct.Name }}) {
-	@chevronBase(props, "black", "border-black", "p-1", "24") {
-		<polyline points="17 11 12 6 7 11"></polyline>
-		<polyline points="17 18 12 13 7 18"></polyline>
-	}
-}
-
-templ PrimaryChevronDown(props *structs.{{ .Struct.Name }}) {
-	@chevronBase(props, "black", "border-black", "p-1", "24") {
-		<polyline points="7 13 12 18 17 13"></polyline>
-		<polyline points="7 6 12 11 17 6"></polyline>
-	}
-}
-
-// Primary (black) variants - Small size
-templ PrimarySmallChevronLeft(props *structs.{{ .Struct.Name }}) {
-	@chevronBase(props, "black", "border-black", "p-0.5", "16") {
-		<polyline points="11 17 6 12 11 7"></polyline>
-		<polyline points="18 17 13 12 18 7"></polyline>
-	}
-}
-
-templ PrimarySmallChevronRight(props *structs.{{ .Struct.Name }}) {
-	@chevronBase(props, "black", "border-black", "p-0.5", "16") {
-		<polyline points="13 17 18 12 13 7"></polyline>
-		<polyline points="6 17 11 12 6 7"></polyline>
-	}
-}
-
-templ PrimarySmallChevronUp(props *structs.{{ .Struct.Name }}) {
-	@chevronBase(props, "black", "border-black", "p-0.5", "16") {
-		<polyline points="17 11 12 6 7 11"></polyline>
-		<polyline points="17 18 12 13 7 18"></polyline>
-	}
-}
-
-templ PrimarySmallChevronDown(props *structs.{{ .Struct.Name }}) {
-	@chevronBase(props, "black", "border-black", "p-0.5", "16") {
-		<polyline points="7 13 12 18 17 13"></polyline>
-		<polyline points="7 6 12 11 17 6"></polyline>
-	}
-}
+{{ end }}

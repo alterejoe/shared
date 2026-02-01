@@ -2,36 +2,166 @@ name: Chevron
 struct: Button
 template: chevron_base.templ
 
+# Define SVG paths once
+svg_paths:
+  left:
+    - "11 17 6 12 11 7"
+    - "18 17 13 12 18 7"
+  right:
+    - "13 17 18 12 13 7"
+    - "6 17 11 12 6 7"
+  up:
+    - "17 11 12 6 7 11"
+    - "17 18 12 13 7 18"
+  down:
+    - "7 13 12 18 17 13"
+    - "7 6 12 11 17 6"
+
 variants:
+  # Standard (white) - Normal size
   - name: Chevron
     prefix: chevleft
+    props:
+      direction: left
+      strokeColor: white
+      borderColor: border-white
+      padding: p-1
+      svgSize: "24"
+
   - name: Chevron
     prefix: chevright
+    props:
+      direction: right
+      strokeColor: white
+      borderColor: border-white
+      padding: p-1
+      svgSize: "24"
+
   - name: Chevron
     prefix: chevup
+    props:
+      direction: up
+      strokeColor: white
+      borderColor: border-white
+      padding: p-1
+      svgSize: "24"
+
   - name: Chevron
     prefix: chevdown
+    props:
+      direction: down
+      strokeColor: white
+      borderColor: border-white
+      padding: p-1
+      svgSize: "24"
+
+  # Standard (white) - Small size
   - name: SmallChevron
     prefix: chevleftsmall
+    props:
+      direction: left
+      strokeColor: white
+      borderColor: border-white
+      padding: p-0.5
+      svgSize: "16"
+
   - name: SmallChevron
     prefix: chevrightsmall
+    props:
+      direction: right
+      strokeColor: white
+      borderColor: border-white
+      padding: p-0.5
+      svgSize: "16"
+
   - name: SmallChevron
     prefix: chevupsmall
+    props:
+      direction: up
+      strokeColor: white
+      borderColor: border-white
+      padding: p-0.5
+      svgSize: "16"
+
   - name: SmallChevron
     prefix: chevdownsmall
+    props:
+      direction: down
+      strokeColor: white
+      borderColor: border-white
+      padding: p-0.5
+      svgSize: "16"
+
+  # Primary (black) - Normal size
   - name: PrimaryChevron
     prefix: chevleftprimary
+    props:
+      direction: left
+      strokeColor: black
+      borderColor: border-black
+      padding: p-1
+      svgSize: "24"
+
   - name: PrimaryChevron
     prefix: chevrightprimary
+    props:
+      direction: right
+      strokeColor: black
+      borderColor: border-black
+      padding: p-1
+      svgSize: "24"
+
   - name: PrimaryChevron
     prefix: chevupprimary
+    props:
+      direction: up
+      strokeColor: black
+      borderColor: border-black
+      padding: p-1
+      svgSize: "24"
+
   - name: PrimaryChevron
     prefix: chevdownprimary
+    props:
+      direction: down
+      strokeColor: black
+      borderColor: border-black
+      padding: p-1
+      svgSize: "24"
+
+  # Primary (black) - Small size
   - name: PrimarySmallChevron
     prefix: chevleftprimarysmall
+    props:
+      direction: left
+      strokeColor: black
+      borderColor: border-black
+      padding: p-0.5
+      svgSize: "16"
+
   - name: PrimarySmallChevron
     prefix: chevrightprimarysmall
+    props:
+      direction: right
+      strokeColor: black
+      borderColor: border-black
+      padding: p-0.5
+      svgSize: "16"
+
   - name: PrimarySmallChevron
     prefix: chevupprimarysmall
+    props:
+      direction: up
+      strokeColor: black
+      borderColor: border-black
+      padding: p-0.5
+      svgSize: "16"
+
   - name: PrimarySmallChevron
     prefix: chevdownprimarysmall
+    props:
+      direction: down
+      strokeColor: black
+      borderColor: border-black
+      padding: p-0.5
+      svgSize: "16"
