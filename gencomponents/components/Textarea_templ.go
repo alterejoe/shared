@@ -571,7 +571,7 @@ func QuaternaryTextarea(props *structs.Textarea) templ.Component {
 			templ_7745c5c3_Var27 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = textareaBase(props, "bg-quaternary", "", "text-white placeholder-gray-400").Render(ctx, templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = textareaBase(props, "bg-quaternary", "", "text-white placeholder-white/70").Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

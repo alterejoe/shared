@@ -45,26 +45,44 @@ func main() {
 	for _, comp := range config.Components {
 		logger.Info("Processing component", "name", comp.Name)
 
-		structInfo, ok := expandedStructs[comp.Struct]
+		// Use ORIGINAL struct (not expanded) for snippets
+		structInfo, ok := structs[comp.Struct]
 		if !ok {
 			logger.Warn("Skipping component - struct not found", "component", comp.Name, "struct", comp.Struct)
 			continue
 		}
 
+		// Use EXPANDED struct for templ generation
+		expandedStructInfo, ok := expandedStructs[comp.Struct]
+		if !ok {
+			logger.Warn("Skipping component - expanded struct not found", "component", comp.Name, "struct", comp.Struct)
+			continue
+		}
+
 		logger.Info("Generating component", "name", comp.Name)
 
-		// Generate templ component
-		if err := generateTemplComponent(comp, structInfo, config); err != nil {
+		// Generate templ component with expanded struct
+		if err := generateTemplComponent(comp, expandedStructInfo, config); err != nil {
 			logger.Error("Error generating templ", "component", comp.Name, "error", err)
 			continue
 		}
 
-		// Generate Lua snippets
+		// Generate Lua snippets with ORIGINAL struct (not expanded)
 		if err := generateSnippets(comp, structInfo, config); err != nil {
 			logger.Error("Error generating snippets", "component", comp.Name, "error", err)
 			continue
 		}
 	}
+	logger.Info("Generating shared struct snippets")
+
+	// Generate snippets for Common, Hx, FormBehaviors from their actual definitions
+	structsToGenerate := []string{"Common", "Hx", "FormBehaviors"}
+	for _, structName := range structsToGenerate {
+		if structDef, ok := structs[structName]; ok {
+			generateStructSnippet(structName, structDef, config)
+		}
+	}
+	logger.Info("✅ Generation complete!")
 
 	// Run templ generate
 	logger.Info("Running templ generate...")

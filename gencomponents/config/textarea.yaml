@@ -29,7 +29,7 @@ variants:
     props:
       bgClass: bg-quaternary
       borderClass: ""
-      textClass: text-white placeholder-gray-400
+      textClass: text-white placeholder-white/70
 
   - name: Accent
     prefix: textareaaccent
