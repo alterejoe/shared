@@ -29,12 +29,14 @@ type User struct {
 type Common struct {
 	ID       string
 	Name     string
+	Class    string
 	Value    string
 	Disabled bool
 }
 
 type Hx struct {
 	Method    Method
+	Params    string
 	URL       string
 	Target    string
 	Include   string

@@ -5,6 +5,10 @@ import "strconv"
 // ============================================================================
 // COMPONENT STRUCTS
 // ============================================================================
+type Div struct {
+	Common
+	Hx
+}
 
 type Button struct {
 	Common
@@ -96,7 +100,6 @@ type Select struct {
 
 type Link struct {
 	Common
-	Hx
 	Href string
 }
 

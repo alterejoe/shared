@@ -1,60 +1,60 @@
 name: Textarea
 struct: Textarea
 template: textarea_base.templ
-
 variants:
   - name: Primary
     prefix: textareaprimary
     props:
       bgClass: bg-primary
       borderClass: border border-primary
+      focusBorderClass: focus:border-white
       textClass: text-white placeholder-white/70
-
   - name: Secondary
     prefix: textareasecondary
     props:
       bgClass: bg-secondary
       borderClass: border border-secondary
+      focusBorderClass: focus:border-white
       textClass: text-white placeholder-white/70
-
   - name: Tertiary
     prefix: textareatertiary
     props:
       bgClass: bg-tertiary
       borderClass: border border-tertiary
+      focusBorderClass: focus:border-white
       textClass: text-white placeholder-white/70
-
   - name: Quaternary
     prefix: textareaquaternary
     props:
       bgClass: bg-quaternary
-      borderClass: ""
+      borderClass: border border-quaternary
+      focusBorderClass: focus:border-white
       textClass: text-white placeholder-white/70
-
   - name: Accent
     prefix: textareaaccent
     props:
       bgClass: bg-accent
       borderClass: border border-accent
+      focusBorderClass: focus:border-white
       textClass: text-white placeholder-white/70
-
   - name: Unique
     prefix: textareaunique
     props:
       bgClass: bg-unique
       borderClass: border border-unique
+      focusBorderClass: focus:border-white
       textClass: text-white placeholder-white/70
-
   - name: Attention
     prefix: textareaattention
     props:
       bgClass: bg-attention
       borderClass: border border-attention
+      focusBorderClass: focus:border-white
       textClass: text-white placeholder-white/70
-
   - name: Default
     prefix: textarea
     props:
       bgClass: bg-white
       borderClass: border border-gray-300
+      focusBorderClass: focus:border-primary
       textClass: text-gray-900 placeholder-gray-400

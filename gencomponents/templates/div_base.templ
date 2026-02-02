@@ -1,30 +1,18 @@
 package components
+
 import "{{ .StructsImport }}"
 
 {{ range .Component.Variants }}
-templ Select{{ .Name }}(props *structs.{{ $.Struct.Name }}) {
-	<select
-		if props.ID != "" {
-			id={ props.ID }
+templ {{ .Name }}Div(props *structs.{{ $.Struct.Name }}) {
+	<div
+		if props.Common.ID != "" {
+			id={ props.Common.ID }
 		}
-		if props.Name != "" {
-			name={ props.Name }
+		if props.Common.Name != "" {
+			name={ props.Common.Name }
 		}
-		if props.Disabled {
-			disabled
-		}
-		if props.Required {
-			required
-		}
-		class="text-lg p-2 rounded w-full cursor-pointer focus:outline-none {{ .Props.bgClass }} {{ .Props.borderClass }} {{ .Props.textClass }}"
-		if props.FormBehaviors.ConstraintString() != "" {
-			data-constraint={ props.FormBehaviors.ConstraintString() }
-		}
-		if props.FormBehaviors.DirtyWatch {
-			data-dirty-watch="true"
-		}
-		if props.FormBehaviors.DirtyGroup != "" {
-			data-dirty-group={ props.FormBehaviors.DirtyGroup }
+		if props.Common.Class != "" {
+			class={ props.Common.Class }
 		}
 		if props.Hx.Method == structs.GET {
 			hx-get={ props.Hx.URL }
@@ -62,15 +50,11 @@ templ Select{{ .Name }}(props *structs.{{ $.Struct.Name }}) {
 		if props.Hx.PushURL != "" {
 			hx-push-url={ props.Hx.PushURL }
 		}
-        if props.Hx.Params != "" {
-            hx-params={ props.Hx.Params }
-        }
+		if props.Hx.Params != "" {
+			hx-params={ props.Hx.Params }
+		}
 	>
 		{ children... }
-	</select>
-	if props.ID != "" {
-		<div id={ props.ID + "-errors" } class="text-red-600 text-sm mt-1 hidden"></div>
-	}
+	</div>
 }
-
 {{ end }}

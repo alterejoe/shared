@@ -26,7 +26,7 @@ templ PrimaryInput(props *structs.Input) {
 		if props.Value != "" {
 			value={ props.Value }
 		}
-		class="text-3xl p-2 rounded w-full cursor-pointer focus:outline-none bg-primary border border-primary text-white placeholder-white/70"
+		class="text-md p-2 rounded w-full cursor-pointer outline-none bg-primary border border-primary  focus:border-white text-white placeholder-white/70"
 		if props.FormBehaviors.ConstraintString() != "" {
 			data-constraint={ props.FormBehaviors.ConstraintString() }
 		}
@@ -71,6 +71,9 @@ templ PrimaryInput(props *structs.Input) {
 		}
 		if props.Hx.PushURL != "" {
 			hx-push-url={ props.Hx.PushURL }
+		}
+        if props.Hx.Params != "" {
+			hx-params={ props.Hx.Params }
 		}
 	/>
 	if props.ID != "" {
@@ -103,7 +106,7 @@ templ SecondaryInput(props *structs.Input) {
 		if props.Value != "" {
 			value={ props.Value }
 		}
-		class="text-3xl p-2 rounded w-full cursor-pointer focus:outline-none bg-secondary border border-secondary text-white placeholder-white/70"
+		class="text-md p-2 rounded w-full cursor-pointer outline-none bg-secondary border border-secondary  focus:border-white text-white placeholder-white/70"
 		if props.FormBehaviors.ConstraintString() != "" {
 			data-constraint={ props.FormBehaviors.ConstraintString() }
 		}
@@ -148,6 +151,9 @@ templ SecondaryInput(props *structs.Input) {
 		}
 		if props.Hx.PushURL != "" {
 			hx-push-url={ props.Hx.PushURL }
+		}
+        if props.Hx.Params != "" {
+			hx-params={ props.Hx.Params }
 		}
 	/>
 	if props.ID != "" {
@@ -180,7 +186,7 @@ templ TertiaryInput(props *structs.Input) {
 		if props.Value != "" {
 			value={ props.Value }
 		}
-		class="text-3xl p-2 rounded w-full cursor-pointer focus:outline-none bg-tertiary border border-tertiary text-white placeholder-white/70"
+		class="text-md p-2 rounded w-full cursor-pointer outline-none bg-tertiary border border-tertiary  focus:border-white text-white placeholder-white/70"
 		if props.FormBehaviors.ConstraintString() != "" {
 			data-constraint={ props.FormBehaviors.ConstraintString() }
 		}
@@ -225,6 +231,9 @@ templ TertiaryInput(props *structs.Input) {
 		}
 		if props.Hx.PushURL != "" {
 			hx-push-url={ props.Hx.PushURL }
+		}
+        if props.Hx.Params != "" {
+			hx-params={ props.Hx.Params }
 		}
 	/>
 	if props.ID != "" {
@@ -257,7 +266,7 @@ templ AccentInput(props *structs.Input) {
 		if props.Value != "" {
 			value={ props.Value }
 		}
-		class="text-3xl p-2 rounded w-full cursor-pointer focus:outline-none bg-accent border border-accent text-white placeholder-white/70"
+		class="text-md p-2 rounded w-full cursor-pointer outline-none bg-accent border border-accent  focus:border-white text-white placeholder-white/70"
 		if props.FormBehaviors.ConstraintString() != "" {
 			data-constraint={ props.FormBehaviors.ConstraintString() }
 		}
@@ -302,6 +311,9 @@ templ AccentInput(props *structs.Input) {
 		}
 		if props.Hx.PushURL != "" {
 			hx-push-url={ props.Hx.PushURL }
+		}
+        if props.Hx.Params != "" {
+			hx-params={ props.Hx.Params }
 		}
 	/>
 	if props.ID != "" {
@@ -334,7 +346,7 @@ templ UniqueInput(props *structs.Input) {
 		if props.Value != "" {
 			value={ props.Value }
 		}
-		class="text-3xl p-2 rounded w-full cursor-pointer focus:outline-none bg-unique border border-unique text-white placeholder-white/70"
+		class="text-md p-2 rounded w-full cursor-pointer outline-none bg-unique border border-unique  focus:border-white text-white placeholder-white/70"
 		if props.FormBehaviors.ConstraintString() != "" {
 			data-constraint={ props.FormBehaviors.ConstraintString() }
 		}
@@ -379,6 +391,9 @@ templ UniqueInput(props *structs.Input) {
 		}
 		if props.Hx.PushURL != "" {
 			hx-push-url={ props.Hx.PushURL }
+		}
+        if props.Hx.Params != "" {
+			hx-params={ props.Hx.Params }
 		}
 	/>
 	if props.ID != "" {
@@ -411,7 +426,7 @@ templ AttentionInput(props *structs.Input) {
 		if props.Value != "" {
 			value={ props.Value }
 		}
-		class="text-3xl p-2 rounded w-full cursor-pointer focus:outline-none bg-attention border border-attention text-white placeholder-white/70"
+		class="text-md p-2 rounded w-full cursor-pointer outline-none bg-attention border border-attention  focus:border-white text-white placeholder-white/70"
 		if props.FormBehaviors.ConstraintString() != "" {
 			data-constraint={ props.FormBehaviors.ConstraintString() }
 		}
@@ -456,6 +471,9 @@ templ AttentionInput(props *structs.Input) {
 		}
 		if props.Hx.PushURL != "" {
 			hx-push-url={ props.Hx.PushURL }
+		}
+        if props.Hx.Params != "" {
+			hx-params={ props.Hx.Params }
 		}
 	/>
 	if props.ID != "" {
@@ -488,7 +506,7 @@ templ DefaultInput(props *structs.Input) {
 		if props.Value != "" {
 			value={ props.Value }
 		}
-		class="text-3xl p-2 rounded w-full cursor-pointer focus:outline-none bg-white border border-gray-300 text-gray-900 placeholder-gray-400"
+		class="text-md p-2 rounded w-full cursor-pointer outline-none bg-white border border-gray-300  focus:border-white text-gray-900 placeholder-gray-400"
 		if props.FormBehaviors.ConstraintString() != "" {
 			data-constraint={ props.FormBehaviors.ConstraintString() }
 		}
@@ -533,6 +551,9 @@ templ DefaultInput(props *structs.Input) {
 		}
 		if props.Hx.PushURL != "" {
 			hx-push-url={ props.Hx.PushURL }
+		}
+        if props.Hx.Params != "" {
+			hx-params={ props.Hx.Params }
 		}
 	/>
 	if props.ID != "" {

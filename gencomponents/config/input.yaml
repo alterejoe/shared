@@ -8,6 +8,7 @@ variants:
     props:
       bgClass: bg-primary
       borderClass: border border-primary
+      focusBorderClass: focus:border-white
       textClass: text-white placeholder-white/70
 
   - name: Secondary
@@ -15,6 +16,7 @@ variants:
     props:
       bgClass: bg-secondary
       borderClass: border border-secondary
+      focusBorderClass: focus:border-white
       textClass: text-white placeholder-white/70
 
   - name: Tertiary
@@ -22,6 +24,7 @@ variants:
     props:
       bgClass: bg-tertiary
       borderClass: border border-tertiary
+      focusBorderClass: focus:border-white
       textClass: text-white placeholder-white/70
 
   - name: Accent
@@ -29,6 +32,7 @@ variants:
     props:
       bgClass: bg-accent
       borderClass: border border-accent
+      focusBorderClass: focus:border-white
       textClass: text-white placeholder-white/70
 
   - name: Unique
@@ -36,6 +40,7 @@ variants:
     props:
       bgClass: bg-unique
       borderClass: border border-unique
+      focusBorderClass: focus:border-white
       textClass: text-white placeholder-white/70
 
   - name: Attention
@@ -43,6 +48,7 @@ variants:
     props:
       bgClass: bg-attention
       borderClass: border border-attention
+      focusBorderClass: focus:border-white
       textClass: text-white placeholder-white/70
 
   - name: Default
@@ -50,4 +56,5 @@ variants:
     props:
       bgClass: bg-white
       borderClass: border border-gray-300
+      focusBorderClass: focus:border-white
       textClass: text-gray-900 placeholder-gray-400

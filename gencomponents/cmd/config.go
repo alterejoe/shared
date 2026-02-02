@@ -27,10 +27,11 @@ type OutputConfig struct {
 }
 
 type ComponentConfig struct {
-	Name     string          `yaml:"name"`
-	Struct   string          `yaml:"struct"`
-	Variants []VariantConfig `yaml:"variants"`
-	Template string          `yaml:"template"`
+	Name     string              `yaml:"name"`
+	Struct   string              `yaml:"struct"`
+	Template string              `yaml:"template"`
+	SvgPaths map[string][]string `yaml:"svg_paths"` // Add this
+	Variants []VariantConfig     `yaml:"variants"`
 }
 
 type VariantConfig struct {

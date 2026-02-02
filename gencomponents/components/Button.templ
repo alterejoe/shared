@@ -1,6 +1,6 @@
 package components
-
 import "github.com/alterejoe/shared/structs"
+
 
 templ PrimaryButton(props *structs.Button) {
 	<button
@@ -50,6 +50,9 @@ templ PrimaryButton(props *structs.Button) {
 		if props.Hx.PushURL != "" {
 			hx-push-url={ props.Hx.PushURL }
 		}
+        if props.Hx.Params != "" {
+			hx-params={ props.Hx.Params }
+		}
 	>
 		if props.Value != "" {
 			{ props.Value }
@@ -58,6 +61,7 @@ templ PrimaryButton(props *structs.Button) {
 		}
 	</button>
 }
+
 
 templ SecondaryButton(props *structs.Button) {
 	<button
@@ -107,6 +111,9 @@ templ SecondaryButton(props *structs.Button) {
 		if props.Hx.PushURL != "" {
 			hx-push-url={ props.Hx.PushURL }
 		}
+        if props.Hx.Params != "" {
+			hx-params={ props.Hx.Params }
+		}
 	>
 		if props.Value != "" {
 			{ props.Value }
@@ -115,6 +122,7 @@ templ SecondaryButton(props *structs.Button) {
 		}
 	</button>
 }
+
 
 templ TertiaryButton(props *structs.Button) {
 	<button
@@ -164,6 +172,9 @@ templ TertiaryButton(props *structs.Button) {
 		if props.Hx.PushURL != "" {
 			hx-push-url={ props.Hx.PushURL }
 		}
+        if props.Hx.Params != "" {
+			hx-params={ props.Hx.Params }
+		}
 	>
 		if props.Value != "" {
 			{ props.Value }
@@ -172,6 +183,7 @@ templ TertiaryButton(props *structs.Button) {
 		}
 	</button>
 }
+
 
 templ QuaternaryButton(props *structs.Button) {
 	<button
@@ -221,6 +233,9 @@ templ QuaternaryButton(props *structs.Button) {
 		if props.Hx.PushURL != "" {
 			hx-push-url={ props.Hx.PushURL }
 		}
+        if props.Hx.Params != "" {
+			hx-params={ props.Hx.Params }
+		}
 	>
 		if props.Value != "" {
 			{ props.Value }
@@ -229,6 +244,7 @@ templ QuaternaryButton(props *structs.Button) {
 		}
 	</button>
 }
+
 
 templ AccentButton(props *structs.Button) {
 	<button
@@ -278,6 +294,9 @@ templ AccentButton(props *structs.Button) {
 		if props.Hx.PushURL != "" {
 			hx-push-url={ props.Hx.PushURL }
 		}
+        if props.Hx.Params != "" {
+			hx-params={ props.Hx.Params }
+		}
 	>
 		if props.Value != "" {
 			{ props.Value }
@@ -286,6 +305,7 @@ templ AccentButton(props *structs.Button) {
 		}
 	</button>
 }
+
 
 templ UniqueButton(props *structs.Button) {
 	<button
@@ -335,6 +355,9 @@ templ UniqueButton(props *structs.Button) {
 		if props.Hx.PushURL != "" {
 			hx-push-url={ props.Hx.PushURL }
 		}
+        if props.Hx.Params != "" {
+			hx-params={ props.Hx.Params }
+		}
 	>
 		if props.Value != "" {
 			{ props.Value }
@@ -343,6 +366,7 @@ templ UniqueButton(props *structs.Button) {
 		}
 	</button>
 }
+
 
 templ AttentionButton(props *structs.Button) {
 	<button
@@ -392,6 +416,9 @@ templ AttentionButton(props *structs.Button) {
 		if props.Hx.PushURL != "" {
 			hx-push-url={ props.Hx.PushURL }
 		}
+        if props.Hx.Params != "" {
+			hx-params={ props.Hx.Params }
+		}
 	>
 		if props.Value != "" {
 			{ props.Value }
@@ -400,6 +427,7 @@ templ AttentionButton(props *structs.Button) {
 		}
 	</button>
 }
+
 
 templ TransparentButton(props *structs.Button) {
 	<button
@@ -449,6 +477,9 @@ templ TransparentButton(props *structs.Button) {
 		if props.Hx.PushURL != "" {
 			hx-push-url={ props.Hx.PushURL }
 		}
+        if props.Hx.Params != "" {
+			hx-params={ props.Hx.Params }
+		}
 	>
 		if props.Value != "" {
 			{ props.Value }
@@ -457,3 +488,66 @@ templ TransparentButton(props *structs.Button) {
 		}
 	</button>
 }
+
+
+templ GhostButton(props *structs.Button) {
+	<button
+		if props.ID != "" {
+			id={ props.ID }
+		}
+		if props.Name != "" {
+			name={ props.Name }
+		}
+		class="py-2 px-4 text-xl cursor-pointer transition-colors invisible hover:invisible/90"
+		if props.Disabled {
+			disabled
+		}
+		if props.Hx.Method == structs.GET {
+			hx-get={ props.Hx.URL }
+		}
+		if props.Hx.Method == structs.POST {
+			hx-post={ props.Hx.URL }
+		}
+		if props.Hx.Method == structs.PUT {
+			hx-put={ props.Hx.URL }
+		}
+		if props.Hx.Method == structs.DELETE {
+			hx-delete={ props.Hx.URL }
+		}
+		if props.Hx.Trigger != "" {
+			hx-trigger={ props.Hx.Trigger }
+		}
+		if props.Hx.Target != "" {
+			hx-target={ props.Hx.Target }
+		}
+		if props.Hx.Swap != "" {
+			hx-swap={ props.Hx.Swap }
+		}
+		if props.Hx.Vals != "" {
+			hx-vals={ props.Hx.Vals }
+		}
+		if props.Hx.Include != "" {
+			hx-include={ props.Hx.Include }
+		}
+		if props.Hx.Indicator != "" {
+			hx-indicator={ props.Hx.Indicator }
+		}
+		if props.Hx.Confirm != "" {
+			hx-confirm={ props.Hx.Confirm }
+		}
+		if props.Hx.PushURL != "" {
+			hx-push-url={ props.Hx.PushURL }
+		}
+        if props.Hx.Params != "" {
+			hx-params={ props.Hx.Params }
+		}
+	>
+		if props.Value != "" {
+			{ props.Value }
+		} else {
+			{ children... }
+		}
+	</button>
+}
+
+

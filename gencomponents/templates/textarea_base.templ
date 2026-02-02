@@ -25,7 +25,8 @@ templ {{ .Name }}Textarea(props *structs.{{ $.Struct.Name }}) {
 		if props.Required {
 			required
 		}
-		class="text-lg px-2 rounded w-full cursor-pointer outline-none resize-y {{ .Props.bgClass }} {{ .Props.borderClass }} {{ .Props.textClass }}"
+
+        class="text-lg p-2 rounded w-full cursor-pointer outline-none resize-y {{ .Props.bgClass }} {{ .Props.borderClass }} {{ .Props.focusBorderClass }} {{ .Props.textClass }}"
 		if props.FormBehaviors.ConstraintString() != "" {
 			data-constraint={ props.FormBehaviors.ConstraintString() }
 		}
@@ -71,6 +72,9 @@ templ {{ .Name }}Textarea(props *structs.{{ $.Struct.Name }}) {
 		if props.Hx.PushURL != "" {
 			hx-push-url={ props.Hx.PushURL }
 		}
+        if props.Hx.Params != "" {
+            hx-params={ props.Hx.Params }
+        }
 	>{ props.Value }</textarea>
 	if props.ID != "" {
 		<div id={ props.ID + "-errors" } class="text-red-600 text-sm mt-1 hidden"></div>

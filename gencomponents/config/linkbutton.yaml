@@ -1,49 +1,36 @@
-name: Button
-struct: Button
-template: button_base.templ
-
+name: LinkButton
+struct: Link
+template: linkbutton_base.templ
 variants:
   - name: Primary
-    prefix: btnprimary
+    prefix: linkbtnprimary
     props:
       bgClass: bg-primary
-
   - name: Secondary
-    prefix: btnsecondary
+    prefix: linkbtnsecondary
     props:
       bgClass: bg-secondary
-
   - name: Tertiary
-    prefix: btntertiary
+    prefix: linkbtntertiary
     props:
       bgClass: bg-tertiary
-
   - name: Quaternary
-    prefix: btnquaternary
+    prefix: linkbtnquaternary
     props:
       bgClass: bg-quaternary
-
   - name: Accent
-    prefix: btnaccent
+    prefix: linkbtnaccent
     props:
       bgClass: bg-accent
-
   - name: Unique
-    prefix: btnunique
+    prefix: linkbtnunique
     props:
       bgClass: bg-unique
-
   - name: Attention
-    prefix: btnattention
+    prefix: linkbtnattention
     props:
       bgClass: bg-attention
-
   - name: Transparent
-    prefix: btntransparent
+    prefix: linkbtntransparent
     props:
       bgClass: bg-transparent
-
-  - name: Ghost
-    prefix: btnghost
-    props:
-      bgClass: invisible

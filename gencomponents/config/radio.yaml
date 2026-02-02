@@ -1,34 +1,46 @@
-name: Radio
+name: RadioButton
 struct: Radio
 template: radio_base.templ
-
 variants:
   - name: Primary
     prefix: radioprimary
     props:
-      bgClass: bg-primary
-
+      bgClass: bg-secondary
+      borderClass: border-primary
+      checkedBorderClass: peer-checked:border-white peer-checked:bg-primary
+      textClass: text-white
   - name: Secondary
     prefix: radiosecondary
     props:
-      bgClass: bg-secondary
-
+      bgClass: bg-primary
+      borderClass: border-secondary
+      checkedBorderClass: peer-checked:border-secondary peer-checked:bg-secondary
+      textClass: text-white
   - name: Tertiary
     prefix: radiotertiary
     props:
+      bgClass: bg-quaternary
+      borderClass: border-tertiary
+      checkedBorderClass: peer-checked:border-tertiary peer-checked:bg-tertiary
+      textClass: text-white
+  - name: Quaternary
+    prefix: radioquaternary
+    props:
       bgClass: bg-tertiary
-
+      borderClass: border-quaternary
+      checkedBorderClass: peer-checked:border-quaternary peer-checked:bg-quaternary
+      textClass: text-white
   - name: Accent
     prefix: radioaccent
     props:
       bgClass: bg-accent
-
-  - name: Unique
-    prefix: radiounique
+      borderClass: border-accent/50
+      checkedBorderClass: peer-checked:border-accent
+      textClass: text-white
+  - name: Ghost
+    prefix: radioghost
     props:
-      bgClass: bg-unique
-
-  - name: Attention
-    prefix: radioattention
-    props:
-      bgClass: bg-attention
+      bgClass: invisible
+      borderClass: border-transparent
+      checkedBorderClass: ""
+      textClass: text-transparent

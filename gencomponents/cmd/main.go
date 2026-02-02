@@ -38,50 +38,38 @@ func main() {
 	}
 	logger.Info("Found structs", "count", len(structs))
 
-	// Expand embedded structs
+	// Expand embedded structs for templ generation
 	expandedStructs := expandEmbeddedStructs(structs)
 
 	// Generate components
 	for _, comp := range config.Components {
 		logger.Info("Processing component", "name", comp.Name)
 
-		// Use ORIGINAL struct (not expanded) for snippets
-		structInfo, ok := structs[comp.Struct]
+		expandedStructInfo, ok := expandedStructs[comp.Struct]
 		if !ok {
 			logger.Warn("Skipping component - struct not found", "component", comp.Name, "struct", comp.Struct)
 			continue
 		}
 
-		// Use EXPANDED struct for templ generation
-		expandedStructInfo, ok := expandedStructs[comp.Struct]
-		if !ok {
-			logger.Warn("Skipping component - expanded struct not found", "component", comp.Name, "struct", comp.Struct)
-			continue
-		}
-
-		logger.Info("Generating component", "name", comp.Name)
-
-		// Generate templ component with expanded struct
+		// Generate templ component
 		if err := generateTemplComponent(comp, expandedStructInfo, config); err != nil {
 			logger.Error("Error generating templ", "component", comp.Name, "error", err)
 			continue
 		}
 
-		// Generate Lua snippets with ORIGINAL struct (not expanded)
-		if err := generateSnippets(comp, structInfo, config); err != nil {
+		// Generate Lua snippets
+		if err := generateSnippets(comp, config); err != nil {
 			logger.Error("Error generating snippets", "component", comp.Name, "error", err)
 			continue
 		}
 	}
-	logger.Info("Generating shared struct snippets")
 
-	// Generate snippets for Common, Hx, FormBehaviors from their actual definitions
-	structsToGenerate := []string{"Common", "Hx", "FormBehaviors"}
-	for _, structName := range structsToGenerate {
-		if structDef, ok := structs[structName]; ok {
-			generateStructSnippet(structName, structDef, config)
-		}
+	// Generate struct snippets
+	logger.Info("Generating struct snippets")
+	if err := generateStructSnippets(structs, config); err != nil {
+		logger.Error("Failed to generate struct snippets", "error", err)
 	}
+
 	logger.Info("✅ Generation complete!")
 
 	// Run templ generate
@@ -92,6 +80,7 @@ func main() {
 	}
 	logger.Info("✅ Templ generate complete!")
 }
+
 func runTemplGenerate(templDir string, logger *slog.Logger) error {
 	cmd := exec.Command("templ", "generate")
 	cmd.Dir = templDir
@@ -101,25 +90,21 @@ func runTemplGenerate(templDir string, logger *slog.Logger) error {
 		logger.Error("Templ generate output", "output", string(output))
 		return fmt.Errorf("templ generate failed: %w", err)
 	}
-
 	if len(output) > 0 {
 		logger.Info("Templ output", "output", string(output))
 	}
-
 	return nil
 }
+
 func expandEmbeddedStructs(structs map[string]StructInfo) map[string]StructInfo {
 	expanded := make(map[string]StructInfo)
-
 	for name, info := range structs {
 		expandedInfo := StructInfo{
 			Name:   info.Name,
 			Fields: []FieldInfo{},
 		}
-
 		for _, field := range info.Fields {
 			if field.Name == "" && field.IsStruct {
-				// Embedded struct - expand its fields
 				if embeddedStruct, exists := structs[field.Type]; exists {
 					expandedInfo.Fields = append(expandedInfo.Fields, embeddedStruct.Fields...)
 				}
@@ -127,9 +112,7 @@ func expandEmbeddedStructs(structs map[string]StructInfo) map[string]StructInfo 
 				expandedInfo.Fields = append(expandedInfo.Fields, field)
 			}
 		}
-
 		expanded[name] = expandedInfo
 	}
-
 	return expanded
 }

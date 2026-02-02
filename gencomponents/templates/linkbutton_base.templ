@@ -1,15 +1,15 @@
 package components
 import "{{ .StructsImport }}"
 {{ range .Component.Variants }}
-templ {{ .Name }}Link(props *structs.{{ $.Struct.Name }}) {
-    <a	
+templ {{ .Name }}LinkButton(props *structs.{{ $.Struct.Name }}) {
+     <a	
 		if props.ID != "" {
 			id={ props.ID }
 		}
 		if props.Href != "" {
 			href={ templ.SafeURL(props.Href) }
 		}
-		class="cursor-pointer underline {{ .Props.colorClass }}"
+		class="py-2 px-4 text-xl cursor-pointer transition-colors {{ .Props.bgClass }} hover:{{ .Props.bgClass }}/90"
 	>
 		if props.Value != "" {
 			{ props.Value }

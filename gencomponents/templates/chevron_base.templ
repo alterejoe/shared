@@ -47,6 +47,9 @@ templ {{ .Name }}{{ if eq $direction "left" }}Left{{ else if eq $direction "righ
 		if props.Hx.PushURL != "" {
 			hx-push-url={ props.Hx.PushURL }
 		}
+        if props.Hx.Params != "" {
+			hx-params={ props.Hx.Params }
+		}
 	>
 		<svg width="{{ .Props.svgSize }}" height="{{ .Props.svgSize }}" viewBox="0 0 24 24" fill="none" stroke="{{ .Props.strokeColor }}" stroke-width="2">
 			{{ range $paths }}<polyline points="{{ . }}"></polyline>{{ end }}

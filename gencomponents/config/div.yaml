@@ -1,0 +1,6 @@
+name: Div
+struct: Div
+template: div_base.templ
+variants:
+  - name: Default
+    prefix: divdefault

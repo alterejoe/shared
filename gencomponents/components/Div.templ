@@ -1,18 +1,18 @@
 package components
-import "{{ .StructsImport }}"
 
-{{ range .Component.Variants }}
-templ {{ .Name }}Button(props *structs.{{ $.Struct.Name }}) {
-	<button
-		if props.ID != "" {
-			id={ props.ID }
+import "github.com/alterejoe/shared/structs"
+
+
+templ DefaultDiv(props *structs.Div) {
+	<div
+		if props.Common.ID != "" {
+			id={ props.Common.ID }
 		}
-		if props.Name != "" {
-			name={ props.Name }
+		if props.Common.Name != "" {
+			name={ props.Common.Name }
 		}
-		class="py-2 px-4 text-xl cursor-pointer transition-colors {{ .Props.bgClass }} hover:{{ .Props.bgClass }}/90"
-		if props.Disabled {
-			disabled
+		if props.Common.Class != "" {
+			class={ props.Common.Class }
 		}
 		if props.Hx.Method == structs.GET {
 			hx-get={ props.Hx.URL }
@@ -50,16 +50,11 @@ templ {{ .Name }}Button(props *structs.{{ $.Struct.Name }}) {
 		if props.Hx.PushURL != "" {
 			hx-push-url={ props.Hx.PushURL }
 		}
-        if props.Hx.Params != "" {
+		if props.Hx.Params != "" {
 			hx-params={ props.Hx.Params }
 		}
 	>
-		if props.Value != "" {
-			{ props.Value }
-		} else {
-			{ children... }
-		}
-	</button>
+		{ children... }
+	</div>
 }
 
-{{ end }}

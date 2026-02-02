@@ -1,0 +1,513 @@
+package components
+import "github.com/alterejoe/shared/structs"
+
+templ PrimaryRadioButton(props *structs.Radio) {
+	<div class="flex items-center">
+		<input
+			type="radio"
+			if props.ID != "" {
+				id={ props.ID }
+			}
+			if props.Name != "" {
+				name={ props.Name }
+			}
+			if props.Value != "" {
+				value={ props.Value }
+			}
+			if props.Checked {
+				checked
+			}
+			if props.Disabled {
+				disabled
+			}
+			if props.Required {
+				required
+			}
+			class="peer sr-only absolute"
+			if props.FormBehaviors.ConstraintString() != "" {
+				data-constraint={ props.FormBehaviors.ConstraintString() }
+			}
+			if props.FormBehaviors.DirtyWatch {
+				data-dirty-watch="true"
+			}
+			if props.FormBehaviors.DirtyGroup != "" {
+				data-dirty-group={ props.FormBehaviors.DirtyGroup }
+			}
+			if props.Hx.URL != "" {
+				if props.Hx.Method == structs.GET {
+					hx-get={ props.Hx.URL }
+				}
+				if props.Hx.Method == structs.POST {
+					hx-post={ props.Hx.URL }
+				}
+				if props.Hx.Method == structs.PUT {
+					hx-put={ props.Hx.URL }
+				}
+				if props.Hx.Method == structs.DELETE {
+					hx-delete={ props.Hx.URL }
+				}
+				if props.Hx.Trigger != "" {
+					hx-trigger={ props.Hx.Trigger }
+				}
+				if props.Hx.Target != "" {
+					hx-target={ props.Hx.Target }
+				}
+				if props.Hx.Swap != "" {
+					hx-swap={ props.Hx.Swap }
+				}
+				if props.Hx.Vals != "" {
+					hx-vals={ props.Hx.Vals }
+				}
+				if props.Hx.Include != "" {
+					hx-include={ props.Hx.Include }
+				}
+				if props.Hx.Indicator != "" {
+					hx-indicator={ props.Hx.Indicator }
+				}
+				if props.Hx.Confirm != "" {
+					hx-confirm={ props.Hx.Confirm }
+				}
+				if props.Hx.PushURL != "" {
+					hx-push-url={ props.Hx.PushURL }
+				}
+                if props.Hx.Params != "" {
+                    hx-params={ props.Hx.Params }
+                }
+			}
+		/>
+		<label
+			if props.ID != "" {
+				for={ props.ID }
+			}
+			class="px-3 py-2 cursor-pointer inline-flex items-center select-none transition-colors bg-secondary border-primary peer-checked:border-white peer-checked:bg-primary text-white"
+		>
+			{ props.Value }
+		</label>
+	</div>
+}
+
+templ SecondaryRadioButton(props *structs.Radio) {
+	<div class="flex items-center">
+		<input
+			type="radio"
+			if props.ID != "" {
+				id={ props.ID }
+			}
+			if props.Name != "" {
+				name={ props.Name }
+			}
+			if props.Value != "" {
+				value={ props.Value }
+			}
+			if props.Checked {
+				checked
+			}
+			if props.Disabled {
+				disabled
+			}
+			if props.Required {
+				required
+			}
+			class="peer sr-only absolute"
+			if props.FormBehaviors.ConstraintString() != "" {
+				data-constraint={ props.FormBehaviors.ConstraintString() }
+			}
+			if props.FormBehaviors.DirtyWatch {
+				data-dirty-watch="true"
+			}
+			if props.FormBehaviors.DirtyGroup != "" {
+				data-dirty-group={ props.FormBehaviors.DirtyGroup }
+			}
+			if props.Hx.URL != "" {
+				if props.Hx.Method == structs.GET {
+					hx-get={ props.Hx.URL }
+				}
+				if props.Hx.Method == structs.POST {
+					hx-post={ props.Hx.URL }
+				}
+				if props.Hx.Method == structs.PUT {
+					hx-put={ props.Hx.URL }
+				}
+				if props.Hx.Method == structs.DELETE {
+					hx-delete={ props.Hx.URL }
+				}
+				if props.Hx.Trigger != "" {
+					hx-trigger={ props.Hx.Trigger }
+				}
+				if props.Hx.Target != "" {
+					hx-target={ props.Hx.Target }
+				}
+				if props.Hx.Swap != "" {
+					hx-swap={ props.Hx.Swap }
+				}
+				if props.Hx.Vals != "" {
+					hx-vals={ props.Hx.Vals }
+				}
+				if props.Hx.Include != "" {
+					hx-include={ props.Hx.Include }
+				}
+				if props.Hx.Indicator != "" {
+					hx-indicator={ props.Hx.Indicator }
+				}
+				if props.Hx.Confirm != "" {
+					hx-confirm={ props.Hx.Confirm }
+				}
+				if props.Hx.PushURL != "" {
+					hx-push-url={ props.Hx.PushURL }
+				}
+                if props.Hx.Params != "" {
+                    hx-params={ props.Hx.Params }
+                }
+			}
+		/>
+		<label
+			if props.ID != "" {
+				for={ props.ID }
+			}
+			class="px-3 py-2 cursor-pointer inline-flex items-center select-none transition-colors bg-primary border-secondary peer-checked:border-secondary peer-checked:bg-secondary text-white"
+		>
+			{ props.Value }
+		</label>
+	</div>
+}
+
+templ TertiaryRadioButton(props *structs.Radio) {
+	<div class="flex items-center">
+		<input
+			type="radio"
+			if props.ID != "" {
+				id={ props.ID }
+			}
+			if props.Name != "" {
+				name={ props.Name }
+			}
+			if props.Value != "" {
+				value={ props.Value }
+			}
+			if props.Checked {
+				checked
+			}
+			if props.Disabled {
+				disabled
+			}
+			if props.Required {
+				required
+			}
+			class="peer sr-only absolute"
+			if props.FormBehaviors.ConstraintString() != "" {
+				data-constraint={ props.FormBehaviors.ConstraintString() }
+			}
+			if props.FormBehaviors.DirtyWatch {
+				data-dirty-watch="true"
+			}
+			if props.FormBehaviors.DirtyGroup != "" {
+				data-dirty-group={ props.FormBehaviors.DirtyGroup }
+			}
+			if props.Hx.URL != "" {
+				if props.Hx.Method == structs.GET {
+					hx-get={ props.Hx.URL }
+				}
+				if props.Hx.Method == structs.POST {
+					hx-post={ props.Hx.URL }
+				}
+				if props.Hx.Method == structs.PUT {
+					hx-put={ props.Hx.URL }
+				}
+				if props.Hx.Method == structs.DELETE {
+					hx-delete={ props.Hx.URL }
+				}
+				if props.Hx.Trigger != "" {
+					hx-trigger={ props.Hx.Trigger }
+				}
+				if props.Hx.Target != "" {
+					hx-target={ props.Hx.Target }
+				}
+				if props.Hx.Swap != "" {
+					hx-swap={ props.Hx.Swap }
+				}
+				if props.Hx.Vals != "" {
+					hx-vals={ props.Hx.Vals }
+				}
+				if props.Hx.Include != "" {
+					hx-include={ props.Hx.Include }
+				}
+				if props.Hx.Indicator != "" {
+					hx-indicator={ props.Hx.Indicator }
+				}
+				if props.Hx.Confirm != "" {
+					hx-confirm={ props.Hx.Confirm }
+				}
+				if props.Hx.PushURL != "" {
+					hx-push-url={ props.Hx.PushURL }
+				}
+                if props.Hx.Params != "" {
+                    hx-params={ props.Hx.Params }
+                }
+			}
+		/>
+		<label
+			if props.ID != "" {
+				for={ props.ID }
+			}
+			class="px-3 py-2 cursor-pointer inline-flex items-center select-none transition-colors bg-quaternary border-tertiary peer-checked:border-tertiary peer-checked:bg-tertiary text-white"
+		>
+			{ props.Value }
+		</label>
+	</div>
+}
+
+templ QuaternaryRadioButton(props *structs.Radio) {
+	<div class="flex items-center">
+		<input
+			type="radio"
+			if props.ID != "" {
+				id={ props.ID }
+			}
+			if props.Name != "" {
+				name={ props.Name }
+			}
+			if props.Value != "" {
+				value={ props.Value }
+			}
+			if props.Checked {
+				checked
+			}
+			if props.Disabled {
+				disabled
+			}
+			if props.Required {
+				required
+			}
+			class="peer sr-only absolute"
+			if props.FormBehaviors.ConstraintString() != "" {
+				data-constraint={ props.FormBehaviors.ConstraintString() }
+			}
+			if props.FormBehaviors.DirtyWatch {
+				data-dirty-watch="true"
+			}
+			if props.FormBehaviors.DirtyGroup != "" {
+				data-dirty-group={ props.FormBehaviors.DirtyGroup }
+			}
+			if props.Hx.URL != "" {
+				if props.Hx.Method == structs.GET {
+					hx-get={ props.Hx.URL }
+				}
+				if props.Hx.Method == structs.POST {
+					hx-post={ props.Hx.URL }
+				}
+				if props.Hx.Method == structs.PUT {
+					hx-put={ props.Hx.URL }
+				}
+				if props.Hx.Method == structs.DELETE {
+					hx-delete={ props.Hx.URL }
+				}
+				if props.Hx.Trigger != "" {
+					hx-trigger={ props.Hx.Trigger }
+				}
+				if props.Hx.Target != "" {
+					hx-target={ props.Hx.Target }
+				}
+				if props.Hx.Swap != "" {
+					hx-swap={ props.Hx.Swap }
+				}
+				if props.Hx.Vals != "" {
+					hx-vals={ props.Hx.Vals }
+				}
+				if props.Hx.Include != "" {
+					hx-include={ props.Hx.Include }
+				}
+				if props.Hx.Indicator != "" {
+					hx-indicator={ props.Hx.Indicator }
+				}
+				if props.Hx.Confirm != "" {
+					hx-confirm={ props.Hx.Confirm }
+				}
+				if props.Hx.PushURL != "" {
+					hx-push-url={ props.Hx.PushURL }
+				}
+                if props.Hx.Params != "" {
+                    hx-params={ props.Hx.Params }
+                }
+			}
+		/>
+		<label
+			if props.ID != "" {
+				for={ props.ID }
+			}
+			class="px-3 py-2 cursor-pointer inline-flex items-center select-none transition-colors bg-tertiary border-quaternary peer-checked:border-quaternary peer-checked:bg-quaternary text-white"
+		>
+			{ props.Value }
+		</label>
+	</div>
+}
+
+templ AccentRadioButton(props *structs.Radio) {
+	<div class="flex items-center">
+		<input
+			type="radio"
+			if props.ID != "" {
+				id={ props.ID }
+			}
+			if props.Name != "" {
+				name={ props.Name }
+			}
+			if props.Value != "" {
+				value={ props.Value }
+			}
+			if props.Checked {
+				checked
+			}
+			if props.Disabled {
+				disabled
+			}
+			if props.Required {
+				required
+			}
+			class="peer sr-only absolute"
+			if props.FormBehaviors.ConstraintString() != "" {
+				data-constraint={ props.FormBehaviors.ConstraintString() }
+			}
+			if props.FormBehaviors.DirtyWatch {
+				data-dirty-watch="true"
+			}
+			if props.FormBehaviors.DirtyGroup != "" {
+				data-dirty-group={ props.FormBehaviors.DirtyGroup }
+			}
+			if props.Hx.URL != "" {
+				if props.Hx.Method == structs.GET {
+					hx-get={ props.Hx.URL }
+				}
+				if props.Hx.Method == structs.POST {
+					hx-post={ props.Hx.URL }
+				}
+				if props.Hx.Method == structs.PUT {
+					hx-put={ props.Hx.URL }
+				}
+				if props.Hx.Method == structs.DELETE {
+					hx-delete={ props.Hx.URL }
+				}
+				if props.Hx.Trigger != "" {
+					hx-trigger={ props.Hx.Trigger }
+				}
+				if props.Hx.Target != "" {
+					hx-target={ props.Hx.Target }
+				}
+				if props.Hx.Swap != "" {
+					hx-swap={ props.Hx.Swap }
+				}
+				if props.Hx.Vals != "" {
+					hx-vals={ props.Hx.Vals }
+				}
+				if props.Hx.Include != "" {
+					hx-include={ props.Hx.Include }
+				}
+				if props.Hx.Indicator != "" {
+					hx-indicator={ props.Hx.Indicator }
+				}
+				if props.Hx.Confirm != "" {
+					hx-confirm={ props.Hx.Confirm }
+				}
+				if props.Hx.PushURL != "" {
+					hx-push-url={ props.Hx.PushURL }
+				}
+                if props.Hx.Params != "" {
+                    hx-params={ props.Hx.Params }
+                }
+			}
+		/>
+		<label
+			if props.ID != "" {
+				for={ props.ID }
+			}
+			class="px-3 py-2 cursor-pointer inline-flex items-center select-none transition-colors bg-accent border-accent/50 peer-checked:border-accent text-white"
+		>
+			{ props.Value }
+		</label>
+	</div>
+}
+
+templ GhostRadioButton(props *structs.Radio) {
+	<div class="flex items-center">
+		<input
+			type="radio"
+			if props.ID != "" {
+				id={ props.ID }
+			}
+			if props.Name != "" {
+				name={ props.Name }
+			}
+			if props.Value != "" {
+				value={ props.Value }
+			}
+			if props.Checked {
+				checked
+			}
+			if props.Disabled {
+				disabled
+			}
+			if props.Required {
+				required
+			}
+			class="peer sr-only absolute"
+			if props.FormBehaviors.ConstraintString() != "" {
+				data-constraint={ props.FormBehaviors.ConstraintString() }
+			}
+			if props.FormBehaviors.DirtyWatch {
+				data-dirty-watch="true"
+			}
+			if props.FormBehaviors.DirtyGroup != "" {
+				data-dirty-group={ props.FormBehaviors.DirtyGroup }
+			}
+			if props.Hx.URL != "" {
+				if props.Hx.Method == structs.GET {
+					hx-get={ props.Hx.URL }
+				}
+				if props.Hx.Method == structs.POST {
+					hx-post={ props.Hx.URL }
+				}
+				if props.Hx.Method == structs.PUT {
+					hx-put={ props.Hx.URL }
+				}
+				if props.Hx.Method == structs.DELETE {
+					hx-delete={ props.Hx.URL }
+				}
+				if props.Hx.Trigger != "" {
+					hx-trigger={ props.Hx.Trigger }
+				}
+				if props.Hx.Target != "" {
+					hx-target={ props.Hx.Target }
+				}
+				if props.Hx.Swap != "" {
+					hx-swap={ props.Hx.Swap }
+				}
+				if props.Hx.Vals != "" {
+					hx-vals={ props.Hx.Vals }
+				}
+				if props.Hx.Include != "" {
+					hx-include={ props.Hx.Include }
+				}
+				if props.Hx.Indicator != "" {
+					hx-indicator={ props.Hx.Indicator }
+				}
+				if props.Hx.Confirm != "" {
+					hx-confirm={ props.Hx.Confirm }
+				}
+				if props.Hx.PushURL != "" {
+					hx-push-url={ props.Hx.PushURL }
+				}
+                if props.Hx.Params != "" {
+                    hx-params={ props.Hx.Params }
+                }
+			}
+		/>
+		<label
+			if props.ID != "" {
+				for={ props.ID }
+			}
+			class="px-3 py-2 cursor-pointer inline-flex items-center select-none transition-colors invisible border-transparent  text-transparent"
+		>
+			{ props.Value }
+		</label>
+	</div>
+}
+

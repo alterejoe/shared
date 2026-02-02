@@ -76,6 +76,9 @@ templ {{ .Name }}Checkbox(props *structs.{{ $.Struct.Name }}) {
 			if props.Hx.PushURL != "" {
 				hx-push-url={ props.Hx.PushURL }
 			}
+            if props.Hx.Params != "" {
+                hx-params={ props.Hx.Params }
+            }
 		/>
 		<div class="p-1"></div>
 		<div class="w-6 h-6 rounded border-2 border-slate-400 bg-slate-200 flex items-center justify-center peer-checked:{{ .Props.checkedBgClass }} peer-checked:border-slate-700 peer-checked:[&>svg]:block">

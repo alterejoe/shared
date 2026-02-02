@@ -26,7 +26,7 @@ templ {{ .Name }}Input(props *structs.{{ $.Struct.Name }}) {
 		if props.Value != "" {
 			value={ props.Value }
 		}
-		class="text-3xl p-2 rounded w-full cursor-pointer focus:outline-none {{ .Props.bgClass }} {{ .Props.borderClass }} {{ .Props.textClass }}"
+		class="text-md p-2 rounded w-full cursor-pointer outline-none {{ .Props.bgClass }} {{ .Props.borderClass }}  {{ .Props.focusBorderClass }} {{ .Props.textClass }}"
 		if props.FormBehaviors.ConstraintString() != "" {
 			data-constraint={ props.FormBehaviors.ConstraintString() }
 		}
@@ -71,6 +71,9 @@ templ {{ .Name }}Input(props *structs.{{ $.Struct.Name }}) {
 		}
 		if props.Hx.PushURL != "" {
 			hx-push-url={ props.Hx.PushURL }
+		}
+        if props.Hx.Params != "" {
+			hx-params={ props.Hx.Params }
 		}
 	/>
 	if props.ID != "" {
