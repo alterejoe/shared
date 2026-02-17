@@ -5,19 +5,19 @@ templ PrimaryRadioButton(props *structs.Radio) {
 	<div class="flex items-center">
 		<input
 			type="radio"
-			if props.ID != "" {
-				id={ props.ID }
+			if props.Common.ID != "" {
+				id={ props.Common.ID }
 			}
-			if props.Name != "" {
-				name={ props.Name }
+			if props.Common.Name != "" {
+				name={ props.Common.Name }
 			}
-			if props.Value != "" {
-				value={ props.Value }
+			if props.Common.Value != "" {
+				value={ props.Common.Value }
 			}
 			if props.Checked {
 				checked
 			}
-			if props.Disabled {
+			if props.Common.Disabled {
 				disabled
 			}
 			if props.Required {
@@ -70,18 +70,31 @@ templ PrimaryRadioButton(props *structs.Radio) {
 				if props.Hx.PushURL != "" {
 					hx-push-url={ props.Hx.PushURL }
 				}
-                if props.Hx.Params != "" {
-                    hx-params={ props.Hx.Params }
+				if props.Hx.Params != "" {
+					hx-params={ props.Hx.Params }
+				}
+                if props.Hx.OnAfterRequest != "" {
+                    { templ.Attributes{"hx-on::after-request": props.Hx.OnAfterRequest}... }
+                }
+                if props.Hx.OnBeforeRequest != "" {
+                    { templ.Attributes{"hx-on::before-request": props.Hx.OnBeforeRequest}... }
+                }
+                if props.Hx.OnAfterSettle != "" {
+                    { templ.Attributes{"hx-on::after-settle": props.Hx.OnAfterSettle}... }
                 }
 			}
 		/>
 		<label
-			if props.ID != "" {
-				for={ props.ID }
+			if props.Common.ID != "" {
+				for={ props.Common.ID }
 			}
-			class="px-3 py-2 cursor-pointer inline-flex items-center select-none transition-colors bg-secondary border-primary peer-checked:border-white peer-checked:bg-primary text-white"
+			if props.Common.Class != "" {
+				class={ "px-3 py-2 cursor-pointer inline-flex items-center select-none transition-colors bg-secondary border-primary peer-checked:border-white peer-checked:bg-primary text-white " + props.Common.Class }
+			} else {
+				class="px-3 py-2 cursor-pointer inline-flex items-center select-none transition-colors bg-secondary border-primary peer-checked:border-white peer-checked:bg-primary text-white"
+			}
 		>
-			{ props.Value }
+			{ props.Common.Value }
 		</label>
 	</div>
 }
@@ -90,19 +103,19 @@ templ SecondaryRadioButton(props *structs.Radio) {
 	<div class="flex items-center">
 		<input
 			type="radio"
-			if props.ID != "" {
-				id={ props.ID }
+			if props.Common.ID != "" {
+				id={ props.Common.ID }
 			}
-			if props.Name != "" {
-				name={ props.Name }
+			if props.Common.Name != "" {
+				name={ props.Common.Name }
 			}
-			if props.Value != "" {
-				value={ props.Value }
+			if props.Common.Value != "" {
+				value={ props.Common.Value }
 			}
 			if props.Checked {
 				checked
 			}
-			if props.Disabled {
+			if props.Common.Disabled {
 				disabled
 			}
 			if props.Required {
@@ -155,18 +168,31 @@ templ SecondaryRadioButton(props *structs.Radio) {
 				if props.Hx.PushURL != "" {
 					hx-push-url={ props.Hx.PushURL }
 				}
-                if props.Hx.Params != "" {
-                    hx-params={ props.Hx.Params }
+				if props.Hx.Params != "" {
+					hx-params={ props.Hx.Params }
+				}
+                if props.Hx.OnAfterRequest != "" {
+                    { templ.Attributes{"hx-on::after-request": props.Hx.OnAfterRequest}... }
+                }
+                if props.Hx.OnBeforeRequest != "" {
+                    { templ.Attributes{"hx-on::before-request": props.Hx.OnBeforeRequest}... }
+                }
+                if props.Hx.OnAfterSettle != "" {
+                    { templ.Attributes{"hx-on::after-settle": props.Hx.OnAfterSettle}... }
                 }
 			}
 		/>
 		<label
-			if props.ID != "" {
-				for={ props.ID }
+			if props.Common.ID != "" {
+				for={ props.Common.ID }
 			}
-			class="px-3 py-2 cursor-pointer inline-flex items-center select-none transition-colors bg-primary border-secondary peer-checked:border-secondary peer-checked:bg-secondary text-white"
+			if props.Common.Class != "" {
+				class={ "px-3 py-2 cursor-pointer inline-flex items-center select-none transition-colors bg-primary border-secondary peer-checked:border-secondary peer-checked:bg-secondary text-white " + props.Common.Class }
+			} else {
+				class="px-3 py-2 cursor-pointer inline-flex items-center select-none transition-colors bg-primary border-secondary peer-checked:border-secondary peer-checked:bg-secondary text-white"
+			}
 		>
-			{ props.Value }
+			{ props.Common.Value }
 		</label>
 	</div>
 }
@@ -175,19 +201,19 @@ templ TertiaryRadioButton(props *structs.Radio) {
 	<div class="flex items-center">
 		<input
 			type="radio"
-			if props.ID != "" {
-				id={ props.ID }
+			if props.Common.ID != "" {
+				id={ props.Common.ID }
 			}
-			if props.Name != "" {
-				name={ props.Name }
+			if props.Common.Name != "" {
+				name={ props.Common.Name }
 			}
-			if props.Value != "" {
-				value={ props.Value }
+			if props.Common.Value != "" {
+				value={ props.Common.Value }
 			}
 			if props.Checked {
 				checked
 			}
-			if props.Disabled {
+			if props.Common.Disabled {
 				disabled
 			}
 			if props.Required {
@@ -240,18 +266,31 @@ templ TertiaryRadioButton(props *structs.Radio) {
 				if props.Hx.PushURL != "" {
 					hx-push-url={ props.Hx.PushURL }
 				}
-                if props.Hx.Params != "" {
-                    hx-params={ props.Hx.Params }
+				if props.Hx.Params != "" {
+					hx-params={ props.Hx.Params }
+				}
+                if props.Hx.OnAfterRequest != "" {
+                    { templ.Attributes{"hx-on::after-request": props.Hx.OnAfterRequest}... }
+                }
+                if props.Hx.OnBeforeRequest != "" {
+                    { templ.Attributes{"hx-on::before-request": props.Hx.OnBeforeRequest}... }
+                }
+                if props.Hx.OnAfterSettle != "" {
+                    { templ.Attributes{"hx-on::after-settle": props.Hx.OnAfterSettle}... }
                 }
 			}
 		/>
 		<label
-			if props.ID != "" {
-				for={ props.ID }
+			if props.Common.ID != "" {
+				for={ props.Common.ID }
 			}
-			class="px-3 py-2 cursor-pointer inline-flex items-center select-none transition-colors bg-quaternary border-tertiary peer-checked:border-tertiary peer-checked:bg-tertiary text-white"
+			if props.Common.Class != "" {
+				class={ "px-3 py-2 cursor-pointer inline-flex items-center select-none transition-colors bg-quaternary border-tertiary peer-checked:border-tertiary peer-checked:bg-tertiary text-white " + props.Common.Class }
+			} else {
+				class="px-3 py-2 cursor-pointer inline-flex items-center select-none transition-colors bg-quaternary border-tertiary peer-checked:border-tertiary peer-checked:bg-tertiary text-white"
+			}
 		>
-			{ props.Value }
+			{ props.Common.Value }
 		</label>
 	</div>
 }
@@ -260,19 +299,19 @@ templ QuaternaryRadioButton(props *structs.Radio) {
 	<div class="flex items-center">
 		<input
 			type="radio"
-			if props.ID != "" {
-				id={ props.ID }
+			if props.Common.ID != "" {
+				id={ props.Common.ID }
 			}
-			if props.Name != "" {
-				name={ props.Name }
+			if props.Common.Name != "" {
+				name={ props.Common.Name }
 			}
-			if props.Value != "" {
-				value={ props.Value }
+			if props.Common.Value != "" {
+				value={ props.Common.Value }
 			}
 			if props.Checked {
 				checked
 			}
-			if props.Disabled {
+			if props.Common.Disabled {
 				disabled
 			}
 			if props.Required {
@@ -325,18 +364,31 @@ templ QuaternaryRadioButton(props *structs.Radio) {
 				if props.Hx.PushURL != "" {
 					hx-push-url={ props.Hx.PushURL }
 				}
-                if props.Hx.Params != "" {
-                    hx-params={ props.Hx.Params }
+				if props.Hx.Params != "" {
+					hx-params={ props.Hx.Params }
+				}
+                if props.Hx.OnAfterRequest != "" {
+                    { templ.Attributes{"hx-on::after-request": props.Hx.OnAfterRequest}... }
+                }
+                if props.Hx.OnBeforeRequest != "" {
+                    { templ.Attributes{"hx-on::before-request": props.Hx.OnBeforeRequest}... }
+                }
+                if props.Hx.OnAfterSettle != "" {
+                    { templ.Attributes{"hx-on::after-settle": props.Hx.OnAfterSettle}... }
                 }
 			}
 		/>
 		<label
-			if props.ID != "" {
-				for={ props.ID }
+			if props.Common.ID != "" {
+				for={ props.Common.ID }
 			}
-			class="px-3 py-2 cursor-pointer inline-flex items-center select-none transition-colors bg-tertiary border-quaternary peer-checked:border-quaternary peer-checked:bg-quaternary text-white"
+			if props.Common.Class != "" {
+				class={ "px-3 py-2 cursor-pointer inline-flex items-center select-none transition-colors bg-tertiary border-quaternary peer-checked:border-quaternary peer-checked:bg-quaternary text-white " + props.Common.Class }
+			} else {
+				class="px-3 py-2 cursor-pointer inline-flex items-center select-none transition-colors bg-tertiary border-quaternary peer-checked:border-quaternary peer-checked:bg-quaternary text-white"
+			}
 		>
-			{ props.Value }
+			{ props.Common.Value }
 		</label>
 	</div>
 }
@@ -345,19 +397,19 @@ templ AccentRadioButton(props *structs.Radio) {
 	<div class="flex items-center">
 		<input
 			type="radio"
-			if props.ID != "" {
-				id={ props.ID }
+			if props.Common.ID != "" {
+				id={ props.Common.ID }
 			}
-			if props.Name != "" {
-				name={ props.Name }
+			if props.Common.Name != "" {
+				name={ props.Common.Name }
 			}
-			if props.Value != "" {
-				value={ props.Value }
+			if props.Common.Value != "" {
+				value={ props.Common.Value }
 			}
 			if props.Checked {
 				checked
 			}
-			if props.Disabled {
+			if props.Common.Disabled {
 				disabled
 			}
 			if props.Required {
@@ -410,18 +462,31 @@ templ AccentRadioButton(props *structs.Radio) {
 				if props.Hx.PushURL != "" {
 					hx-push-url={ props.Hx.PushURL }
 				}
-                if props.Hx.Params != "" {
-                    hx-params={ props.Hx.Params }
+				if props.Hx.Params != "" {
+					hx-params={ props.Hx.Params }
+				}
+                if props.Hx.OnAfterRequest != "" {
+                    { templ.Attributes{"hx-on::after-request": props.Hx.OnAfterRequest}... }
+                }
+                if props.Hx.OnBeforeRequest != "" {
+                    { templ.Attributes{"hx-on::before-request": props.Hx.OnBeforeRequest}... }
+                }
+                if props.Hx.OnAfterSettle != "" {
+                    { templ.Attributes{"hx-on::after-settle": props.Hx.OnAfterSettle}... }
                 }
 			}
 		/>
 		<label
-			if props.ID != "" {
-				for={ props.ID }
+			if props.Common.ID != "" {
+				for={ props.Common.ID }
 			}
-			class="px-3 py-2 cursor-pointer inline-flex items-center select-none transition-colors bg-accent border-accent/50 peer-checked:border-accent text-white"
+			if props.Common.Class != "" {
+				class={ "px-3 py-2 cursor-pointer inline-flex items-center select-none transition-colors bg-accent border-accent/50 peer-checked:border-accent text-white " + props.Common.Class }
+			} else {
+				class="px-3 py-2 cursor-pointer inline-flex items-center select-none transition-colors bg-accent border-accent/50 peer-checked:border-accent text-white"
+			}
 		>
-			{ props.Value }
+			{ props.Common.Value }
 		</label>
 	</div>
 }
@@ -430,19 +495,19 @@ templ GhostRadioButton(props *structs.Radio) {
 	<div class="flex items-center">
 		<input
 			type="radio"
-			if props.ID != "" {
-				id={ props.ID }
+			if props.Common.ID != "" {
+				id={ props.Common.ID }
 			}
-			if props.Name != "" {
-				name={ props.Name }
+			if props.Common.Name != "" {
+				name={ props.Common.Name }
 			}
-			if props.Value != "" {
-				value={ props.Value }
+			if props.Common.Value != "" {
+				value={ props.Common.Value }
 			}
 			if props.Checked {
 				checked
 			}
-			if props.Disabled {
+			if props.Common.Disabled {
 				disabled
 			}
 			if props.Required {
@@ -495,18 +560,31 @@ templ GhostRadioButton(props *structs.Radio) {
 				if props.Hx.PushURL != "" {
 					hx-push-url={ props.Hx.PushURL }
 				}
-                if props.Hx.Params != "" {
-                    hx-params={ props.Hx.Params }
+				if props.Hx.Params != "" {
+					hx-params={ props.Hx.Params }
+				}
+                if props.Hx.OnAfterRequest != "" {
+                    { templ.Attributes{"hx-on::after-request": props.Hx.OnAfterRequest}... }
+                }
+                if props.Hx.OnBeforeRequest != "" {
+                    { templ.Attributes{"hx-on::before-request": props.Hx.OnBeforeRequest}... }
+                }
+                if props.Hx.OnAfterSettle != "" {
+                    { templ.Attributes{"hx-on::after-settle": props.Hx.OnAfterSettle}... }
                 }
 			}
 		/>
 		<label
-			if props.ID != "" {
-				for={ props.ID }
+			if props.Common.ID != "" {
+				for={ props.Common.ID }
 			}
-			class="px-3 py-2 cursor-pointer inline-flex items-center select-none transition-colors invisible border-transparent  text-transparent"
+			if props.Common.Class != "" {
+				class={ "px-3 py-2 cursor-pointer inline-flex items-center select-none transition-colors invisible border-transparent  text-transparent " + props.Common.Class }
+			} else {
+				class="px-3 py-2 cursor-pointer inline-flex items-center select-none transition-colors invisible border-transparent  text-transparent"
+			}
 		>
-			{ props.Value }
+			{ props.Common.Value }
 		</label>
 	</div>
 }

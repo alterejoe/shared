@@ -1,13 +1,17 @@
 package components
+
 import "github.com/alterejoe/shared/structs"
 
 templ Form(props *structs.Form) {
 	<form
-		if props.ID != "" {
-			id={ props.ID }
+		if props.Common.ID != "" {
+			id={ props.Common.ID }
 		}
-		if props.Name != "" {
-			name={ props.Name }
+		if props.Common.Name != "" {
+			name={ props.Common.Name }
+		}
+		if props.Common.Class != "" {
+			class={ props.Common.Class }
 		}
 		if props.FormBehaviors.ConstraintForm {
 			data-constraint-form="true"
@@ -50,6 +54,18 @@ templ Form(props *structs.Form) {
 		}
 		if props.Hx.PushURL != "" {
 			hx-push-url={ props.Hx.PushURL }
+		}
+		if props.Hx.Params != "" {
+			hx-params={ props.Hx.Params }
+		}
+		if props.Hx.OnAfterRequest != "" {
+			{ templ.Attributes{"hx-on::after-request": props.Hx.OnAfterRequest}... }
+		}
+		if props.Hx.OnBeforeRequest != "" {
+			{ templ.Attributes{"hx-on::before-request": props.Hx.OnBeforeRequest}... }
+		}
+		if props.Hx.OnAfterSettle != "" {
+			{ templ.Attributes{"hx-on::after-settle": props.Hx.OnAfterSettle}... }
 		}
 	>
 		{ children... }

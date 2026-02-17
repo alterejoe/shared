@@ -1,14 +1,13 @@
 package components
 import "github.com/alterejoe/shared/structs"
 
-
 templ PrimaryTextarea(props *structs.Textarea) {
 	<textarea
-		if props.ID != "" {
-			id={ props.ID }
+		if props.Common.ID != "" {
+			id={ props.Common.ID }
 		}
-		if props.Name != "" {
-			name={ props.Name }
+		if props.Common.Name != "" {
+			name={ props.Common.Name }
 		}
 		if props.Placeholder != "" {
 			placeholder={ props.Placeholder }
@@ -16,7 +15,7 @@ templ PrimaryTextarea(props *structs.Textarea) {
 		if props.Rows > 0 {
 			rows={ props.RowsString() }
 		}
-		if props.Disabled {
+		if props.Common.Disabled {
 			disabled
 		}
 		if props.Autofocus {
@@ -25,8 +24,11 @@ templ PrimaryTextarea(props *structs.Textarea) {
 		if props.Required {
 			required
 		}
-
-        class="text-lg p-2 rounded w-full cursor-pointer outline-none resize-y bg-primary border border-primary focus:border-white text-white placeholder-white/70"
+		if props.Common.Class != "" {
+			class={ "text-md p-2 rounded w-full cursor-pointer outline-none resize-y bg-primary border border-primary focus:border-white text-white placeholder-white/70 " + props.Common.Class }
+		} else {
+			class="text-md p-2 rounded w-full cursor-pointer outline-none resize-y bg-primary border border-primary focus:border-white text-white placeholder-white/70"
+		}
 		if props.FormBehaviors.ConstraintString() != "" {
 			data-constraint={ props.FormBehaviors.ConstraintString() }
 		}
@@ -72,23 +74,31 @@ templ PrimaryTextarea(props *structs.Textarea) {
 		if props.Hx.PushURL != "" {
 			hx-push-url={ props.Hx.PushURL }
 		}
-        if props.Hx.Params != "" {
-            hx-params={ props.Hx.Params }
+		if props.Hx.Params != "" {
+			hx-params={ props.Hx.Params }
+		}
+        if props.Hx.OnAfterRequest != "" {
+            { templ.Attributes{"hx-on::after-request": props.Hx.OnAfterRequest}... }
         }
-	>{ props.Value }</textarea>
-	if props.ID != "" {
-		<div id={ props.ID + "-errors" } class="text-red-600 text-sm mt-1 hidden"></div>
+        if props.Hx.OnBeforeRequest != "" {
+            { templ.Attributes{"hx-on::before-request": props.Hx.OnBeforeRequest}... }
+        }
+        if props.Hx.OnAfterSettle != "" {
+            { templ.Attributes{"hx-on::after-settle": props.Hx.OnAfterSettle}... }
+        }
+	>{ props.Common.Value }</textarea>
+	if props.Common.ID != "" {
+		<div id={ props.Common.ID + "-errors" } class="text-red-600 text-sm mt-1 hidden"></div>
 	}
 }
-
 
 templ SecondaryTextarea(props *structs.Textarea) {
 	<textarea
-		if props.ID != "" {
-			id={ props.ID }
+		if props.Common.ID != "" {
+			id={ props.Common.ID }
 		}
-		if props.Name != "" {
-			name={ props.Name }
+		if props.Common.Name != "" {
+			name={ props.Common.Name }
 		}
 		if props.Placeholder != "" {
 			placeholder={ props.Placeholder }
@@ -96,7 +106,7 @@ templ SecondaryTextarea(props *structs.Textarea) {
 		if props.Rows > 0 {
 			rows={ props.RowsString() }
 		}
-		if props.Disabled {
+		if props.Common.Disabled {
 			disabled
 		}
 		if props.Autofocus {
@@ -105,8 +115,11 @@ templ SecondaryTextarea(props *structs.Textarea) {
 		if props.Required {
 			required
 		}
-
-        class="text-lg p-2 rounded w-full cursor-pointer outline-none resize-y bg-secondary border border-secondary focus:border-white text-white placeholder-white/70"
+		if props.Common.Class != "" {
+			class={ "text-md p-2 rounded w-full cursor-pointer outline-none resize-y bg-secondary border border-secondary focus:border-white text-white placeholder-white/70 " + props.Common.Class }
+		} else {
+			class="text-md p-2 rounded w-full cursor-pointer outline-none resize-y bg-secondary border border-secondary focus:border-white text-white placeholder-white/70"
+		}
 		if props.FormBehaviors.ConstraintString() != "" {
 			data-constraint={ props.FormBehaviors.ConstraintString() }
 		}
@@ -152,23 +165,31 @@ templ SecondaryTextarea(props *structs.Textarea) {
 		if props.Hx.PushURL != "" {
 			hx-push-url={ props.Hx.PushURL }
 		}
-        if props.Hx.Params != "" {
-            hx-params={ props.Hx.Params }
+		if props.Hx.Params != "" {
+			hx-params={ props.Hx.Params }
+		}
+        if props.Hx.OnAfterRequest != "" {
+            { templ.Attributes{"hx-on::after-request": props.Hx.OnAfterRequest}... }
         }
-	>{ props.Value }</textarea>
-	if props.ID != "" {
-		<div id={ props.ID + "-errors" } class="text-red-600 text-sm mt-1 hidden"></div>
+        if props.Hx.OnBeforeRequest != "" {
+            { templ.Attributes{"hx-on::before-request": props.Hx.OnBeforeRequest}... }
+        }
+        if props.Hx.OnAfterSettle != "" {
+            { templ.Attributes{"hx-on::after-settle": props.Hx.OnAfterSettle}... }
+        }
+	>{ props.Common.Value }</textarea>
+	if props.Common.ID != "" {
+		<div id={ props.Common.ID + "-errors" } class="text-red-600 text-sm mt-1 hidden"></div>
 	}
 }
-
 
 templ TertiaryTextarea(props *structs.Textarea) {
 	<textarea
-		if props.ID != "" {
-			id={ props.ID }
+		if props.Common.ID != "" {
+			id={ props.Common.ID }
 		}
-		if props.Name != "" {
-			name={ props.Name }
+		if props.Common.Name != "" {
+			name={ props.Common.Name }
 		}
 		if props.Placeholder != "" {
 			placeholder={ props.Placeholder }
@@ -176,7 +197,7 @@ templ TertiaryTextarea(props *structs.Textarea) {
 		if props.Rows > 0 {
 			rows={ props.RowsString() }
 		}
-		if props.Disabled {
+		if props.Common.Disabled {
 			disabled
 		}
 		if props.Autofocus {
@@ -185,8 +206,11 @@ templ TertiaryTextarea(props *structs.Textarea) {
 		if props.Required {
 			required
 		}
-
-        class="text-lg p-2 rounded w-full cursor-pointer outline-none resize-y bg-tertiary border border-tertiary focus:border-white text-white placeholder-white/70"
+		if props.Common.Class != "" {
+			class={ "text-md p-2 rounded w-full cursor-pointer outline-none resize-y bg-tertiary border border-tertiary focus:border-white text-white placeholder-white/70 " + props.Common.Class }
+		} else {
+			class="text-md p-2 rounded w-full cursor-pointer outline-none resize-y bg-tertiary border border-tertiary focus:border-white text-white placeholder-white/70"
+		}
 		if props.FormBehaviors.ConstraintString() != "" {
 			data-constraint={ props.FormBehaviors.ConstraintString() }
 		}
@@ -232,23 +256,31 @@ templ TertiaryTextarea(props *structs.Textarea) {
 		if props.Hx.PushURL != "" {
 			hx-push-url={ props.Hx.PushURL }
 		}
-        if props.Hx.Params != "" {
-            hx-params={ props.Hx.Params }
+		if props.Hx.Params != "" {
+			hx-params={ props.Hx.Params }
+		}
+        if props.Hx.OnAfterRequest != "" {
+            { templ.Attributes{"hx-on::after-request": props.Hx.OnAfterRequest}... }
         }
-	>{ props.Value }</textarea>
-	if props.ID != "" {
-		<div id={ props.ID + "-errors" } class="text-red-600 text-sm mt-1 hidden"></div>
+        if props.Hx.OnBeforeRequest != "" {
+            { templ.Attributes{"hx-on::before-request": props.Hx.OnBeforeRequest}... }
+        }
+        if props.Hx.OnAfterSettle != "" {
+            { templ.Attributes{"hx-on::after-settle": props.Hx.OnAfterSettle}... }
+        }
+	>{ props.Common.Value }</textarea>
+	if props.Common.ID != "" {
+		<div id={ props.Common.ID + "-errors" } class="text-red-600 text-sm mt-1 hidden"></div>
 	}
 }
-
 
 templ QuaternaryTextarea(props *structs.Textarea) {
 	<textarea
-		if props.ID != "" {
-			id={ props.ID }
+		if props.Common.ID != "" {
+			id={ props.Common.ID }
 		}
-		if props.Name != "" {
-			name={ props.Name }
+		if props.Common.Name != "" {
+			name={ props.Common.Name }
 		}
 		if props.Placeholder != "" {
 			placeholder={ props.Placeholder }
@@ -256,7 +288,7 @@ templ QuaternaryTextarea(props *structs.Textarea) {
 		if props.Rows > 0 {
 			rows={ props.RowsString() }
 		}
-		if props.Disabled {
+		if props.Common.Disabled {
 			disabled
 		}
 		if props.Autofocus {
@@ -265,8 +297,11 @@ templ QuaternaryTextarea(props *structs.Textarea) {
 		if props.Required {
 			required
 		}
-
-        class="text-lg p-2 rounded w-full cursor-pointer outline-none resize-y bg-quaternary border border-quaternary focus:border-white text-white placeholder-white/70"
+		if props.Common.Class != "" {
+			class={ "text-md p-2 rounded w-full cursor-pointer outline-none resize-y bg-quaternary border border-quaternary focus:border-white text-white placeholder-white/70 " + props.Common.Class }
+		} else {
+			class="text-md p-2 rounded w-full cursor-pointer outline-none resize-y bg-quaternary border border-quaternary focus:border-white text-white placeholder-white/70"
+		}
 		if props.FormBehaviors.ConstraintString() != "" {
 			data-constraint={ props.FormBehaviors.ConstraintString() }
 		}
@@ -312,23 +347,31 @@ templ QuaternaryTextarea(props *structs.Textarea) {
 		if props.Hx.PushURL != "" {
 			hx-push-url={ props.Hx.PushURL }
 		}
-        if props.Hx.Params != "" {
-            hx-params={ props.Hx.Params }
+		if props.Hx.Params != "" {
+			hx-params={ props.Hx.Params }
+		}
+        if props.Hx.OnAfterRequest != "" {
+            { templ.Attributes{"hx-on::after-request": props.Hx.OnAfterRequest}... }
         }
-	>{ props.Value }</textarea>
-	if props.ID != "" {
-		<div id={ props.ID + "-errors" } class="text-red-600 text-sm mt-1 hidden"></div>
+        if props.Hx.OnBeforeRequest != "" {
+            { templ.Attributes{"hx-on::before-request": props.Hx.OnBeforeRequest}... }
+        }
+        if props.Hx.OnAfterSettle != "" {
+            { templ.Attributes{"hx-on::after-settle": props.Hx.OnAfterSettle}... }
+        }
+	>{ props.Common.Value }</textarea>
+	if props.Common.ID != "" {
+		<div id={ props.Common.ID + "-errors" } class="text-red-600 text-sm mt-1 hidden"></div>
 	}
 }
-
 
 templ AccentTextarea(props *structs.Textarea) {
 	<textarea
-		if props.ID != "" {
-			id={ props.ID }
+		if props.Common.ID != "" {
+			id={ props.Common.ID }
 		}
-		if props.Name != "" {
-			name={ props.Name }
+		if props.Common.Name != "" {
+			name={ props.Common.Name }
 		}
 		if props.Placeholder != "" {
 			placeholder={ props.Placeholder }
@@ -336,7 +379,7 @@ templ AccentTextarea(props *structs.Textarea) {
 		if props.Rows > 0 {
 			rows={ props.RowsString() }
 		}
-		if props.Disabled {
+		if props.Common.Disabled {
 			disabled
 		}
 		if props.Autofocus {
@@ -345,8 +388,11 @@ templ AccentTextarea(props *structs.Textarea) {
 		if props.Required {
 			required
 		}
-
-        class="text-lg p-2 rounded w-full cursor-pointer outline-none resize-y bg-accent border border-accent focus:border-white text-white placeholder-white/70"
+		if props.Common.Class != "" {
+			class={ "text-md p-2 rounded w-full cursor-pointer outline-none resize-y bg-accent border border-accent focus:border-white text-white placeholder-white/70 " + props.Common.Class }
+		} else {
+			class="text-md p-2 rounded w-full cursor-pointer outline-none resize-y bg-accent border border-accent focus:border-white text-white placeholder-white/70"
+		}
 		if props.FormBehaviors.ConstraintString() != "" {
 			data-constraint={ props.FormBehaviors.ConstraintString() }
 		}
@@ -392,23 +438,31 @@ templ AccentTextarea(props *structs.Textarea) {
 		if props.Hx.PushURL != "" {
 			hx-push-url={ props.Hx.PushURL }
 		}
-        if props.Hx.Params != "" {
-            hx-params={ props.Hx.Params }
+		if props.Hx.Params != "" {
+			hx-params={ props.Hx.Params }
+		}
+        if props.Hx.OnAfterRequest != "" {
+            { templ.Attributes{"hx-on::after-request": props.Hx.OnAfterRequest}... }
         }
-	>{ props.Value }</textarea>
-	if props.ID != "" {
-		<div id={ props.ID + "-errors" } class="text-red-600 text-sm mt-1 hidden"></div>
+        if props.Hx.OnBeforeRequest != "" {
+            { templ.Attributes{"hx-on::before-request": props.Hx.OnBeforeRequest}... }
+        }
+        if props.Hx.OnAfterSettle != "" {
+            { templ.Attributes{"hx-on::after-settle": props.Hx.OnAfterSettle}... }
+        }
+	>{ props.Common.Value }</textarea>
+	if props.Common.ID != "" {
+		<div id={ props.Common.ID + "-errors" } class="text-red-600 text-sm mt-1 hidden"></div>
 	}
 }
-
 
 templ UniqueTextarea(props *structs.Textarea) {
 	<textarea
-		if props.ID != "" {
-			id={ props.ID }
+		if props.Common.ID != "" {
+			id={ props.Common.ID }
 		}
-		if props.Name != "" {
-			name={ props.Name }
+		if props.Common.Name != "" {
+			name={ props.Common.Name }
 		}
 		if props.Placeholder != "" {
 			placeholder={ props.Placeholder }
@@ -416,7 +470,7 @@ templ UniqueTextarea(props *structs.Textarea) {
 		if props.Rows > 0 {
 			rows={ props.RowsString() }
 		}
-		if props.Disabled {
+		if props.Common.Disabled {
 			disabled
 		}
 		if props.Autofocus {
@@ -425,8 +479,11 @@ templ UniqueTextarea(props *structs.Textarea) {
 		if props.Required {
 			required
 		}
-
-        class="text-lg p-2 rounded w-full cursor-pointer outline-none resize-y bg-unique border border-unique focus:border-white text-white placeholder-white/70"
+		if props.Common.Class != "" {
+			class={ "text-md p-2 rounded w-full cursor-pointer outline-none resize-y bg-unique border border-unique focus:border-white text-white placeholder-white/70 " + props.Common.Class }
+		} else {
+			class="text-md p-2 rounded w-full cursor-pointer outline-none resize-y bg-unique border border-unique focus:border-white text-white placeholder-white/70"
+		}
 		if props.FormBehaviors.ConstraintString() != "" {
 			data-constraint={ props.FormBehaviors.ConstraintString() }
 		}
@@ -472,23 +529,31 @@ templ UniqueTextarea(props *structs.Textarea) {
 		if props.Hx.PushURL != "" {
 			hx-push-url={ props.Hx.PushURL }
 		}
-        if props.Hx.Params != "" {
-            hx-params={ props.Hx.Params }
+		if props.Hx.Params != "" {
+			hx-params={ props.Hx.Params }
+		}
+        if props.Hx.OnAfterRequest != "" {
+            { templ.Attributes{"hx-on::after-request": props.Hx.OnAfterRequest}... }
         }
-	>{ props.Value }</textarea>
-	if props.ID != "" {
-		<div id={ props.ID + "-errors" } class="text-red-600 text-sm mt-1 hidden"></div>
+        if props.Hx.OnBeforeRequest != "" {
+            { templ.Attributes{"hx-on::before-request": props.Hx.OnBeforeRequest}... }
+        }
+        if props.Hx.OnAfterSettle != "" {
+            { templ.Attributes{"hx-on::after-settle": props.Hx.OnAfterSettle}... }
+        }
+	>{ props.Common.Value }</textarea>
+	if props.Common.ID != "" {
+		<div id={ props.Common.ID + "-errors" } class="text-red-600 text-sm mt-1 hidden"></div>
 	}
 }
-
 
 templ AttentionTextarea(props *structs.Textarea) {
 	<textarea
-		if props.ID != "" {
-			id={ props.ID }
+		if props.Common.ID != "" {
+			id={ props.Common.ID }
 		}
-		if props.Name != "" {
-			name={ props.Name }
+		if props.Common.Name != "" {
+			name={ props.Common.Name }
 		}
 		if props.Placeholder != "" {
 			placeholder={ props.Placeholder }
@@ -496,7 +561,7 @@ templ AttentionTextarea(props *structs.Textarea) {
 		if props.Rows > 0 {
 			rows={ props.RowsString() }
 		}
-		if props.Disabled {
+		if props.Common.Disabled {
 			disabled
 		}
 		if props.Autofocus {
@@ -505,8 +570,11 @@ templ AttentionTextarea(props *structs.Textarea) {
 		if props.Required {
 			required
 		}
-
-        class="text-lg p-2 rounded w-full cursor-pointer outline-none resize-y bg-attention border border-attention focus:border-white text-white placeholder-white/70"
+		if props.Common.Class != "" {
+			class={ "text-md p-2 rounded w-full cursor-pointer outline-none resize-y bg-attention border border-attention focus:border-white text-white placeholder-white/70 " + props.Common.Class }
+		} else {
+			class="text-md p-2 rounded w-full cursor-pointer outline-none resize-y bg-attention border border-attention focus:border-white text-white placeholder-white/70"
+		}
 		if props.FormBehaviors.ConstraintString() != "" {
 			data-constraint={ props.FormBehaviors.ConstraintString() }
 		}
@@ -552,23 +620,31 @@ templ AttentionTextarea(props *structs.Textarea) {
 		if props.Hx.PushURL != "" {
 			hx-push-url={ props.Hx.PushURL }
 		}
-        if props.Hx.Params != "" {
-            hx-params={ props.Hx.Params }
+		if props.Hx.Params != "" {
+			hx-params={ props.Hx.Params }
+		}
+        if props.Hx.OnAfterRequest != "" {
+            { templ.Attributes{"hx-on::after-request": props.Hx.OnAfterRequest}... }
         }
-	>{ props.Value }</textarea>
-	if props.ID != "" {
-		<div id={ props.ID + "-errors" } class="text-red-600 text-sm mt-1 hidden"></div>
+        if props.Hx.OnBeforeRequest != "" {
+            { templ.Attributes{"hx-on::before-request": props.Hx.OnBeforeRequest}... }
+        }
+        if props.Hx.OnAfterSettle != "" {
+            { templ.Attributes{"hx-on::after-settle": props.Hx.OnAfterSettle}... }
+        }
+	>{ props.Common.Value }</textarea>
+	if props.Common.ID != "" {
+		<div id={ props.Common.ID + "-errors" } class="text-red-600 text-sm mt-1 hidden"></div>
 	}
 }
-
 
 templ DefaultTextarea(props *structs.Textarea) {
 	<textarea
-		if props.ID != "" {
-			id={ props.ID }
+		if props.Common.ID != "" {
+			id={ props.Common.ID }
 		}
-		if props.Name != "" {
-			name={ props.Name }
+		if props.Common.Name != "" {
+			name={ props.Common.Name }
 		}
 		if props.Placeholder != "" {
 			placeholder={ props.Placeholder }
@@ -576,7 +652,7 @@ templ DefaultTextarea(props *structs.Textarea) {
 		if props.Rows > 0 {
 			rows={ props.RowsString() }
 		}
-		if props.Disabled {
+		if props.Common.Disabled {
 			disabled
 		}
 		if props.Autofocus {
@@ -585,8 +661,11 @@ templ DefaultTextarea(props *structs.Textarea) {
 		if props.Required {
 			required
 		}
-
-        class="text-lg p-2 rounded w-full cursor-pointer outline-none resize-y bg-white border border-gray-300 focus:border-primary text-gray-900 placeholder-gray-400"
+		if props.Common.Class != "" {
+			class={ "text-md p-2 rounded w-full cursor-pointer outline-none resize-y bg-white border border-gray-300 focus:border-primary text-gray-900 placeholder-gray-400 " + props.Common.Class }
+		} else {
+			class="text-md p-2 rounded w-full cursor-pointer outline-none resize-y bg-white border border-gray-300 focus:border-primary text-gray-900 placeholder-gray-400"
+		}
 		if props.FormBehaviors.ConstraintString() != "" {
 			data-constraint={ props.FormBehaviors.ConstraintString() }
 		}
@@ -632,13 +711,21 @@ templ DefaultTextarea(props *structs.Textarea) {
 		if props.Hx.PushURL != "" {
 			hx-push-url={ props.Hx.PushURL }
 		}
-        if props.Hx.Params != "" {
-            hx-params={ props.Hx.Params }
+		if props.Hx.Params != "" {
+			hx-params={ props.Hx.Params }
+		}
+        if props.Hx.OnAfterRequest != "" {
+            { templ.Attributes{"hx-on::after-request": props.Hx.OnAfterRequest}... }
         }
-	>{ props.Value }</textarea>
-	if props.ID != "" {
-		<div id={ props.ID + "-errors" } class="text-red-600 text-sm mt-1 hidden"></div>
+        if props.Hx.OnBeforeRequest != "" {
+            { templ.Attributes{"hx-on::before-request": props.Hx.OnBeforeRequest}... }
+        }
+        if props.Hx.OnAfterSettle != "" {
+            { templ.Attributes{"hx-on::after-settle": props.Hx.OnAfterSettle}... }
+        }
+	>{ props.Common.Value }</textarea>
+	if props.Common.ID != "" {
+		<div id={ props.Common.ID + "-errors" } class="text-red-600 text-sm mt-1 hidden"></div>
 	}
 }
-
 

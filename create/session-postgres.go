@@ -14,7 +14,9 @@ import (
 )
 
 type UserPreferences struct {
-	FleetingAlign string `json:"fleeting_align"`
+	FleetingAlign string            `json:"fleeting_align"`
+	FleetingTime  string            `json:"fleeting_time"`
+	Keymap        map[string]string `json:"keymap"`
 }
 
 func DefaultPreferences() UserPreferences {
@@ -25,6 +27,7 @@ func DefaultPreferences() UserPreferences {
 
 func PGSessionManager(pool *pgxpool.Pool, cookiename string) *SessionManager {
 	gob.Register(UserPreferences{})
+	gob.Register(map[string]string{})
 
 	sessionManager := scs.New()
 	sessionManager.Store = pgxstore.New(pool)
@@ -106,12 +109,17 @@ func (d *SessionManager) GetPreferences(ctx context.Context) UserPreferences {
 
 func (d *SessionManager) SetPreference(ctx context.Context, key string, value string) {
 	prefs := d.GetPreferences(ctx)
-
 	switch key {
 	case "fleeting_align":
 		prefs.FleetingAlign = value
+	case "fleeting_time":
+		prefs.FleetingTime = value
+	default:
+		if prefs.Keymap == nil {
+			prefs.Keymap = make(map[string]string)
+		}
+		prefs.Keymap[key] = value
 	}
-
 	d.Put(ctx, "user_preferences", prefs)
 }
 

@@ -4,12 +4,15 @@ import "github.com/alterejoe/shared/structs"
 
 
 
-
 templ ChevronLeft(props *structs.Button) {
 	<div
-		class="border-2 rounded-md hover:bg-secondary cursor-pointer border-white p-1"
-		if props.ID != "" {
-			id={ props.ID }
+		if props.Common.ID != "" {
+			id={ props.Common.ID }
+		}
+		if props.Common.Class != "" {
+			class={ "border-2 rounded-md hover:bg-secondary cursor-pointer border-white p-1 " + props.Common.Class }
+		} else {
+			class="border-2 rounded-md hover:bg-secondary cursor-pointer border-white p-1"
 		}
 		if props.Hx.Method == structs.GET {
 			hx-get={ props.Hx.URL }
@@ -47,24 +50,36 @@ templ ChevronLeft(props *structs.Button) {
 		if props.Hx.PushURL != "" {
 			hx-push-url={ props.Hx.PushURL }
 		}
-        if props.Hx.Params != "" {
+		if props.Hx.Params != "" {
 			hx-params={ props.Hx.Params }
 		}
-	>
+        if props.Hx.OnAfterRequest != "" {
+            { templ.Attributes{"hx-on::after-request": props.Hx.OnAfterRequest}... }
+        }
+        if props.Hx.OnBeforeRequest != "" {
+            { templ.Attributes{"hx-on::before-request": props.Hx.OnBeforeRequest}... }
+        }
+        if props.Hx.OnAfterSettle != "" {
+            { templ.Attributes{"hx-on::after-settle": props.Hx.OnAfterSettle}... }
+        }
+    >
 		<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
 			<polyline points="11 17 6 12 11 7"></polyline><polyline points="18 17 13 12 18 7"></polyline>
 		</svg>
 	</div>
 }
-
 
 
 
 templ ChevronRight(props *structs.Button) {
 	<div
-		class="border-2 rounded-md hover:bg-secondary cursor-pointer border-white p-1"
-		if props.ID != "" {
-			id={ props.ID }
+		if props.Common.ID != "" {
+			id={ props.Common.ID }
+		}
+		if props.Common.Class != "" {
+			class={ "border-2 rounded-md hover:bg-secondary cursor-pointer border-white p-1 " + props.Common.Class }
+		} else {
+			class="border-2 rounded-md hover:bg-secondary cursor-pointer border-white p-1"
 		}
 		if props.Hx.Method == structs.GET {
 			hx-get={ props.Hx.URL }
@@ -102,24 +117,36 @@ templ ChevronRight(props *structs.Button) {
 		if props.Hx.PushURL != "" {
 			hx-push-url={ props.Hx.PushURL }
 		}
-        if props.Hx.Params != "" {
+		if props.Hx.Params != "" {
 			hx-params={ props.Hx.Params }
 		}
-	>
+        if props.Hx.OnAfterRequest != "" {
+            { templ.Attributes{"hx-on::after-request": props.Hx.OnAfterRequest}... }
+        }
+        if props.Hx.OnBeforeRequest != "" {
+            { templ.Attributes{"hx-on::before-request": props.Hx.OnBeforeRequest}... }
+        }
+        if props.Hx.OnAfterSettle != "" {
+            { templ.Attributes{"hx-on::after-settle": props.Hx.OnAfterSettle}... }
+        }
+    >
 		<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
 			<polyline points="13 17 18 12 13 7"></polyline><polyline points="6 17 11 12 6 7"></polyline>
 		</svg>
 	</div>
 }
-
 
 
 
 templ ChevronUp(props *structs.Button) {
 	<div
-		class="border-2 rounded-md hover:bg-secondary cursor-pointer border-white p-1"
-		if props.ID != "" {
-			id={ props.ID }
+		if props.Common.ID != "" {
+			id={ props.Common.ID }
+		}
+		if props.Common.Class != "" {
+			class={ "border-2 rounded-md hover:bg-secondary cursor-pointer border-white p-1 " + props.Common.Class }
+		} else {
+			class="border-2 rounded-md hover:bg-secondary cursor-pointer border-white p-1"
 		}
 		if props.Hx.Method == structs.GET {
 			hx-get={ props.Hx.URL }
@@ -157,24 +184,36 @@ templ ChevronUp(props *structs.Button) {
 		if props.Hx.PushURL != "" {
 			hx-push-url={ props.Hx.PushURL }
 		}
-        if props.Hx.Params != "" {
+		if props.Hx.Params != "" {
 			hx-params={ props.Hx.Params }
 		}
-	>
+        if props.Hx.OnAfterRequest != "" {
+            { templ.Attributes{"hx-on::after-request": props.Hx.OnAfterRequest}... }
+        }
+        if props.Hx.OnBeforeRequest != "" {
+            { templ.Attributes{"hx-on::before-request": props.Hx.OnBeforeRequest}... }
+        }
+        if props.Hx.OnAfterSettle != "" {
+            { templ.Attributes{"hx-on::after-settle": props.Hx.OnAfterSettle}... }
+        }
+    >
 		<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
 			<polyline points="17 11 12 6 7 11"></polyline><polyline points="17 18 12 13 7 18"></polyline>
 		</svg>
 	</div>
 }
-
 
 
 
 templ ChevronDown(props *structs.Button) {
 	<div
-		class="border-2 rounded-md hover:bg-secondary cursor-pointer border-white p-1"
-		if props.ID != "" {
-			id={ props.ID }
+		if props.Common.ID != "" {
+			id={ props.Common.ID }
+		}
+		if props.Common.Class != "" {
+			class={ "border-2 rounded-md hover:bg-secondary cursor-pointer border-white p-1 " + props.Common.Class }
+		} else {
+			class="border-2 rounded-md hover:bg-secondary cursor-pointer border-white p-1"
 		}
 		if props.Hx.Method == structs.GET {
 			hx-get={ props.Hx.URL }
@@ -212,10 +251,19 @@ templ ChevronDown(props *structs.Button) {
 		if props.Hx.PushURL != "" {
 			hx-push-url={ props.Hx.PushURL }
 		}
-        if props.Hx.Params != "" {
+		if props.Hx.Params != "" {
 			hx-params={ props.Hx.Params }
 		}
-	>
+        if props.Hx.OnAfterRequest != "" {
+            { templ.Attributes{"hx-on::after-request": props.Hx.OnAfterRequest}... }
+        }
+        if props.Hx.OnBeforeRequest != "" {
+            { templ.Attributes{"hx-on::before-request": props.Hx.OnBeforeRequest}... }
+        }
+        if props.Hx.OnAfterSettle != "" {
+            { templ.Attributes{"hx-on::after-settle": props.Hx.OnAfterSettle}... }
+        }
+    >
 		<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
 			<polyline points="7 13 12 18 17 13"></polyline><polyline points="7 6 12 11 17 6"></polyline>
 		</svg>
@@ -224,12 +272,15 @@ templ ChevronDown(props *structs.Button) {
 
 
 
-
 templ SmallChevronLeft(props *structs.Button) {
 	<div
-		class="border-2 rounded-md hover:bg-secondary cursor-pointer border-white p-0.5"
-		if props.ID != "" {
-			id={ props.ID }
+		if props.Common.ID != "" {
+			id={ props.Common.ID }
+		}
+		if props.Common.Class != "" {
+			class={ "border-2 rounded-md hover:bg-secondary cursor-pointer border-white p-0.5 " + props.Common.Class }
+		} else {
+			class="border-2 rounded-md hover:bg-secondary cursor-pointer border-white p-0.5"
 		}
 		if props.Hx.Method == structs.GET {
 			hx-get={ props.Hx.URL }
@@ -267,24 +318,36 @@ templ SmallChevronLeft(props *structs.Button) {
 		if props.Hx.PushURL != "" {
 			hx-push-url={ props.Hx.PushURL }
 		}
-        if props.Hx.Params != "" {
+		if props.Hx.Params != "" {
 			hx-params={ props.Hx.Params }
 		}
-	>
+        if props.Hx.OnAfterRequest != "" {
+            { templ.Attributes{"hx-on::after-request": props.Hx.OnAfterRequest}... }
+        }
+        if props.Hx.OnBeforeRequest != "" {
+            { templ.Attributes{"hx-on::before-request": props.Hx.OnBeforeRequest}... }
+        }
+        if props.Hx.OnAfterSettle != "" {
+            { templ.Attributes{"hx-on::after-settle": props.Hx.OnAfterSettle}... }
+        }
+    >
 		<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
 			<polyline points="11 17 6 12 11 7"></polyline><polyline points="18 17 13 12 18 7"></polyline>
 		</svg>
 	</div>
 }
-
 
 
 
 templ SmallChevronRight(props *structs.Button) {
 	<div
-		class="border-2 rounded-md hover:bg-secondary cursor-pointer border-white p-0.5"
-		if props.ID != "" {
-			id={ props.ID }
+		if props.Common.ID != "" {
+			id={ props.Common.ID }
+		}
+		if props.Common.Class != "" {
+			class={ "border-2 rounded-md hover:bg-secondary cursor-pointer border-white p-0.5 " + props.Common.Class }
+		} else {
+			class="border-2 rounded-md hover:bg-secondary cursor-pointer border-white p-0.5"
 		}
 		if props.Hx.Method == structs.GET {
 			hx-get={ props.Hx.URL }
@@ -322,24 +385,36 @@ templ SmallChevronRight(props *structs.Button) {
 		if props.Hx.PushURL != "" {
 			hx-push-url={ props.Hx.PushURL }
 		}
-        if props.Hx.Params != "" {
+		if props.Hx.Params != "" {
 			hx-params={ props.Hx.Params }
 		}
-	>
+        if props.Hx.OnAfterRequest != "" {
+            { templ.Attributes{"hx-on::after-request": props.Hx.OnAfterRequest}... }
+        }
+        if props.Hx.OnBeforeRequest != "" {
+            { templ.Attributes{"hx-on::before-request": props.Hx.OnBeforeRequest}... }
+        }
+        if props.Hx.OnAfterSettle != "" {
+            { templ.Attributes{"hx-on::after-settle": props.Hx.OnAfterSettle}... }
+        }
+    >
 		<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
 			<polyline points="13 17 18 12 13 7"></polyline><polyline points="6 17 11 12 6 7"></polyline>
 		</svg>
 	</div>
 }
-
 
 
 
 templ SmallChevronUp(props *structs.Button) {
 	<div
-		class="border-2 rounded-md hover:bg-secondary cursor-pointer border-white p-0.5"
-		if props.ID != "" {
-			id={ props.ID }
+		if props.Common.ID != "" {
+			id={ props.Common.ID }
+		}
+		if props.Common.Class != "" {
+			class={ "border-2 rounded-md hover:bg-secondary cursor-pointer border-white p-0.5 " + props.Common.Class }
+		} else {
+			class="border-2 rounded-md hover:bg-secondary cursor-pointer border-white p-0.5"
 		}
 		if props.Hx.Method == structs.GET {
 			hx-get={ props.Hx.URL }
@@ -377,24 +452,36 @@ templ SmallChevronUp(props *structs.Button) {
 		if props.Hx.PushURL != "" {
 			hx-push-url={ props.Hx.PushURL }
 		}
-        if props.Hx.Params != "" {
+		if props.Hx.Params != "" {
 			hx-params={ props.Hx.Params }
 		}
-	>
+        if props.Hx.OnAfterRequest != "" {
+            { templ.Attributes{"hx-on::after-request": props.Hx.OnAfterRequest}... }
+        }
+        if props.Hx.OnBeforeRequest != "" {
+            { templ.Attributes{"hx-on::before-request": props.Hx.OnBeforeRequest}... }
+        }
+        if props.Hx.OnAfterSettle != "" {
+            { templ.Attributes{"hx-on::after-settle": props.Hx.OnAfterSettle}... }
+        }
+    >
 		<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
 			<polyline points="17 11 12 6 7 11"></polyline><polyline points="17 18 12 13 7 18"></polyline>
 		</svg>
 	</div>
 }
-
 
 
 
 templ SmallChevronDown(props *structs.Button) {
 	<div
-		class="border-2 rounded-md hover:bg-secondary cursor-pointer border-white p-0.5"
-		if props.ID != "" {
-			id={ props.ID }
+		if props.Common.ID != "" {
+			id={ props.Common.ID }
+		}
+		if props.Common.Class != "" {
+			class={ "border-2 rounded-md hover:bg-secondary cursor-pointer border-white p-0.5 " + props.Common.Class }
+		} else {
+			class="border-2 rounded-md hover:bg-secondary cursor-pointer border-white p-0.5"
 		}
 		if props.Hx.Method == structs.GET {
 			hx-get={ props.Hx.URL }
@@ -432,10 +519,19 @@ templ SmallChevronDown(props *structs.Button) {
 		if props.Hx.PushURL != "" {
 			hx-push-url={ props.Hx.PushURL }
 		}
-        if props.Hx.Params != "" {
+		if props.Hx.Params != "" {
 			hx-params={ props.Hx.Params }
 		}
-	>
+        if props.Hx.OnAfterRequest != "" {
+            { templ.Attributes{"hx-on::after-request": props.Hx.OnAfterRequest}... }
+        }
+        if props.Hx.OnBeforeRequest != "" {
+            { templ.Attributes{"hx-on::before-request": props.Hx.OnBeforeRequest}... }
+        }
+        if props.Hx.OnAfterSettle != "" {
+            { templ.Attributes{"hx-on::after-settle": props.Hx.OnAfterSettle}... }
+        }
+    >
 		<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
 			<polyline points="7 13 12 18 17 13"></polyline><polyline points="7 6 12 11 17 6"></polyline>
 		</svg>
@@ -444,12 +540,15 @@ templ SmallChevronDown(props *structs.Button) {
 
 
 
-
 templ PrimaryChevronLeft(props *structs.Button) {
 	<div
-		class="border-2 rounded-md hover:bg-secondary cursor-pointer border-black p-1"
-		if props.ID != "" {
-			id={ props.ID }
+		if props.Common.ID != "" {
+			id={ props.Common.ID }
+		}
+		if props.Common.Class != "" {
+			class={ "border-2 rounded-md hover:bg-secondary cursor-pointer border-black p-1 " + props.Common.Class }
+		} else {
+			class="border-2 rounded-md hover:bg-secondary cursor-pointer border-black p-1"
 		}
 		if props.Hx.Method == structs.GET {
 			hx-get={ props.Hx.URL }
@@ -487,24 +586,36 @@ templ PrimaryChevronLeft(props *structs.Button) {
 		if props.Hx.PushURL != "" {
 			hx-push-url={ props.Hx.PushURL }
 		}
-        if props.Hx.Params != "" {
+		if props.Hx.Params != "" {
 			hx-params={ props.Hx.Params }
 		}
-	>
+        if props.Hx.OnAfterRequest != "" {
+            { templ.Attributes{"hx-on::after-request": props.Hx.OnAfterRequest}... }
+        }
+        if props.Hx.OnBeforeRequest != "" {
+            { templ.Attributes{"hx-on::before-request": props.Hx.OnBeforeRequest}... }
+        }
+        if props.Hx.OnAfterSettle != "" {
+            { templ.Attributes{"hx-on::after-settle": props.Hx.OnAfterSettle}... }
+        }
+    >
 		<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2">
 			<polyline points="11 17 6 12 11 7"></polyline><polyline points="18 17 13 12 18 7"></polyline>
 		</svg>
 	</div>
 }
-
 
 
 
 templ PrimaryChevronRight(props *structs.Button) {
 	<div
-		class="border-2 rounded-md hover:bg-secondary cursor-pointer border-black p-1"
-		if props.ID != "" {
-			id={ props.ID }
+		if props.Common.ID != "" {
+			id={ props.Common.ID }
+		}
+		if props.Common.Class != "" {
+			class={ "border-2 rounded-md hover:bg-secondary cursor-pointer border-black p-1 " + props.Common.Class }
+		} else {
+			class="border-2 rounded-md hover:bg-secondary cursor-pointer border-black p-1"
 		}
 		if props.Hx.Method == structs.GET {
 			hx-get={ props.Hx.URL }
@@ -542,10 +653,19 @@ templ PrimaryChevronRight(props *structs.Button) {
 		if props.Hx.PushURL != "" {
 			hx-push-url={ props.Hx.PushURL }
 		}
-        if props.Hx.Params != "" {
+		if props.Hx.Params != "" {
 			hx-params={ props.Hx.Params }
 		}
-	>
+        if props.Hx.OnAfterRequest != "" {
+            { templ.Attributes{"hx-on::after-request": props.Hx.OnAfterRequest}... }
+        }
+        if props.Hx.OnBeforeRequest != "" {
+            { templ.Attributes{"hx-on::before-request": props.Hx.OnBeforeRequest}... }
+        }
+        if props.Hx.OnAfterSettle != "" {
+            { templ.Attributes{"hx-on::after-settle": props.Hx.OnAfterSettle}... }
+        }
+    >
 		<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2">
 			<polyline points="13 17 18 12 13 7"></polyline><polyline points="6 17 11 12 6 7"></polyline>
 		</svg>
@@ -554,12 +674,15 @@ templ PrimaryChevronRight(props *structs.Button) {
 
 
 
-
 templ PrimaryChevronUp(props *structs.Button) {
 	<div
-		class="border-2 rounded-md hover:bg-secondary cursor-pointer border-black p-1"
-		if props.ID != "" {
-			id={ props.ID }
+		if props.Common.ID != "" {
+			id={ props.Common.ID }
+		}
+		if props.Common.Class != "" {
+			class={ "border-2 rounded-md hover:bg-secondary cursor-pointer border-black p-1 " + props.Common.Class }
+		} else {
+			class="border-2 rounded-md hover:bg-secondary cursor-pointer border-black p-1"
 		}
 		if props.Hx.Method == structs.GET {
 			hx-get={ props.Hx.URL }
@@ -597,10 +720,19 @@ templ PrimaryChevronUp(props *structs.Button) {
 		if props.Hx.PushURL != "" {
 			hx-push-url={ props.Hx.PushURL }
 		}
-        if props.Hx.Params != "" {
+		if props.Hx.Params != "" {
 			hx-params={ props.Hx.Params }
 		}
-	>
+        if props.Hx.OnAfterRequest != "" {
+            { templ.Attributes{"hx-on::after-request": props.Hx.OnAfterRequest}... }
+        }
+        if props.Hx.OnBeforeRequest != "" {
+            { templ.Attributes{"hx-on::before-request": props.Hx.OnBeforeRequest}... }
+        }
+        if props.Hx.OnAfterSettle != "" {
+            { templ.Attributes{"hx-on::after-settle": props.Hx.OnAfterSettle}... }
+        }
+    >
 		<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2">
 			<polyline points="17 11 12 6 7 11"></polyline><polyline points="17 18 12 13 7 18"></polyline>
 		</svg>
@@ -609,12 +741,15 @@ templ PrimaryChevronUp(props *structs.Button) {
 
 
 
-
 templ PrimaryChevronDown(props *structs.Button) {
 	<div
-		class="border-2 rounded-md hover:bg-secondary cursor-pointer border-black p-1"
-		if props.ID != "" {
-			id={ props.ID }
+		if props.Common.ID != "" {
+			id={ props.Common.ID }
+		}
+		if props.Common.Class != "" {
+			class={ "border-2 rounded-md hover:bg-secondary cursor-pointer border-black p-1 " + props.Common.Class }
+		} else {
+			class="border-2 rounded-md hover:bg-secondary cursor-pointer border-black p-1"
 		}
 		if props.Hx.Method == structs.GET {
 			hx-get={ props.Hx.URL }
@@ -652,10 +787,19 @@ templ PrimaryChevronDown(props *structs.Button) {
 		if props.Hx.PushURL != "" {
 			hx-push-url={ props.Hx.PushURL }
 		}
-        if props.Hx.Params != "" {
+		if props.Hx.Params != "" {
 			hx-params={ props.Hx.Params }
 		}
-	>
+        if props.Hx.OnAfterRequest != "" {
+            { templ.Attributes{"hx-on::after-request": props.Hx.OnAfterRequest}... }
+        }
+        if props.Hx.OnBeforeRequest != "" {
+            { templ.Attributes{"hx-on::before-request": props.Hx.OnBeforeRequest}... }
+        }
+        if props.Hx.OnAfterSettle != "" {
+            { templ.Attributes{"hx-on::after-settle": props.Hx.OnAfterSettle}... }
+        }
+    >
 		<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2">
 			<polyline points="7 13 12 18 17 13"></polyline><polyline points="7 6 12 11 17 6"></polyline>
 		</svg>
@@ -664,12 +808,15 @@ templ PrimaryChevronDown(props *structs.Button) {
 
 
 
-
 templ PrimarySmallChevronLeft(props *structs.Button) {
 	<div
-		class="border-2 rounded-md hover:bg-secondary cursor-pointer border-black p-0.5"
-		if props.ID != "" {
-			id={ props.ID }
+		if props.Common.ID != "" {
+			id={ props.Common.ID }
+		}
+		if props.Common.Class != "" {
+			class={ "border-2 rounded-md hover:bg-secondary cursor-pointer border-black p-0.5 " + props.Common.Class }
+		} else {
+			class="border-2 rounded-md hover:bg-secondary cursor-pointer border-black p-0.5"
 		}
 		if props.Hx.Method == structs.GET {
 			hx-get={ props.Hx.URL }
@@ -707,10 +854,19 @@ templ PrimarySmallChevronLeft(props *structs.Button) {
 		if props.Hx.PushURL != "" {
 			hx-push-url={ props.Hx.PushURL }
 		}
-        if props.Hx.Params != "" {
+		if props.Hx.Params != "" {
 			hx-params={ props.Hx.Params }
 		}
-	>
+        if props.Hx.OnAfterRequest != "" {
+            { templ.Attributes{"hx-on::after-request": props.Hx.OnAfterRequest}... }
+        }
+        if props.Hx.OnBeforeRequest != "" {
+            { templ.Attributes{"hx-on::before-request": props.Hx.OnBeforeRequest}... }
+        }
+        if props.Hx.OnAfterSettle != "" {
+            { templ.Attributes{"hx-on::after-settle": props.Hx.OnAfterSettle}... }
+        }
+    >
 		<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2">
 			<polyline points="11 17 6 12 11 7"></polyline><polyline points="18 17 13 12 18 7"></polyline>
 		</svg>
@@ -719,12 +875,15 @@ templ PrimarySmallChevronLeft(props *structs.Button) {
 
 
 
-
 templ PrimarySmallChevronRight(props *structs.Button) {
 	<div
-		class="border-2 rounded-md hover:bg-secondary cursor-pointer border-black p-0.5"
-		if props.ID != "" {
-			id={ props.ID }
+		if props.Common.ID != "" {
+			id={ props.Common.ID }
+		}
+		if props.Common.Class != "" {
+			class={ "border-2 rounded-md hover:bg-secondary cursor-pointer border-black p-0.5 " + props.Common.Class }
+		} else {
+			class="border-2 rounded-md hover:bg-secondary cursor-pointer border-black p-0.5"
 		}
 		if props.Hx.Method == structs.GET {
 			hx-get={ props.Hx.URL }
@@ -762,10 +921,19 @@ templ PrimarySmallChevronRight(props *structs.Button) {
 		if props.Hx.PushURL != "" {
 			hx-push-url={ props.Hx.PushURL }
 		}
-        if props.Hx.Params != "" {
+		if props.Hx.Params != "" {
 			hx-params={ props.Hx.Params }
 		}
-	>
+        if props.Hx.OnAfterRequest != "" {
+            { templ.Attributes{"hx-on::after-request": props.Hx.OnAfterRequest}... }
+        }
+        if props.Hx.OnBeforeRequest != "" {
+            { templ.Attributes{"hx-on::before-request": props.Hx.OnBeforeRequest}... }
+        }
+        if props.Hx.OnAfterSettle != "" {
+            { templ.Attributes{"hx-on::after-settle": props.Hx.OnAfterSettle}... }
+        }
+    >
 		<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2">
 			<polyline points="13 17 18 12 13 7"></polyline><polyline points="6 17 11 12 6 7"></polyline>
 		</svg>
@@ -774,12 +942,15 @@ templ PrimarySmallChevronRight(props *structs.Button) {
 
 
 
-
 templ PrimarySmallChevronUp(props *structs.Button) {
 	<div
-		class="border-2 rounded-md hover:bg-secondary cursor-pointer border-black p-0.5"
-		if props.ID != "" {
-			id={ props.ID }
+		if props.Common.ID != "" {
+			id={ props.Common.ID }
+		}
+		if props.Common.Class != "" {
+			class={ "border-2 rounded-md hover:bg-secondary cursor-pointer border-black p-0.5 " + props.Common.Class }
+		} else {
+			class="border-2 rounded-md hover:bg-secondary cursor-pointer border-black p-0.5"
 		}
 		if props.Hx.Method == structs.GET {
 			hx-get={ props.Hx.URL }
@@ -817,10 +988,19 @@ templ PrimarySmallChevronUp(props *structs.Button) {
 		if props.Hx.PushURL != "" {
 			hx-push-url={ props.Hx.PushURL }
 		}
-        if props.Hx.Params != "" {
+		if props.Hx.Params != "" {
 			hx-params={ props.Hx.Params }
 		}
-	>
+        if props.Hx.OnAfterRequest != "" {
+            { templ.Attributes{"hx-on::after-request": props.Hx.OnAfterRequest}... }
+        }
+        if props.Hx.OnBeforeRequest != "" {
+            { templ.Attributes{"hx-on::before-request": props.Hx.OnBeforeRequest}... }
+        }
+        if props.Hx.OnAfterSettle != "" {
+            { templ.Attributes{"hx-on::after-settle": props.Hx.OnAfterSettle}... }
+        }
+    >
 		<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2">
 			<polyline points="17 11 12 6 7 11"></polyline><polyline points="17 18 12 13 7 18"></polyline>
 		</svg>
@@ -829,12 +1009,15 @@ templ PrimarySmallChevronUp(props *structs.Button) {
 
 
 
-
 templ PrimarySmallChevronDown(props *structs.Button) {
 	<div
-		class="border-2 rounded-md hover:bg-secondary cursor-pointer border-black p-0.5"
-		if props.ID != "" {
-			id={ props.ID }
+		if props.Common.ID != "" {
+			id={ props.Common.ID }
+		}
+		if props.Common.Class != "" {
+			class={ "border-2 rounded-md hover:bg-secondary cursor-pointer border-black p-0.5 " + props.Common.Class }
+		} else {
+			class="border-2 rounded-md hover:bg-secondary cursor-pointer border-black p-0.5"
 		}
 		if props.Hx.Method == structs.GET {
 			hx-get={ props.Hx.URL }
@@ -872,14 +1055,22 @@ templ PrimarySmallChevronDown(props *structs.Button) {
 		if props.Hx.PushURL != "" {
 			hx-push-url={ props.Hx.PushURL }
 		}
-        if props.Hx.Params != "" {
+		if props.Hx.Params != "" {
 			hx-params={ props.Hx.Params }
 		}
-	>
+        if props.Hx.OnAfterRequest != "" {
+            { templ.Attributes{"hx-on::after-request": props.Hx.OnAfterRequest}... }
+        }
+        if props.Hx.OnBeforeRequest != "" {
+            { templ.Attributes{"hx-on::before-request": props.Hx.OnBeforeRequest}... }
+        }
+        if props.Hx.OnAfterSettle != "" {
+            { templ.Attributes{"hx-on::after-settle": props.Hx.OnAfterSettle}... }
+        }
+    >
 		<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2">
 			<polyline points="7 13 12 18 17 13"></polyline><polyline points="7 6 12 11 17 6"></polyline>
 		</svg>
 	</div>
 }
-
 

@@ -1,154 +1,171 @@
 package components
 import "github.com/alterejoe/shared/structs"
 
-
 templ NoticePrimary(props *structs.Notice) {
 	<h5
-		if props.ID != "" {
-			id={ props.ID }
+		if props.Common.ID != "" {
+			id={ props.Common.ID }
 		}
-		if props.Name != "" {
-			name={ props.Name }
+		if props.Common.Name != "" {
+			name={ props.Common.Name }
 		}
-		class="p-3 text-center justify-center flex bg-primary"
+		if props.Common.Class != "" {
+			class={ "p-3 text-center justify-center flex bg-primary " + props.Common.Class }
+		} else {
+			class="p-3 text-center justify-center flex bg-primary"
+		}
 	>
-		if props.Value != "" {
+		if props.Common.Value != "" {
 			if props.Align() {
-				{ props.Value }
+				{ props.Common.Value }
 				{ children... }
 			} else {
 				{ children... }
-				{ props.Value }
+				{ props.Common.Value }
 			}
 		} else {
 			{ children... }
 		}
 	</h5>
 }
-
 
 templ NoticeSecondary(props *structs.Notice) {
 	<h5
-		if props.ID != "" {
-			id={ props.ID }
+		if props.Common.ID != "" {
+			id={ props.Common.ID }
 		}
-		if props.Name != "" {
-			name={ props.Name }
+		if props.Common.Name != "" {
+			name={ props.Common.Name }
 		}
-		class="p-3 text-center justify-center flex bg-secondary"
+		if props.Common.Class != "" {
+			class={ "p-3 text-center justify-center flex bg-secondary " + props.Common.Class }
+		} else {
+			class="p-3 text-center justify-center flex bg-secondary"
+		}
 	>
-		if props.Value != "" {
+		if props.Common.Value != "" {
 			if props.Align() {
-				{ props.Value }
+				{ props.Common.Value }
 				{ children... }
 			} else {
 				{ children... }
-				{ props.Value }
+				{ props.Common.Value }
 			}
 		} else {
 			{ children... }
 		}
 	</h5>
 }
-
 
 templ NoticeTertiary(props *structs.Notice) {
 	<h5
-		if props.ID != "" {
-			id={ props.ID }
+		if props.Common.ID != "" {
+			id={ props.Common.ID }
 		}
-		if props.Name != "" {
-			name={ props.Name }
+		if props.Common.Name != "" {
+			name={ props.Common.Name }
 		}
-		class="p-3 text-center justify-center flex bg-tertiary"
+		if props.Common.Class != "" {
+			class={ "p-3 text-center justify-center flex bg-tertiary " + props.Common.Class }
+		} else {
+			class="p-3 text-center justify-center flex bg-tertiary"
+		}
 	>
-		if props.Value != "" {
+		if props.Common.Value != "" {
 			if props.Align() {
-				{ props.Value }
+				{ props.Common.Value }
 				{ children... }
 			} else {
 				{ children... }
-				{ props.Value }
+				{ props.Common.Value }
 			}
 		} else {
 			{ children... }
 		}
 	</h5>
 }
-
 
 templ NoticeAccent(props *structs.Notice) {
 	<h5
-		if props.ID != "" {
-			id={ props.ID }
+		if props.Common.ID != "" {
+			id={ props.Common.ID }
 		}
-		if props.Name != "" {
-			name={ props.Name }
+		if props.Common.Name != "" {
+			name={ props.Common.Name }
 		}
-		class="p-3 text-center justify-center flex bg-accent"
+		if props.Common.Class != "" {
+			class={ "p-3 text-center justify-center flex bg-accent " + props.Common.Class }
+		} else {
+			class="p-3 text-center justify-center flex bg-accent"
+		}
 	>
-		if props.Value != "" {
+		if props.Common.Value != "" {
 			if props.Align() {
-				{ props.Value }
+				{ props.Common.Value }
 				{ children... }
 			} else {
 				{ children... }
-				{ props.Value }
+				{ props.Common.Value }
 			}
 		} else {
 			{ children... }
 		}
 	</h5>
 }
-
 
 templ NoticeUnique(props *structs.Notice) {
 	<h5
-		if props.ID != "" {
-			id={ props.ID }
+		if props.Common.ID != "" {
+			id={ props.Common.ID }
 		}
-		if props.Name != "" {
-			name={ props.Name }
+		if props.Common.Name != "" {
+			name={ props.Common.Name }
 		}
-		class="p-3 text-center justify-center flex bg-unique"
+		if props.Common.Class != "" {
+			class={ "p-3 text-center justify-center flex bg-unique " + props.Common.Class }
+		} else {
+			class="p-3 text-center justify-center flex bg-unique"
+		}
 	>
-		if props.Value != "" {
+		if props.Common.Value != "" {
 			if props.Align() {
-				{ props.Value }
+				{ props.Common.Value }
 				{ children... }
 			} else {
 				{ children... }
-				{ props.Value }
+				{ props.Common.Value }
 			}
 		} else {
 			{ children... }
 		}
 	</h5>
 }
-
 
 templ NoticeAttention(props *structs.Notice) {
 	<h5
-		if props.ID != "" {
-			id={ props.ID }
+		if props.Common.ID != "" {
+			id={ props.Common.ID }
 		}
-		if props.Name != "" {
-			name={ props.Name }
+		if props.Common.Name != "" {
+			name={ props.Common.Name }
 		}
-		class="p-3 text-center justify-center flex bg-attention"
+		if props.Common.Class != "" {
+			class={ "p-3 text-center justify-center flex bg-attention " + props.Common.Class }
+		} else {
+			class="p-3 text-center justify-center flex bg-attention"
+		}
 	>
-		if props.Value != "" {
+		if props.Common.Value != "" {
 			if props.Align() {
-				{ props.Value }
+				{ props.Common.Value }
 				{ children... }
 			} else {
 				{ children... }
-				{ props.Value }
+				{ props.Common.Value }
 			}
 		} else {
 			{ children... }
 		}
 	</h5>
 }
-
 

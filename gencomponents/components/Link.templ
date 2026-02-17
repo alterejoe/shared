@@ -3,16 +3,20 @@ import "github.com/alterejoe/shared/structs"
 
 templ PrimaryLink(props *structs.Link) {
     <a	
-		if props.ID != "" {
-			id={ props.ID }
+		if props.Common.ID != "" {
+			id={ props.Common.ID }
 		}
 		if props.Href != "" {
 			href={ templ.SafeURL(props.Href) }
 		}
-		class="cursor-pointer underline text-primary hover:text-primary/80"
+		if props.Common.Class != "" {
+			class={ "cursor-pointer underline text-primary hover:text-primary/80 " + props.Common.Class }
+		} else {
+			class="cursor-pointer underline text-primary hover:text-primary/80"
+		}
 	>
-		if props.Value != "" {
-			{ props.Value }
+		if props.Common.Value != "" {
+			{ props.Common.Value }
 		} else {
 			{ children... }
 		}
@@ -21,16 +25,20 @@ templ PrimaryLink(props *structs.Link) {
 
 templ SecondaryLink(props *structs.Link) {
     <a	
-		if props.ID != "" {
-			id={ props.ID }
+		if props.Common.ID != "" {
+			id={ props.Common.ID }
 		}
 		if props.Href != "" {
 			href={ templ.SafeURL(props.Href) }
 		}
-		class="cursor-pointer underline text-secondary hover:text-secondary/80"
+		if props.Common.Class != "" {
+			class={ "cursor-pointer underline text-secondary hover:text-secondary/80 " + props.Common.Class }
+		} else {
+			class="cursor-pointer underline text-secondary hover:text-secondary/80"
+		}
 	>
-		if props.Value != "" {
-			{ props.Value }
+		if props.Common.Value != "" {
+			{ props.Common.Value }
 		} else {
 			{ children... }
 		}
@@ -39,16 +47,20 @@ templ SecondaryLink(props *structs.Link) {
 
 templ TertiaryLink(props *structs.Link) {
     <a	
-		if props.ID != "" {
-			id={ props.ID }
+		if props.Common.ID != "" {
+			id={ props.Common.ID }
 		}
 		if props.Href != "" {
 			href={ templ.SafeURL(props.Href) }
 		}
-		class="cursor-pointer underline text-tertiary hover:text-tertiary/80"
+		if props.Common.Class != "" {
+			class={ "cursor-pointer underline text-tertiary hover:text-tertiary/80 " + props.Common.Class }
+		} else {
+			class="cursor-pointer underline text-tertiary hover:text-tertiary/80"
+		}
 	>
-		if props.Value != "" {
-			{ props.Value }
+		if props.Common.Value != "" {
+			{ props.Common.Value }
 		} else {
 			{ children... }
 		}
@@ -57,16 +69,20 @@ templ TertiaryLink(props *structs.Link) {
 
 templ AccentLink(props *structs.Link) {
     <a	
-		if props.ID != "" {
-			id={ props.ID }
+		if props.Common.ID != "" {
+			id={ props.Common.ID }
 		}
 		if props.Href != "" {
 			href={ templ.SafeURL(props.Href) }
 		}
-		class="cursor-pointer underline text-accent hover:text-accent/80"
+		if props.Common.Class != "" {
+			class={ "cursor-pointer underline text-accent hover:text-accent/80 " + props.Common.Class }
+		} else {
+			class="cursor-pointer underline text-accent hover:text-accent/80"
+		}
 	>
-		if props.Value != "" {
-			{ props.Value }
+		if props.Common.Value != "" {
+			{ props.Common.Value }
 		} else {
 			{ children... }
 		}
@@ -75,16 +91,20 @@ templ AccentLink(props *structs.Link) {
 
 templ UniqueLink(props *structs.Link) {
     <a	
-		if props.ID != "" {
-			id={ props.ID }
+		if props.Common.ID != "" {
+			id={ props.Common.ID }
 		}
 		if props.Href != "" {
 			href={ templ.SafeURL(props.Href) }
 		}
-		class="cursor-pointer underline text-unique hover:text-unique/80"
+		if props.Common.Class != "" {
+			class={ "cursor-pointer underline text-unique hover:text-unique/80 " + props.Common.Class }
+		} else {
+			class="cursor-pointer underline text-unique hover:text-unique/80"
+		}
 	>
-		if props.Value != "" {
-			{ props.Value }
+		if props.Common.Value != "" {
+			{ props.Common.Value }
 		} else {
 			{ children... }
 		}
@@ -93,16 +113,20 @@ templ UniqueLink(props *structs.Link) {
 
 templ AttentionLink(props *structs.Link) {
     <a	
-		if props.ID != "" {
-			id={ props.ID }
+		if props.Common.ID != "" {
+			id={ props.Common.ID }
 		}
 		if props.Href != "" {
 			href={ templ.SafeURL(props.Href) }
 		}
-		class="cursor-pointer underline text-attention hover:text-attention/80"
+		if props.Common.Class != "" {
+			class={ "cursor-pointer underline text-attention hover:text-attention/80 " + props.Common.Class }
+		} else {
+			class="cursor-pointer underline text-attention hover:text-attention/80"
+		}
 	>
-		if props.Value != "" {
-			{ props.Value }
+		if props.Common.Value != "" {
+			{ props.Common.Value }
 		} else {
 			{ children... }
 		}
@@ -111,16 +135,20 @@ templ AttentionLink(props *structs.Link) {
 
 templ DefaultLink(props *structs.Link) {
     <a	
-		if props.ID != "" {
-			id={ props.ID }
+		if props.Common.ID != "" {
+			id={ props.Common.ID }
 		}
 		if props.Href != "" {
 			href={ templ.SafeURL(props.Href) }
 		}
-		class="cursor-pointer underline text-blue-600 hover:text-blue-800"
+		if props.Common.Class != "" {
+			class={ "cursor-pointer underline text-blue-600 hover:text-blue-800 " + props.Common.Class }
+		} else {
+			class="cursor-pointer underline text-blue-600 hover:text-blue-800"
+		}
 	>
-		if props.Value != "" {
-			{ props.Value }
+		if props.Common.Value != "" {
+			{ props.Common.Value }
 		} else {
 			{ children... }
 		}

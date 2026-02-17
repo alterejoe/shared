@@ -3,16 +3,20 @@ import "{{ .StructsImport }}"
 {{ range .Component.Variants }}
 templ {{ .Name }}Link(props *structs.{{ $.Struct.Name }}) {
     <a	
-		if props.ID != "" {
-			id={ props.ID }
+		if props.Common.ID != "" {
+			id={ props.Common.ID }
 		}
 		if props.Href != "" {
 			href={ templ.SafeURL(props.Href) }
 		}
-		class="cursor-pointer underline {{ .Props.colorClass }}"
+		if props.Common.Class != "" {
+			class={ "cursor-pointer underline {{ .Props.colorClass }} " + props.Common.Class }
+		} else {
+			class="cursor-pointer underline {{ .Props.colorClass }}"
+		}
 	>
-		if props.Value != "" {
-			{ props.Value }
+		if props.Common.Value != "" {
+			{ props.Common.Value }
 		} else {
 			{ children... }
 		}

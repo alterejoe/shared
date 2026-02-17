@@ -38,20 +38,23 @@ func main() {
 	}
 	logger.Info("Found structs", "count", len(structs))
 
-	// Expand embedded structs for templ generation
+	// Expand embedded structs
 	expandedStructs := expandEmbeddedStructs(structs)
 
 	// Generate components
 	for _, comp := range config.Components {
 		logger.Info("Processing component", "name", comp.Name)
 
+		// Use EXPANDED struct for templ generation
 		expandedStructInfo, ok := expandedStructs[comp.Struct]
 		if !ok {
 			logger.Warn("Skipping component - struct not found", "component", comp.Name, "struct", comp.Struct)
 			continue
 		}
 
-		// Generate templ component
+		logger.Info("Generating component", "name", comp.Name)
+
+		// Generate templ component with expanded struct
 		if err := generateTemplComponent(comp, expandedStructInfo, config); err != nil {
 			logger.Error("Error generating templ", "component", comp.Name, "error", err)
 			continue
@@ -62,12 +65,6 @@ func main() {
 			logger.Error("Error generating snippets", "component", comp.Name, "error", err)
 			continue
 		}
-	}
-
-	// Generate struct snippets
-	logger.Info("Generating struct snippets")
-	if err := generateStructSnippets(structs, config); err != nil {
-		logger.Error("Failed to generate struct snippets", "error", err)
 	}
 
 	logger.Info("✅ Generation complete!")
@@ -105,6 +102,7 @@ func expandEmbeddedStructs(structs map[string]StructInfo) map[string]StructInfo 
 		}
 		for _, field := range info.Fields {
 			if field.Name == "" && field.IsStruct {
+				// Embedded struct - expand its fields
 				if embeddedStruct, exists := structs[field.Type]; exists {
 					expandedInfo.Fields = append(expandedInfo.Fields, embeddedStruct.Fields...)
 				}

@@ -1,29 +1,31 @@
 package components
 import "{{ .StructsImport }}"
-
 {{ range .Component.Variants }}
 templ Notice{{ .Name }}(props *structs.{{ $.Struct.Name }}) {
 	<h5
-		if props.ID != "" {
-			id={ props.ID }
+		if props.Common.ID != "" {
+			id={ props.Common.ID }
 		}
-		if props.Name != "" {
-			name={ props.Name }
+		if props.Common.Name != "" {
+			name={ props.Common.Name }
 		}
-		class="p-3 text-center justify-center flex {{ .Props.bgClass }}"
+		if props.Common.Class != "" {
+			class={ "p-3 text-center justify-center flex {{ .Props.bgClass }} " + props.Common.Class }
+		} else {
+			class="p-3 text-center justify-center flex {{ .Props.bgClass }}"
+		}
 	>
-		if props.Value != "" {
+		if props.Common.Value != "" {
 			if props.Align() {
-				{ props.Value }
+				{ props.Common.Value }
 				{ children... }
 			} else {
 				{ children... }
-				{ props.Value }
+				{ props.Common.Value }
 			}
 		} else {
 			{ children... }
 		}
 	</h5>
 }
-
 {{ end }}

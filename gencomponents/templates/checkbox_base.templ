@@ -1,29 +1,34 @@
 package components
 import "{{ .StructsImport }}"
-
 {{ range .Component.Variants }}
 templ {{ .Name }}Checkbox(props *structs.{{ $.Struct.Name }}) {
-	<label class="inline-flex items-center cursor-pointer select-none">
+	<label
+		if props.Common.Class != "" {
+			class={ "inline-flex items-center cursor-pointer select-none " + props.Common.Class }
+		} else {
+			class="inline-flex items-center cursor-pointer select-none"
+		}
+	>
 		<input
 			type="checkbox"
 			class="peer sr-only"
 			if props.Checked {
 				checked
 			}
-			if props.Disabled {
+			if props.Common.Disabled {
 				disabled
 			}
 			if props.Required {
 				required
 			}
-			if props.ID != "" {
-				id={ props.ID }
+			if props.Common.ID != "" {
+				id={ props.Common.ID }
 			}
-			if props.Name != "" {
-				name={ props.Name }
+			if props.Common.Name != "" {
+				name={ props.Common.Name }
 			}
-			if props.Value != "" {
-				value={ props.Value }
+			if props.Common.Value != "" {
+				value={ props.Common.Value }
 			}
 			if props.FormBehaviors.ConstraintString() != "" {
 				data-constraint={ props.FormBehaviors.ConstraintString() }
@@ -76,8 +81,17 @@ templ {{ .Name }}Checkbox(props *structs.{{ $.Struct.Name }}) {
 			if props.Hx.PushURL != "" {
 				hx-push-url={ props.Hx.PushURL }
 			}
-            if props.Hx.Params != "" {
-                hx-params={ props.Hx.Params }
+			if props.Hx.Params != "" {
+				hx-params={ props.Hx.Params }
+			}
+            if props.Hx.OnAfterRequest != "" {
+                { templ.Attributes{"hx-on::after-request": props.Hx.OnAfterRequest}... }
+            }
+            if props.Hx.OnBeforeRequest != "" {
+                { templ.Attributes{"hx-on::before-request": props.Hx.OnBeforeRequest}... }
+            }
+            if props.Hx.OnAfterSettle != "" {
+                { templ.Attributes{"hx-on::after-settle": props.Hx.OnAfterSettle}... }
             }
 		/>
 		<div class="p-1"></div>
@@ -88,5 +102,4 @@ templ {{ .Name }}Checkbox(props *structs.{{ $.Struct.Name }}) {
 		</div>
 	</label>
 }
-
 {{ end }}

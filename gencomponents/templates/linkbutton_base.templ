@@ -2,17 +2,21 @@ package components
 import "{{ .StructsImport }}"
 {{ range .Component.Variants }}
 templ {{ .Name }}LinkButton(props *structs.{{ $.Struct.Name }}) {
-     <a	
-		if props.ID != "" {
-			id={ props.ID }
+    <a	
+		if props.Common.ID != "" {
+			id={ props.Common.ID }
 		}
 		if props.Href != "" {
 			href={ templ.SafeURL(props.Href) }
 		}
-		class="py-2 px-4 text-xl cursor-pointer transition-colors {{ .Props.bgClass }} hover:{{ .Props.bgClass }}/90"
+		if props.Common.Class != "" {
+			class={ "py-2 px-4 text-xl cursor-pointer transition-colors {{ .Props.bgClass }} hover:{{ .Props.bgClass }}/90 " + props.Common.Class }
+		} else {
+			class="py-2 px-4 text-xl cursor-pointer transition-colors {{ .Props.bgClass }} hover:{{ .Props.bgClass }}/90"
+		}
 	>
-		if props.Value != "" {
-			{ props.Value }
+		if props.Common.Value != "" {
+			{ props.Common.Value }
 		} else {
 			{ children... }
 		}

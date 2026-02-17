@@ -1,17 +1,20 @@
 package components
 import "github.com/alterejoe/shared/structs"
 
-
 templ PrimaryButton(props *structs.Button) {
 	<button
-		if props.ID != "" {
-			id={ props.ID }
+		if props.Common.ID != "" {
+			id={ props.Common.ID }
 		}
-		if props.Name != "" {
-			name={ props.Name }
+		if props.Common.Name != "" {
+			name={ props.Common.Name }
 		}
-		class="py-2 px-4 text-xl cursor-pointer transition-colors bg-primary hover:bg-primary/90"
-		if props.Disabled {
+		if props.Common.Class != "" {
+			class={ "py-2 px-4 text-xl cursor-pointer transition-colors bg-primary hover:bg-primary/90 " + props.Common.Class }
+		} else {
+			class="py-2 px-4 text-xl cursor-pointer transition-colors bg-primary hover:bg-primary/90"
+		}
+		if props.Common.Disabled {
 			disabled
 		}
 		if props.Hx.Method == structs.GET {
@@ -50,29 +53,41 @@ templ PrimaryButton(props *structs.Button) {
 		if props.Hx.PushURL != "" {
 			hx-push-url={ props.Hx.PushURL }
 		}
-        if props.Hx.Params != "" {
+		if props.Hx.Params != "" {
 			hx-params={ props.Hx.Params }
 		}
+        if props.Hx.OnAfterRequest != "" {
+            { templ.Attributes{"hx-on::after-request": props.Hx.OnAfterRequest}... }
+        }
+        if props.Hx.OnBeforeRequest != "" {
+            { templ.Attributes{"hx-on::before-request": props.Hx.OnBeforeRequest}... }
+        }
+        if props.Hx.OnAfterSettle != "" {
+            { templ.Attributes{"hx-on::after-settle": props.Hx.OnAfterSettle}... }
+        }
 	>
-		if props.Value != "" {
-			{ props.Value }
+		if props.Common.Value != "" {
+			{ props.Common.Value }
 		} else {
 			{ children... }
 		}
 	</button>
 }
-
 
 templ SecondaryButton(props *structs.Button) {
 	<button
-		if props.ID != "" {
-			id={ props.ID }
+		if props.Common.ID != "" {
+			id={ props.Common.ID }
 		}
-		if props.Name != "" {
-			name={ props.Name }
+		if props.Common.Name != "" {
+			name={ props.Common.Name }
 		}
-		class="py-2 px-4 text-xl cursor-pointer transition-colors bg-secondary hover:bg-secondary/90"
-		if props.Disabled {
+		if props.Common.Class != "" {
+			class={ "py-2 px-4 text-xl cursor-pointer transition-colors bg-secondary hover:bg-secondary/90 " + props.Common.Class }
+		} else {
+			class="py-2 px-4 text-xl cursor-pointer transition-colors bg-secondary hover:bg-secondary/90"
+		}
+		if props.Common.Disabled {
 			disabled
 		}
 		if props.Hx.Method == structs.GET {
@@ -111,29 +126,41 @@ templ SecondaryButton(props *structs.Button) {
 		if props.Hx.PushURL != "" {
 			hx-push-url={ props.Hx.PushURL }
 		}
-        if props.Hx.Params != "" {
+		if props.Hx.Params != "" {
 			hx-params={ props.Hx.Params }
 		}
+        if props.Hx.OnAfterRequest != "" {
+            { templ.Attributes{"hx-on::after-request": props.Hx.OnAfterRequest}... }
+        }
+        if props.Hx.OnBeforeRequest != "" {
+            { templ.Attributes{"hx-on::before-request": props.Hx.OnBeforeRequest}... }
+        }
+        if props.Hx.OnAfterSettle != "" {
+            { templ.Attributes{"hx-on::after-settle": props.Hx.OnAfterSettle}... }
+        }
 	>
-		if props.Value != "" {
-			{ props.Value }
+		if props.Common.Value != "" {
+			{ props.Common.Value }
 		} else {
 			{ children... }
 		}
 	</button>
 }
-
 
 templ TertiaryButton(props *structs.Button) {
 	<button
-		if props.ID != "" {
-			id={ props.ID }
+		if props.Common.ID != "" {
+			id={ props.Common.ID }
 		}
-		if props.Name != "" {
-			name={ props.Name }
+		if props.Common.Name != "" {
+			name={ props.Common.Name }
 		}
-		class="py-2 px-4 text-xl cursor-pointer transition-colors bg-tertiary hover:bg-tertiary/90"
-		if props.Disabled {
+		if props.Common.Class != "" {
+			class={ "py-2 px-4 text-xl cursor-pointer transition-colors bg-tertiary hover:bg-tertiary/90 " + props.Common.Class }
+		} else {
+			class="py-2 px-4 text-xl cursor-pointer transition-colors bg-tertiary hover:bg-tertiary/90"
+		}
+		if props.Common.Disabled {
 			disabled
 		}
 		if props.Hx.Method == structs.GET {
@@ -172,29 +199,41 @@ templ TertiaryButton(props *structs.Button) {
 		if props.Hx.PushURL != "" {
 			hx-push-url={ props.Hx.PushURL }
 		}
-        if props.Hx.Params != "" {
+		if props.Hx.Params != "" {
 			hx-params={ props.Hx.Params }
 		}
+        if props.Hx.OnAfterRequest != "" {
+            { templ.Attributes{"hx-on::after-request": props.Hx.OnAfterRequest}... }
+        }
+        if props.Hx.OnBeforeRequest != "" {
+            { templ.Attributes{"hx-on::before-request": props.Hx.OnBeforeRequest}... }
+        }
+        if props.Hx.OnAfterSettle != "" {
+            { templ.Attributes{"hx-on::after-settle": props.Hx.OnAfterSettle}... }
+        }
 	>
-		if props.Value != "" {
-			{ props.Value }
+		if props.Common.Value != "" {
+			{ props.Common.Value }
 		} else {
 			{ children... }
 		}
 	</button>
 }
-
 
 templ QuaternaryButton(props *structs.Button) {
 	<button
-		if props.ID != "" {
-			id={ props.ID }
+		if props.Common.ID != "" {
+			id={ props.Common.ID }
 		}
-		if props.Name != "" {
-			name={ props.Name }
+		if props.Common.Name != "" {
+			name={ props.Common.Name }
 		}
-		class="py-2 px-4 text-xl cursor-pointer transition-colors bg-quaternary hover:bg-quaternary/90"
-		if props.Disabled {
+		if props.Common.Class != "" {
+			class={ "py-2 px-4 text-xl cursor-pointer transition-colors bg-quaternary hover:bg-quaternary/90 " + props.Common.Class }
+		} else {
+			class="py-2 px-4 text-xl cursor-pointer transition-colors bg-quaternary hover:bg-quaternary/90"
+		}
+		if props.Common.Disabled {
 			disabled
 		}
 		if props.Hx.Method == structs.GET {
@@ -233,29 +272,41 @@ templ QuaternaryButton(props *structs.Button) {
 		if props.Hx.PushURL != "" {
 			hx-push-url={ props.Hx.PushURL }
 		}
-        if props.Hx.Params != "" {
+		if props.Hx.Params != "" {
 			hx-params={ props.Hx.Params }
 		}
+        if props.Hx.OnAfterRequest != "" {
+            { templ.Attributes{"hx-on::after-request": props.Hx.OnAfterRequest}... }
+        }
+        if props.Hx.OnBeforeRequest != "" {
+            { templ.Attributes{"hx-on::before-request": props.Hx.OnBeforeRequest}... }
+        }
+        if props.Hx.OnAfterSettle != "" {
+            { templ.Attributes{"hx-on::after-settle": props.Hx.OnAfterSettle}... }
+        }
 	>
-		if props.Value != "" {
-			{ props.Value }
+		if props.Common.Value != "" {
+			{ props.Common.Value }
 		} else {
 			{ children... }
 		}
 	</button>
 }
-
 
 templ AccentButton(props *structs.Button) {
 	<button
-		if props.ID != "" {
-			id={ props.ID }
+		if props.Common.ID != "" {
+			id={ props.Common.ID }
 		}
-		if props.Name != "" {
-			name={ props.Name }
+		if props.Common.Name != "" {
+			name={ props.Common.Name }
 		}
-		class="py-2 px-4 text-xl cursor-pointer transition-colors bg-accent hover:bg-accent/90"
-		if props.Disabled {
+		if props.Common.Class != "" {
+			class={ "py-2 px-4 text-xl cursor-pointer transition-colors bg-accent hover:bg-accent/90 " + props.Common.Class }
+		} else {
+			class="py-2 px-4 text-xl cursor-pointer transition-colors bg-accent hover:bg-accent/90"
+		}
+		if props.Common.Disabled {
 			disabled
 		}
 		if props.Hx.Method == structs.GET {
@@ -294,29 +345,41 @@ templ AccentButton(props *structs.Button) {
 		if props.Hx.PushURL != "" {
 			hx-push-url={ props.Hx.PushURL }
 		}
-        if props.Hx.Params != "" {
+		if props.Hx.Params != "" {
 			hx-params={ props.Hx.Params }
 		}
+        if props.Hx.OnAfterRequest != "" {
+            { templ.Attributes{"hx-on::after-request": props.Hx.OnAfterRequest}... }
+        }
+        if props.Hx.OnBeforeRequest != "" {
+            { templ.Attributes{"hx-on::before-request": props.Hx.OnBeforeRequest}... }
+        }
+        if props.Hx.OnAfterSettle != "" {
+            { templ.Attributes{"hx-on::after-settle": props.Hx.OnAfterSettle}... }
+        }
 	>
-		if props.Value != "" {
-			{ props.Value }
+		if props.Common.Value != "" {
+			{ props.Common.Value }
 		} else {
 			{ children... }
 		}
 	</button>
 }
-
 
 templ UniqueButton(props *structs.Button) {
 	<button
-		if props.ID != "" {
-			id={ props.ID }
+		if props.Common.ID != "" {
+			id={ props.Common.ID }
 		}
-		if props.Name != "" {
-			name={ props.Name }
+		if props.Common.Name != "" {
+			name={ props.Common.Name }
 		}
-		class="py-2 px-4 text-xl cursor-pointer transition-colors bg-unique hover:bg-unique/90"
-		if props.Disabled {
+		if props.Common.Class != "" {
+			class={ "py-2 px-4 text-xl cursor-pointer transition-colors bg-unique hover:bg-unique/90 " + props.Common.Class }
+		} else {
+			class="py-2 px-4 text-xl cursor-pointer transition-colors bg-unique hover:bg-unique/90"
+		}
+		if props.Common.Disabled {
 			disabled
 		}
 		if props.Hx.Method == structs.GET {
@@ -355,29 +418,41 @@ templ UniqueButton(props *structs.Button) {
 		if props.Hx.PushURL != "" {
 			hx-push-url={ props.Hx.PushURL }
 		}
-        if props.Hx.Params != "" {
+		if props.Hx.Params != "" {
 			hx-params={ props.Hx.Params }
 		}
+        if props.Hx.OnAfterRequest != "" {
+            { templ.Attributes{"hx-on::after-request": props.Hx.OnAfterRequest}... }
+        }
+        if props.Hx.OnBeforeRequest != "" {
+            { templ.Attributes{"hx-on::before-request": props.Hx.OnBeforeRequest}... }
+        }
+        if props.Hx.OnAfterSettle != "" {
+            { templ.Attributes{"hx-on::after-settle": props.Hx.OnAfterSettle}... }
+        }
 	>
-		if props.Value != "" {
-			{ props.Value }
+		if props.Common.Value != "" {
+			{ props.Common.Value }
 		} else {
 			{ children... }
 		}
 	</button>
 }
-
 
 templ AttentionButton(props *structs.Button) {
 	<button
-		if props.ID != "" {
-			id={ props.ID }
+		if props.Common.ID != "" {
+			id={ props.Common.ID }
 		}
-		if props.Name != "" {
-			name={ props.Name }
+		if props.Common.Name != "" {
+			name={ props.Common.Name }
 		}
-		class="py-2 px-4 text-xl cursor-pointer transition-colors bg-attention hover:bg-attention/90"
-		if props.Disabled {
+		if props.Common.Class != "" {
+			class={ "py-2 px-4 text-xl cursor-pointer transition-colors bg-attention hover:bg-attention/90 " + props.Common.Class }
+		} else {
+			class="py-2 px-4 text-xl cursor-pointer transition-colors bg-attention hover:bg-attention/90"
+		}
+		if props.Common.Disabled {
 			disabled
 		}
 		if props.Hx.Method == structs.GET {
@@ -416,29 +491,41 @@ templ AttentionButton(props *structs.Button) {
 		if props.Hx.PushURL != "" {
 			hx-push-url={ props.Hx.PushURL }
 		}
-        if props.Hx.Params != "" {
+		if props.Hx.Params != "" {
 			hx-params={ props.Hx.Params }
 		}
+        if props.Hx.OnAfterRequest != "" {
+            { templ.Attributes{"hx-on::after-request": props.Hx.OnAfterRequest}... }
+        }
+        if props.Hx.OnBeforeRequest != "" {
+            { templ.Attributes{"hx-on::before-request": props.Hx.OnBeforeRequest}... }
+        }
+        if props.Hx.OnAfterSettle != "" {
+            { templ.Attributes{"hx-on::after-settle": props.Hx.OnAfterSettle}... }
+        }
 	>
-		if props.Value != "" {
-			{ props.Value }
+		if props.Common.Value != "" {
+			{ props.Common.Value }
 		} else {
 			{ children... }
 		}
 	</button>
 }
-
 
 templ TransparentButton(props *structs.Button) {
 	<button
-		if props.ID != "" {
-			id={ props.ID }
+		if props.Common.ID != "" {
+			id={ props.Common.ID }
 		}
-		if props.Name != "" {
-			name={ props.Name }
+		if props.Common.Name != "" {
+			name={ props.Common.Name }
 		}
-		class="py-2 px-4 text-xl cursor-pointer transition-colors bg-transparent hover:bg-transparent/90"
-		if props.Disabled {
+		if props.Common.Class != "" {
+			class={ "py-2 px-4 text-xl cursor-pointer transition-colors bg-transparent hover:bg-transparent/90 " + props.Common.Class }
+		} else {
+			class="py-2 px-4 text-xl cursor-pointer transition-colors bg-transparent hover:bg-transparent/90"
+		}
+		if props.Common.Disabled {
 			disabled
 		}
 		if props.Hx.Method == structs.GET {
@@ -477,29 +564,41 @@ templ TransparentButton(props *structs.Button) {
 		if props.Hx.PushURL != "" {
 			hx-push-url={ props.Hx.PushURL }
 		}
-        if props.Hx.Params != "" {
+		if props.Hx.Params != "" {
 			hx-params={ props.Hx.Params }
 		}
+        if props.Hx.OnAfterRequest != "" {
+            { templ.Attributes{"hx-on::after-request": props.Hx.OnAfterRequest}... }
+        }
+        if props.Hx.OnBeforeRequest != "" {
+            { templ.Attributes{"hx-on::before-request": props.Hx.OnBeforeRequest}... }
+        }
+        if props.Hx.OnAfterSettle != "" {
+            { templ.Attributes{"hx-on::after-settle": props.Hx.OnAfterSettle}... }
+        }
 	>
-		if props.Value != "" {
-			{ props.Value }
+		if props.Common.Value != "" {
+			{ props.Common.Value }
 		} else {
 			{ children... }
 		}
 	</button>
 }
-
 
 templ GhostButton(props *structs.Button) {
 	<button
-		if props.ID != "" {
-			id={ props.ID }
+		if props.Common.ID != "" {
+			id={ props.Common.ID }
 		}
-		if props.Name != "" {
-			name={ props.Name }
+		if props.Common.Name != "" {
+			name={ props.Common.Name }
 		}
-		class="py-2 px-4 text-xl cursor-pointer transition-colors invisible hover:invisible/90"
-		if props.Disabled {
+		if props.Common.Class != "" {
+			class={ "py-2 px-4 text-xl cursor-pointer transition-colors invisible hover:invisible/90 " + props.Common.Class }
+		} else {
+			class="py-2 px-4 text-xl cursor-pointer transition-colors invisible hover:invisible/90"
+		}
+		if props.Common.Disabled {
 			disabled
 		}
 		if props.Hx.Method == structs.GET {
@@ -538,16 +637,24 @@ templ GhostButton(props *structs.Button) {
 		if props.Hx.PushURL != "" {
 			hx-push-url={ props.Hx.PushURL }
 		}
-        if props.Hx.Params != "" {
+		if props.Hx.Params != "" {
 			hx-params={ props.Hx.Params }
 		}
+        if props.Hx.OnAfterRequest != "" {
+            { templ.Attributes{"hx-on::after-request": props.Hx.OnAfterRequest}... }
+        }
+        if props.Hx.OnBeforeRequest != "" {
+            { templ.Attributes{"hx-on::before-request": props.Hx.OnBeforeRequest}... }
+        }
+        if props.Hx.OnAfterSettle != "" {
+            { templ.Attributes{"hx-on::after-settle": props.Hx.OnAfterSettle}... }
+        }
 	>
-		if props.Value != "" {
-			{ props.Value }
+		if props.Common.Value != "" {
+			{ props.Common.Value }
 		} else {
 			{ children... }
 		}
 	</button>
 }
-
 

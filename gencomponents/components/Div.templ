@@ -1,7 +1,5 @@
 package components
-
 import "github.com/alterejoe/shared/structs"
-
 
 templ DefaultDiv(props *structs.Div) {
 	<div
@@ -53,6 +51,15 @@ templ DefaultDiv(props *structs.Div) {
 		if props.Hx.Params != "" {
 			hx-params={ props.Hx.Params }
 		}
+        if props.Hx.OnAfterRequest != "" {
+            { templ.Attributes{"hx-on::after-request": props.Hx.OnAfterRequest}... }
+        }
+        if props.Hx.OnBeforeRequest != "" {
+            { templ.Attributes{"hx-on::before-request": props.Hx.OnBeforeRequest}... }
+        }
+        if props.Hx.OnAfterSettle != "" {
+            { templ.Attributes{"hx-on::after-settle": props.Hx.OnAfterSettle}... }
+        }
 	>
 		{ children... }
 	</div>

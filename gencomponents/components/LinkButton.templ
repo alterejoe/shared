@@ -2,17 +2,21 @@ package components
 import "github.com/alterejoe/shared/structs"
 
 templ PrimaryLinkButton(props *structs.Link) {
-     <a	
-		if props.ID != "" {
-			id={ props.ID }
+    <a	
+		if props.Common.ID != "" {
+			id={ props.Common.ID }
 		}
 		if props.Href != "" {
 			href={ templ.SafeURL(props.Href) }
 		}
-		class="py-2 px-4 text-xl cursor-pointer transition-colors bg-primary hover:bg-primary/90"
+		if props.Common.Class != "" {
+			class={ "py-2 px-4 text-xl cursor-pointer transition-colors bg-primary hover:bg-primary/90 " + props.Common.Class }
+		} else {
+			class="py-2 px-4 text-xl cursor-pointer transition-colors bg-primary hover:bg-primary/90"
+		}
 	>
-		if props.Value != "" {
-			{ props.Value }
+		if props.Common.Value != "" {
+			{ props.Common.Value }
 		} else {
 			{ children... }
 		}
@@ -20,17 +24,21 @@ templ PrimaryLinkButton(props *structs.Link) {
 }
 
 templ SecondaryLinkButton(props *structs.Link) {
-     <a	
-		if props.ID != "" {
-			id={ props.ID }
+    <a	
+		if props.Common.ID != "" {
+			id={ props.Common.ID }
 		}
 		if props.Href != "" {
 			href={ templ.SafeURL(props.Href) }
 		}
-		class="py-2 px-4 text-xl cursor-pointer transition-colors bg-secondary hover:bg-secondary/90"
+		if props.Common.Class != "" {
+			class={ "py-2 px-4 text-xl cursor-pointer transition-colors bg-secondary hover:bg-secondary/90 " + props.Common.Class }
+		} else {
+			class="py-2 px-4 text-xl cursor-pointer transition-colors bg-secondary hover:bg-secondary/90"
+		}
 	>
-		if props.Value != "" {
-			{ props.Value }
+		if props.Common.Value != "" {
+			{ props.Common.Value }
 		} else {
 			{ children... }
 		}
@@ -38,17 +46,21 @@ templ SecondaryLinkButton(props *structs.Link) {
 }
 
 templ TertiaryLinkButton(props *structs.Link) {
-     <a	
-		if props.ID != "" {
-			id={ props.ID }
+    <a	
+		if props.Common.ID != "" {
+			id={ props.Common.ID }
 		}
 		if props.Href != "" {
 			href={ templ.SafeURL(props.Href) }
 		}
-		class="py-2 px-4 text-xl cursor-pointer transition-colors bg-tertiary hover:bg-tertiary/90"
+		if props.Common.Class != "" {
+			class={ "py-2 px-4 text-xl cursor-pointer transition-colors bg-tertiary hover:bg-tertiary/90 " + props.Common.Class }
+		} else {
+			class="py-2 px-4 text-xl cursor-pointer transition-colors bg-tertiary hover:bg-tertiary/90"
+		}
 	>
-		if props.Value != "" {
-			{ props.Value }
+		if props.Common.Value != "" {
+			{ props.Common.Value }
 		} else {
 			{ children... }
 		}
@@ -56,17 +68,21 @@ templ TertiaryLinkButton(props *structs.Link) {
 }
 
 templ QuaternaryLinkButton(props *structs.Link) {
-     <a	
-		if props.ID != "" {
-			id={ props.ID }
+    <a	
+		if props.Common.ID != "" {
+			id={ props.Common.ID }
 		}
 		if props.Href != "" {
 			href={ templ.SafeURL(props.Href) }
 		}
-		class="py-2 px-4 text-xl cursor-pointer transition-colors bg-quaternary hover:bg-quaternary/90"
+		if props.Common.Class != "" {
+			class={ "py-2 px-4 text-xl cursor-pointer transition-colors bg-quaternary hover:bg-quaternary/90 " + props.Common.Class }
+		} else {
+			class="py-2 px-4 text-xl cursor-pointer transition-colors bg-quaternary hover:bg-quaternary/90"
+		}
 	>
-		if props.Value != "" {
-			{ props.Value }
+		if props.Common.Value != "" {
+			{ props.Common.Value }
 		} else {
 			{ children... }
 		}
@@ -74,17 +90,21 @@ templ QuaternaryLinkButton(props *structs.Link) {
 }
 
 templ AccentLinkButton(props *structs.Link) {
-     <a	
-		if props.ID != "" {
-			id={ props.ID }
+    <a	
+		if props.Common.ID != "" {
+			id={ props.Common.ID }
 		}
 		if props.Href != "" {
 			href={ templ.SafeURL(props.Href) }
 		}
-		class="py-2 px-4 text-xl cursor-pointer transition-colors bg-accent hover:bg-accent/90"
+		if props.Common.Class != "" {
+			class={ "py-2 px-4 text-xl cursor-pointer transition-colors bg-accent hover:bg-accent/90 " + props.Common.Class }
+		} else {
+			class="py-2 px-4 text-xl cursor-pointer transition-colors bg-accent hover:bg-accent/90"
+		}
 	>
-		if props.Value != "" {
-			{ props.Value }
+		if props.Common.Value != "" {
+			{ props.Common.Value }
 		} else {
 			{ children... }
 		}
@@ -92,17 +112,21 @@ templ AccentLinkButton(props *structs.Link) {
 }
 
 templ UniqueLinkButton(props *structs.Link) {
-     <a	
-		if props.ID != "" {
-			id={ props.ID }
+    <a	
+		if props.Common.ID != "" {
+			id={ props.Common.ID }
 		}
 		if props.Href != "" {
 			href={ templ.SafeURL(props.Href) }
 		}
-		class="py-2 px-4 text-xl cursor-pointer transition-colors bg-unique hover:bg-unique/90"
+		if props.Common.Class != "" {
+			class={ "py-2 px-4 text-xl cursor-pointer transition-colors bg-unique hover:bg-unique/90 " + props.Common.Class }
+		} else {
+			class="py-2 px-4 text-xl cursor-pointer transition-colors bg-unique hover:bg-unique/90"
+		}
 	>
-		if props.Value != "" {
-			{ props.Value }
+		if props.Common.Value != "" {
+			{ props.Common.Value }
 		} else {
 			{ children... }
 		}
@@ -110,17 +134,21 @@ templ UniqueLinkButton(props *structs.Link) {
 }
 
 templ AttentionLinkButton(props *structs.Link) {
-     <a	
-		if props.ID != "" {
-			id={ props.ID }
+    <a	
+		if props.Common.ID != "" {
+			id={ props.Common.ID }
 		}
 		if props.Href != "" {
 			href={ templ.SafeURL(props.Href) }
 		}
-		class="py-2 px-4 text-xl cursor-pointer transition-colors bg-attention hover:bg-attention/90"
+		if props.Common.Class != "" {
+			class={ "py-2 px-4 text-xl cursor-pointer transition-colors bg-attention hover:bg-attention/90 " + props.Common.Class }
+		} else {
+			class="py-2 px-4 text-xl cursor-pointer transition-colors bg-attention hover:bg-attention/90"
+		}
 	>
-		if props.Value != "" {
-			{ props.Value }
+		if props.Common.Value != "" {
+			{ props.Common.Value }
 		} else {
 			{ children... }
 		}
@@ -128,17 +156,21 @@ templ AttentionLinkButton(props *structs.Link) {
 }
 
 templ TransparentLinkButton(props *structs.Link) {
-     <a	
-		if props.ID != "" {
-			id={ props.ID }
+    <a	
+		if props.Common.ID != "" {
+			id={ props.Common.ID }
 		}
 		if props.Href != "" {
 			href={ templ.SafeURL(props.Href) }
 		}
-		class="py-2 px-4 text-xl cursor-pointer transition-colors bg-transparent hover:bg-transparent/90"
+		if props.Common.Class != "" {
+			class={ "py-2 px-4 text-xl cursor-pointer transition-colors bg-transparent hover:bg-transparent/90 " + props.Common.Class }
+		} else {
+			class="py-2 px-4 text-xl cursor-pointer transition-colors bg-transparent hover:bg-transparent/90"
+		}
 	>
-		if props.Value != "" {
-			{ props.Value }
+		if props.Common.Value != "" {
+			{ props.Common.Value }
 		} else {
 			{ children... }
 		}

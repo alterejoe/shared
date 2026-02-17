@@ -1,20 +1,19 @@
 package components
 import "{{ .StructsImport }}"
-
 {{ range .Component.Variants }}
 templ {{ .Name }}Input(props *structs.{{ $.Struct.Name }}) {
 	<input
-		if props.ID != "" {
-			id={ props.ID }
+		if props.Common.ID != "" {
+			id={ props.Common.ID }
 		}
-		if props.Name != "" {
-			name={ props.Name }
+		if props.Common.Name != "" {
+			name={ props.Common.Name }
 		}
 		type={ props.Type() }
 		if props.Placeholder != "" {
 			placeholder={ props.Placeholder }
 		}
-		if props.Disabled {
+		if props.Common.Disabled {
 			disabled
 		}
 		if props.Autofocus {
@@ -23,10 +22,14 @@ templ {{ .Name }}Input(props *structs.{{ $.Struct.Name }}) {
 		if props.Required {
 			required
 		}
-		if props.Value != "" {
-			value={ props.Value }
+		if props.Common.Value != "" {
+			value={ props.Common.Value }
 		}
-		class="text-md p-2 rounded w-full cursor-pointer outline-none {{ .Props.bgClass }} {{ .Props.borderClass }}  {{ .Props.focusBorderClass }} {{ .Props.textClass }}"
+		if props.Common.Class != "" {
+			class={ "text-md p-2 rounded w-full cursor-pointer outline-none {{ .Props.bgClass }} {{ .Props.borderClass }} {{ .Props.focusBorderClass }} {{ .Props.textClass }} " + props.Common.Class }
+		} else {
+			class="text-md p-2 rounded w-full cursor-pointer outline-none {{ .Props.bgClass }} {{ .Props.borderClass }} {{ .Props.focusBorderClass }} {{ .Props.textClass }}"
+		}
 		if props.FormBehaviors.ConstraintString() != "" {
 			data-constraint={ props.FormBehaviors.ConstraintString() }
 		}
@@ -72,13 +75,21 @@ templ {{ .Name }}Input(props *structs.{{ $.Struct.Name }}) {
 		if props.Hx.PushURL != "" {
 			hx-push-url={ props.Hx.PushURL }
 		}
-        if props.Hx.Params != "" {
+		if props.Hx.Params != "" {
 			hx-params={ props.Hx.Params }
 		}
+        if props.Hx.OnAfterRequest != "" {
+            { templ.Attributes{"hx-on::after-request": props.Hx.OnAfterRequest}... }
+        }
+        if props.Hx.OnBeforeRequest != "" {
+            { templ.Attributes{"hx-on::before-request": props.Hx.OnBeforeRequest}... }
+        }
+        if props.Hx.OnAfterSettle != "" {
+            { templ.Attributes{"hx-on::after-settle": props.Hx.OnAfterSettle}... }
+        }
 	/>
-	if props.ID != "" {
-		<div id={ props.ID + "-errors" } class="text-red-600 text-sm mt-1 hidden"></div>
+	if props.Common.ID != "" {
+		<div id={ props.Common.ID + "-errors" } class="text-red-600 text-sm mt-1 hidden"></div>
 	}
 }
-
 {{ end }}

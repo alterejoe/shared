@@ -1,6 +1,7 @@
 package validate
 
 import (
+	"html"
 	"net/http"
 	"reflect"
 	"strings"
@@ -50,26 +51,20 @@ func FromQuery() Option {
 func ParseAndValidate[T any](r *http.Request, opts ...Option) (T, error) {
 	var params T
 	var cfg options
-
 	for _, opt := range opts {
 		opt(&cfg)
 	}
-
 	if err := r.ParseForm(); err != nil {
 		return params, err
 	}
-
 	params = parseFormToStruct[T](r, cfg.fromQuery)
 	sanitizeStruct(&params)
-
 	if cfg.applyDefaults {
 		applyDefaults(&params)
 	}
-
 	if err := v.Struct(params); err != nil {
 		return params, formatErrors(err)
 	}
-
 	return params, nil
 }
 
@@ -80,16 +75,13 @@ func parseFormToStruct[T any](r *http.Request, fromQuery bool) T {
 	var result T
 	val := reflect.ValueOf(&result).Elem()
 	typ := val.Type()
-
 	for i := 0; i < val.NumField(); i++ {
 		field := val.Field(i)
 		fieldType := typ.Field(i)
-
 		formKey := fieldType.Tag.Get("form")
 		if formKey == "" {
 			formKey = strings.ToLower(fieldType.Name)
 		}
-
 		if field.Kind() == reflect.String && field.CanSet() {
 			if fromQuery {
 				field.SetString(r.URL.Query().Get(formKey))
@@ -98,19 +90,17 @@ func parseFormToStruct[T any](r *http.Request, fromQuery bool) T {
 			}
 		}
 	}
-
 	return result
 }
 
-// sanitizeStruct trims whitespace and strips HTML from all string fields.
 func sanitizeStruct(ptr any) {
 	val := reflect.ValueOf(ptr).Elem()
-
 	for i := 0; i < val.NumField(); i++ {
 		field := val.Field(i)
 		if field.Kind() == reflect.String && field.CanSet() {
 			cleaned := strings.TrimSpace(field.String())
 			cleaned = sanitizer.Sanitize(cleaned)
+			cleaned = html.UnescapeString(cleaned)
 			field.SetString(cleaned)
 		}
 	}
@@ -120,16 +110,13 @@ func sanitizeStruct(ptr any) {
 func applyDefaults(ptr any) {
 	val := reflect.ValueOf(ptr).Elem()
 	typ := val.Type()
-
 	for i := 0; i < val.NumField(); i++ {
 		field := val.Field(i)
 		fieldType := typ.Field(i)
-
 		defaultVal := fieldType.Tag.Get("default")
 		if defaultVal == "" {
 			continue
 		}
-
 		if field.Kind() == reflect.String && field.CanSet() && field.String() == "" {
 			field.SetString(defaultVal)
 		}
@@ -139,10 +126,8 @@ func applyDefaults(ptr any) {
 // formatErrors converts validator errors into human-readable messages.
 func formatErrors(err error) ValidationErrors {
 	errors := make(ValidationErrors)
-
 	for _, e := range err.(validator.ValidationErrors) {
 		field := strings.ToLower(e.Field())
-
 		switch e.Tag() {
 		case "required":
 			errors[field] = "This field is required"
@@ -158,6 +143,5 @@ func formatErrors(err error) ValidationErrors {
 			errors[field] = "Invalid value"
 		}
 	}
-
 	return errors
 }

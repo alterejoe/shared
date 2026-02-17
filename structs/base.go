@@ -47,6 +47,18 @@ type Hx struct {
 	Confirm   string
 	PushURL   string
 	Boost     bool
+
+	OnAfterRequest  string // hx-on::after-request - fires after request completes
+	OnBeforeRequest string // hx-on::before-request - fires before request
+	OnAfterSettle   string // hx-on::after-settle - fires after DOM settles
+
+	Select    string // hx-select - select subset of response to swap
+	SelectOOB string // hx-select-oob - select content for out-of-band swaps
+	SwapOOB   string // hx-swap-oob - out-of-band swap
+	Preserve  bool   // hx-preserve - preserve element during swap
+	Sync      string // hx-sync - coordinate requests
+	Disabled  bool   // hx-disabled-elt - disable elements during request
+	Encoding  string // hx-encoding - for file uploads (multipart/form-data)
 }
 
 // FormBehaviors holds data attributes for client-side form validation and behavior

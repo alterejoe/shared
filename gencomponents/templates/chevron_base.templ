@@ -1,15 +1,18 @@
 package components
 import "{{ .StructsImport }}"
-
 {{ $svgPaths := .Component.SvgPaths }}
 {{ range .Component.Variants }}
 {{ $direction := index .Props "direction" }}
 {{ $paths := index $svgPaths $direction }}
 templ {{ .Name }}{{ if eq $direction "left" }}Left{{ else if eq $direction "right" }}Right{{ else if eq $direction "up" }}Up{{ else }}Down{{ end }}(props *structs.{{ $.Struct.Name }}) {
 	<div
-		class="border-2 rounded-md hover:bg-secondary cursor-pointer {{ .Props.borderColor }} {{ .Props.padding }}"
-		if props.ID != "" {
-			id={ props.ID }
+		if props.Common.ID != "" {
+			id={ props.Common.ID }
+		}
+		if props.Common.Class != "" {
+			class={ "border-2 rounded-md hover:bg-secondary cursor-pointer {{ .Props.borderColor }} {{ .Props.padding }} " + props.Common.Class }
+		} else {
+			class="border-2 rounded-md hover:bg-secondary cursor-pointer {{ .Props.borderColor }} {{ .Props.padding }}"
 		}
 		if props.Hx.Method == structs.GET {
 			hx-get={ props.Hx.URL }
@@ -47,14 +50,22 @@ templ {{ .Name }}{{ if eq $direction "left" }}Left{{ else if eq $direction "righ
 		if props.Hx.PushURL != "" {
 			hx-push-url={ props.Hx.PushURL }
 		}
-        if props.Hx.Params != "" {
+		if props.Hx.Params != "" {
 			hx-params={ props.Hx.Params }
 		}
-	>
+        if props.Hx.OnAfterRequest != "" {
+            { templ.Attributes{"hx-on::after-request": props.Hx.OnAfterRequest}... }
+        }
+        if props.Hx.OnBeforeRequest != "" {
+            { templ.Attributes{"hx-on::before-request": props.Hx.OnBeforeRequest}... }
+        }
+        if props.Hx.OnAfterSettle != "" {
+            { templ.Attributes{"hx-on::after-settle": props.Hx.OnAfterSettle}... }
+        }
+    >
 		<svg width="{{ .Props.svgSize }}" height="{{ .Props.svgSize }}" viewBox="0 0 24 24" fill="none" stroke="{{ .Props.strokeColor }}" stroke-width="2">
 			{{ range $paths }}<polyline points="{{ . }}"></polyline>{{ end }}
 		</svg>
 	</div>
 }
-
 {{ end }}
