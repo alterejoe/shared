@@ -1,4 +1,4 @@
-module github.com/alterejoe/shared/helper
+module github.com/alterejoe/shared/helpers
 
 go 1.24.7
 
