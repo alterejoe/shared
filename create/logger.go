@@ -8,20 +8,30 @@ import (
 )
 
 func CreateLogger() *slog.Logger {
-
-	slogOpts := &slog.HandlerOptions{
-		AddSource: true,
-		Level:     slog.LevelDebug,
+	level := slog.LevelInfo
+	if os.Getenv("ENVIRONMENT") == "dev" {
+		level = slog.LevelDebug
 	}
+
+	if os.Getenv("ENVIRONMENT") == "prod" {
+		handler := slog.NewJSONHandler(os.Stdout, &slog.HandlerOptions{
+			AddSource: true,
+			Level:     level,
+		})
+		return slog.New(handler)
+	}
+
+	// dev — use devslog
 	opts := &devslog.Options{
-		HandlerOptions:    slogOpts,
+		HandlerOptions: &slog.HandlerOptions{
+			AddSource: true,
+			Level:     slog.LevelDebug,
+		},
 		MaxSlicePrintSize: 10,
 		SortKeys:          true,
 		NewLineAfterLog:   true,
 		StringerFormatter: true,
 		NoColor:           true,
 	}
-	handler := devslog.NewHandler(os.Stdout, opts)
-	logger := slog.New(handler)
-	return logger
+	return slog.New(devslog.NewHandler(os.Stdout, opts))
 }

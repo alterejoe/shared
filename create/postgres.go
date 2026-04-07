@@ -19,7 +19,7 @@ func PGPool(auth *structs.DBAuth) *pgxpool.Pool {
 	port := auth.Port
 	schema := auth.Schema
 
-	fmt.Println(user, password, dbName, sslmode, host, port)
+	fmt.Println(user, dbName, sslmode, host, port)
 	u := &url.URL{
 		Scheme:   "postgres",
 		User:     url.UserPassword(user, password),
@@ -30,6 +30,7 @@ func PGPool(auth *structs.DBAuth) *pgxpool.Pool {
 
 	q := u.Query()
 	q.Set("sslmode", sslmode)
+	q.Set("search_path", fmt.Sprintf("%s,public", schema))
 	u.RawQuery = q.Encode()
 
 	connString := u.String()
